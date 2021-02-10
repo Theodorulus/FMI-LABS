@@ -1,0 +1,367 @@
+#instalarea pachetelor necesare (se decomenteaza pentru instalare)
+
+
+#install.packages("plotly")
+
+#install.packages("readxl")
+
+#install.packages("shiny")
+
+
+#biblioteca pentru citirea din fisiere excel
+library("readxl")
+
+#biblioteca pentru pachetul realizarea aplicatiei web in shiny
+library(shiny)
+
+#biblioteca pentru schitarea graficelor
+library(plotly)
+
+#functia care ia un vector cu numere si returneaza un vector de frecventa al primei cifrei
+benford <- function(vec){
+  
+  count <- length(vec)
+  
+  res <- c(0,0,0,0,0,0,0,0,0)
+  
+  for (x in vec){
+    
+    while (x > 9){
+      x = floor(x/10)
+    }
+    
+    res[x] = res[x] + 1
+  }
+  
+  #Transformarea vectorului de frecventa intr-un vector de frecventa cu procentaje
+  
+  for (i in (1:9)){
+    res[i] = res[i]/count
+  }
+  
+  return(res)
+}
+
+#setarea caii pentru citirea fisierelor
+
+setwd(getwd())
+
+#citirea datelor
+
+data_orase <- read_excel("orase.xlsx")
+
+data_populatie <- read.csv("pop.csv")
+
+data_cazuri_covid <- read.csv("cazuri_covid.csv")
+
+#alocarea vectorilor cu datele numerice relevante din fisiere
+
+orase <- data_orase[2]
+
+populatie <- data_populatie[2]
+
+cazuri_covid <- data_cazuri_covid[2]
+
+numbers <- c('1','2','3','4','5','6','7','8','9')
+
+#salvarea minimelor, maximelor si lungimilor
+#fiecare vector dintre orase, populatie si cazuri_covid are lungimea 1, deci se va itera prin for-uri cate o singura data
+
+for (x in orase){
+  concatenate <- x
+  max_orase <- max(x)
+  min_orase <- min(x)
+  length_orase <- length(x)
+  orase <- benford(x)
+}
+
+#print(orase)
+#barplot(orase)
+
+for (x in populatie){
+  concatenate <- c(concatenate, x)
+  max_populatie <- max(x)
+  min_populatie <- min(x)
+  length_populatie <- length(x)
+  populatie <- benford(x)
+}
+
+#print(populatie)
+#barplot(populatie)
+
+for (x in cazuri_covid){
+  concatenate <- c(concatenate, x)
+  max_cazuri <- max(x)
+  min_cazuri <- min(x)
+  length_cazuri <- length(x)
+  cazuri_covid <- benford(x)
+}
+
+#print(cazuri_covid)
+#barplot(cazuri_covid)
+
+#salvarea datelor legate de vectorul cu toate valorile din cele 3 fisiere
+
+tot <- benford(concatenate)
+
+max_concat = max(concatenate)
+
+min_concat = min(concatenate)
+
+length_concat = length(concatenate)
+
+#crearea vectorului cu valorile asteptate de Legea lui Benford
+
+benfordExpected = c(0,0,0,0,0,0,0,0,0)
+
+for (i in (1:9)){
+  benfordExpected[i] = log10(1+(1/i))
+}
+
+#calcularea frecventei Legii lui Benford aplicate in general
+
+primaCifra <- function(x) substr(gsub('[0.]', '', x), 1, 1)
+
+frecvPrimaCifra <- function(x) data.frame(table(primaCifra(x)) / length(x))
+
+N <- 1000
+
+#set.seed(9043)
+
+x1 <- runif(N, 0, 100)
+
+x3 <- runif(N, 0, 100)
+
+x4 <- runif(N, 0, 100)
+df4 <- frecvPrimaCifra(x1^2 / x3 * x4)
+
+for (x in df4[2]){
+  freq <- x
+}
+
+#digits <- 1:9
+
+#benf <- function(d) log10(1 + 1 / d)
+
+#baseBarplot <- barplot(benf(digits), names.arg = digits, xlab = "Primele cifre", col="blue",
+#                       ylim = c(0, .35))
+
+#(x = baseBarplot[,1], y = df4$Freq, col = "green", lwd = 4, 
+#      type = "b", pch = 23, cex = 1.5, bg = "green")
+
+
+#lista ce va fi folosita pentru drop-down list
+
+myList = c("Populatia oraselor din Romania", "Populatia tarilor din lume", "Numarul cazurilor COVID-19 pe tari", "Toate datele")
+
+#interfata cu utilizatorul pentru shiny
+
+ui <- fluidPage(
+  
+  titlePanel("Legea lui Benford"),
+  
+  #folosim mathjax pentru afisarea formulei de calcul a probabilitatii pentru fiecare cifra a Legii lui Benford
+  withMathJax(),
+  
+  sidebarLayout(
+    position = "right",
+    sidebarPanel(style = "display: none"
+    ),
+    
+    mainPanel(
+      
+      div(
+        
+          p("Legea lui Benford este o regula statistica care spune ca", strong("prima cifra"), " din date numerice din viata reala urmeaza o anumita distributie 
+            (1 apare in proportie de 30.1%, 2 apare in proportie de 17.6% si tot asa, pana la 9, care apare cel mai rar, avand o proportie de 4.6%). 
+             S-a demonstrat ca aceasta lege se aplica pentru o varietate mare de seturi de date, inclusiv populatia tarilor/oraselor, preturile facturilor de curent,
+             preturile actiunilor companiilor si multe altele. In Statele Unite este considerata proba, daca este dovedita in curtile de judecata,
+             pentru cazurile de frauda."
+           ),
+          
+          p("Legea lui Benford este respectata de un set de date daca prima cifra d apare in setul de date avand probabilitatea:"
+           ),
+          
+          helpText('$$ P(d) = log_{10} (d + 1) - log_{10} (d) = log_{10}(\\frac{d + 1}{d}) = log_{10}(1+\\frac{1}{d}) $$ '
+                  ),
+          
+          p("In aplicatia noastra vom ilustra Legea lui Benford pe diferite seturi de date ce pot fi alese din meniul de mai jos."
+           ),
+          
+          div(
+            selectInput("selectGraph", "Alege setul de date dorit:", choices = myList),
+            style = "text-align: center"
+             ),
+          
+          checkboxInput("afisare", "Vizualizare frecventa ", FALSE),
+          verbatimTextOutput("value"),
+          
+          style = "background-color:#f5f5f5; padding: 1%; border-radius: 10px"
+        ),
+      
+       plotlyOutput("grafic"),
+      
+       div(
+             strong(textOutput("length")),
+            
+             strong(textOutput("min")),
+            
+             strong(textOutput("max")),
+            
+             style = "background-color:#f5f5f5; padding: 1%; border-radius: 10px; text-align: center; margin-top: 1%"
+         )
+      
+    )
+    
+  )
+  
+)
+
+#serverul pentru shiny
+
+server <- function(input, output){
+  
+  #salvarea numarului de date selectate
+  
+  output$length <- renderText({
+    
+    if(input$selectGraph == "Populatia oraselor din Romania"){
+      paste("Numarul oraselor: ", length_orase)
+    }
+    
+    else 
+      if (input$selectGraph == "Populatia tarilor din lume"){
+      paste("Numarul tarilor: ", length_populatie)
+    }
+    
+    else 
+      if (input$selectGraph == "Numarul cazurilor COVID-19 pe tari"){
+      paste("Numarul tarilor: ", length_cazuri)
+    }
+    
+    else 
+      if (input$selectGraph == "Toate datele"){
+      paste("Numarul datelor: ", length_concat)
+    }
+    
+  })
+  
+  #salvarea minimului din datele selectate
+  
+  output$min <- renderText({
+    
+    if(input$selectGraph == "Populatia oraselor din Romania"){
+      paste("Valoare minima: ", min_orase)
+      }
+    
+    else 
+      if (input$selectGraph == "Populatia tarilor din lume"){
+      paste("Valoare minima: ", min_populatie)
+      }
+    
+    else 
+      if (input$selectGraph == "Numarul cazurilor COVID-19 pe tari"){
+      paste("Valoare minima: ", min_cazuri)
+      }
+    
+    else 
+      if (input$selectGraph == "Toate datele"){
+      paste("Valoare minima: ", min_concat)
+      }
+    
+  })
+  
+  #salvarea maximului din datele selectate
+  
+  output$max <- renderText({
+    
+    if(input$selectGraph == "Populatia oraselor din Romania"){
+      paste("Valoare maxima: ", max_orase)
+    }
+    
+    else 
+      if (input$selectGraph == "Populatia tarilor din lume"){
+      paste("Valoare maxima: ", max_populatie)
+      }
+    
+    else 
+      if (input$selectGraph == "Numarul cazurilor COVID-19 pe tari"){
+      paste("Valoare maxima: ", max_cazuri)
+      }
+    
+    else 
+      if (input$selectGraph == "Toate datele"){
+      paste("Valoare maxima: ", max_concat)
+    }
+  })
+  
+  #salvarea graficului ce trebuie afisat
+  
+  output$grafic <- renderPlotly({
+    
+    if(input$selectGraph == "Populatia oraselor din Romania"){
+      vect = orase
+    }
+    
+    else 
+      if (input$selectGraph == "Populatia tarilor din lume"){
+      vect = populatie
+      }
+    
+    else 
+      if (input$selectGraph == "Numarul cazurilor COVID-19 pe tari"){
+      vect = cazuri_covid
+      }
+    
+    else 
+      if (input$selectGraph == "Toate datele"){
+      vect = tot
+    }
+    
+    
+    #incarcarea datelor si adaugarea lor in graficul interactiv
+    
+    data <- data.frame(numbers, benfordExpected, vect)
+    
+    #initializam obiectul pentru afisarea graficului cu datele coordonata x si o coordonata y, rezultatele 
+    #asteptate de legea lui Benford
+    
+    fig <- plot_ly(data, x=~numbers, y=~benfordExpected, type='bar', name='Valori asteptate', 
+                   marker = list(color = 'lightblue')
+    )
+    
+    #adaugam valorile reale in grafic
+    
+    fig <- fig %>% add_trace(y = ~vect, name='Valori reale',
+                             marker = list(color = 'darkblue')
+    )
+    
+    #verificam daca trebuie afisata frecventa
+    
+    if(input$afisare == TRUE){
+      fig <- fig %>% add_lines(y = ~freq, name="Frecventa")
+    }
+    
+    #adaugam diferite optiuni pentru afisarea graficului
+    
+    fig <- fig %>% layout(xaxis = list(title = input$selectGraph,
+                                       rangeslider = list(type = 'date')),
+                          yaxis = list(title= 'Procent',
+                                       tickformat= '.2%'),
+                          barmode = 'group',
+                          hovermode = 'x'
+    )
+    
+    fig
+  
+  })
+}
+
+shinyApp(ui = ui, server = server)
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+aabbbccd
+q0
+1
+q5
+11
+q0 a A q1 A,A
+q0 a z0 q1 A,z0
+q0 b A q2 $
+q1 a A q0 A,A,A
+q2 b A q2 $
+q2 c D q3 D,D
+q2 c z0 q3 D,z0
+q2 d D q4 $
+q3 c D q2 D
+q4 d D q4 $
+q4 $ z0 q5 $

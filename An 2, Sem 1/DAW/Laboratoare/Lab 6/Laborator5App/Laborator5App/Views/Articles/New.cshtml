@@ -1,0 +1,27 @@
+﻿@model Laborator5App.Models.Article
+
+
+@{
+    ViewBag.Titlu = "New";
+}
+
+<h2>Adaugare articol</h2>
+<form method="post" action="/Articles/New">
+
+    @Html.Label("Title", "Titlu Articol")
+    <br />
+    @Html.TextBox("Title", null, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Content", "Continut Articol")
+    <br />
+    @Html.TextBox("Content", null, new { @class = "form-control" })
+    <br /><br />
+    @Html.Label("Selectati categoria")
+    <br />
+    @Html.DropDownListFor(m => m.CategoryId, new SelectList(Model.Categ, "Value", "Text"),
+    "Selectati categoria", new { @class = "form-control"})
+    <br />
+    <button class ="btn btn-success" type="submit">Adauga articol</button>
+</form>
+
+

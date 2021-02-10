@@ -1,0 +1,5 @@
+obligatoriu pe toate pag:
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+http://irinaciocan.ro/tehnici_web/exemple/exemplu_animatie_play_state/

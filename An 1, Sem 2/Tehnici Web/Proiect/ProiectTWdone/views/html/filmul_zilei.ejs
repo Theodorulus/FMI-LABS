@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang = "ro">
+	<head>
+		<link rel="shortcut icon" type="image/x-icon" href="../images/./favicon.ico"/>
+		<title> TH Cinema - Filmul Zilei</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Filmul zilei la TH Cinema din Bucuresti, sector 1, Strada Filmelor, nr. 1">
+		<meta name="keywords" content="cinema, cinematograf, film, filmul zilei">
+		<meta name="author" content="Tudorache Theodor">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/styles/fz.css" type="text/css" />
+		<script src="js/filmul_zilei.js"></script>
+	</head>
+	<body>
+		<%- include('../fragmente/header') %>
+
+		<main>
+			<div class = parola>
+				<div id="introdu" class = "label"> Introdu parola pentru a decripta pagina</div>
+				<input type="password" id="parola_decriptare" placeholder="Parola">
+				<button id ="buton_decriptare" class = "buton_send"> Send </button>
+				<div id ="gresita"> </div>
+			</div>
+			<h2> 2001: A Space Oddysey </h2>
+			<hr>
+			<section>
+				<h3>Description</h3>
+				<p>
+					2001: A Space Odyssey is a 1968 epic science fiction film produced and directed by Stanley Kubrick. The screenplay was written by Kubrick and Arthur C. Clarke, and was inspired by Clarke's 1951 short story "The Sentinel" and other short stories by Clarke. A novel released after the film's premiere was in part written concurrently with the screenplay. The film, which follows a voyage to Jupiter with the sentient computer HAL after the discovery of an alien monolith affecting human evolution, deals with themes of existentialism, human evolution, technology, artificial intelligence, and the possibility of extraterrestrial life.
+				</p>
+				<p>
+					The film is noted for its scientifically accurate depiction of space flight, pioneering special effects, and ambiguous imagery. Sound and dialogue are used sparingly and often in place of traditional cinematic and narrative techniques. The soundtrack incorporates numerous works of classical music, among them Also sprach Zarathustra by Richard Strauss, "The Blue Danube" by Johann Strauss II, and works by Aram Khachaturian and György Ligeti.
+				</p>
+				<p>
+					The film received diverse critical responses, ranging from those who saw it as darkly apocalyptic to those who saw it as an optimistic reappraisal of the hopes of humanity. It became the second highest-grossing film of 1968 in the United States, garnered a cult following, and was nominated for four Academy Awards, with Kubrick winning for his direction of the visual effects. The film is widely regarded as one of the greatest and most influential films ever made. In 1991, it was deemed "culturally, historically, or aesthetically significant" by the United States Library of Congress and selected for preservation in the National Film Registry.
+				</p>
+			</section>
+			<hr>
+			<section>
+				<h3>Plot(SPOILERS!)</h3>
+				<p>
+					In the prehistoric African veldt, a tribe of hominids are driven away from their water hole by a rival tribe. Later, they awaken to find an alien monolith has appeared before them. Seemingly influenced by the monolith, they discover how to use a bone as a weapon and return to drive their rivals away.
+				</p>
+				<p>
+					Millions of years later, Dr. Heywood Floyd, Chairman of the United States National Council of Astronautics, travels to Clavius Base, a United States outpost on the Moon. During a stopover at Space Station 5, he meets Russian scientists who are concerned that Clavius seems to be incommunicado. Floyd refuses to discuss rumours of an epidemic at the base. Continuing his journey to Clavius, Floyd addresses a meeting of personnel to whom he stresses the need for secrecy with respect to their newest discovery. Floyd's mission is to investigate a recently found artefact buried four million years ago near the crater Tycho. Floyd and others ride in a Moonbus to the artefact, a monolith identical to the one encountered by the ape-men. As they examine the monolith, it is struck by sunlight, upon which it emits a high-powered radio signal.
+				</p>
+				<p>
+					Eighteen months later, the United States spacecraft Discovery One is bound for Jupiter. On board are mission pilots and scientists Dr. David Bowman and Dr. Frank Poole, along with three other scientists in suspended animation. Most of Discovery's operations are controlled by "Hal", a HAL 9000 computer with a human personality. A conversation between Hal and Bowman is interrupted when Hal reports the imminent failure of an antenna control device. The astronauts retrieve it in an extravehicular activity (EVA) pod but find nothing wrong. Hal suggests reinstalling the device and letting it fail so the problem can be verified. Mission Control advises the astronauts that results from their own computer indicate that Hal is in error about the device's imminent failure; Hal attributes the discrepancy to human error.
+				</p>
+				<p>
+					Concerned about Hal's behavior, Bowman and Poole enter an EVA pod to talk without Hal overhearing, and agree to disconnect Hal if he is proven wrong. Hal follows their conversation by lip reading. While Poole is on a space walk outside his pod attempting to replace the antenna unit, Hal takes control of the pod, severs Poole's oxygen hose, and sets him adrift. Bowman takes another pod to rescue Poole; while he is outside, Hal turns off the life support functions of the crewmen in suspended animation, thereby killing them. When Bowman returns to the ship with Poole's body, Hal refuses to let him in, stating that the astronauts' plan to deactivate him jeopardises the mission. Bowman opens the ship's emergency airlock manually, enters the ship, and proceeds to Hal's processor core, where he begins disconnecting Hal's circuits. Hal tries to reassure Bowman, then pleads with him to stop, and then expresses fear. When the disconnection is complete, a prerecorded video message plays, revealing that the mission's objective is to investigate a radio signal sent from the lunar artefact, the monolith, to Jupiter.
+				</p>
+				<p>
+					At Jupiter, Bowman finds a third monolith orbiting the planet. He leaves Discovery One in an EVA pod to investigate, but is pulled into a vortex of coloured light. Bowman is carried across vast distances of space, while viewing bizarre cosmological phenomena and strange landscapes of unusual colours. Eventually he finds himself in a large neoclassical bedroom where he sees, and then becomes, older versions of himself: first standing in the bedroom, middle-aged and still in his spacesuit, then dressed in leisure attire and eating dinner, and finally as an old man lying on a bed. A monolith appears at the foot of the bed, and as Bowman reaches for it, he is transformed into a foetus enclosed in a transparent orb of light, which floats in space beside the Earth.
+				</p>
+			</section>
+			<hr>
+			<div id = "final_question" class = parola>
+				<div id="intrebare_an" class = "label"> In ce an s-a lansat filmul?</div>
+				<input type="text" id="raspuns_an" placeholder="Raspuns">
+				<button id ="buton_raspuns_an" class = "buton_send"> Trimite raspunsul </button>
+				
+			</div>
+			<p id ="felicitari"> </p> 
+		</main>
+		
+		<%- include('../fragmente/footer') %>
+	</body>
+</html>

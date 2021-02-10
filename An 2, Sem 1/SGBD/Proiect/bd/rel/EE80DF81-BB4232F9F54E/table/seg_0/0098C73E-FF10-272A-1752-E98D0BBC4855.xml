@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0098C73E-FF10-272A-1752-E98D0BBC4855" schemaObject="DFB18B07-760B-151B-99C5-61C743696C90" name="SEATS">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>SEATS</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SEAT_ID" id="61E68689-60E0-11CB-D9A6-F4E506965C6F">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>SEATS</sourceObjSchema>
+<sourceObjName>SEAT_ID</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HALL_ID" id="81E8CB79-E0FD-F69E-F6BA-7E3D93140DF1">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>SEATS</sourceObjSchema>
+<sourceObjName>HALL_ID</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6ED387E8-455D-0968-CAB4-0F2A8227BAFD" referredColumn="75942020-1865-8FAE-69DD-772AC6097F5B"/>
+</associations>
+</Column>
+<Column name="ROW_NUMBER" id="38C27EC1-8BB8-9CD3-ECCE-5D2C31C84D05">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>SEATS</sourceObjSchema>
+<sourceObjName>ROW_NUMBER</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SEAT_NUMBER" id="9F316E20-5885-37CB-D4A6-FB00A9DC50BF">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>SEATS</sourceObjSchema>
+<sourceObjName>SEAT_NUMBER</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0081D8ED-DA88-954C-937D-C2FF43AA8761" schemaObject="DFB18B07-760B-151B-99C5-61C743696C90" name="SEATS_PK">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>SYS_C007358</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:12 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="61E68689-60E0-11CB-D9A6-F4E506965C6F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="22970439-005F-5653-7FA2-487160FCAD2C" name="FK_SEATS_HALLS">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:12 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="81E8CB79-E0FD-F69E-F6BA-7E3D93140DF1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

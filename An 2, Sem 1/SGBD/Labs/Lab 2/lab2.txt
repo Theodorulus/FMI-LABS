@@ -1,0 +1,198 @@
+select * from member;
+
+--4. Câte filme (titluri, respectiv exemplare) au fost împrumutate din cea mai cerută categorie?
+
+select category, count(*), count(r.copy_id), count(distinct title)
+from rental r join title t on(t.title_id = r.title_id)
+group by category
+having count(*) = (select max(count(*))
+                   from rental r join title t on(t.title_id = r.title_id)
+                   group by category);                                  
+
+select category
+from rental r join title t on(t.title_id = r.title_id)
+group by category
+having count(*) = (select max(count(*))
+                  from rental r join title t on(t.title_id = r.title_id)
+                  group by category);
+
+--5. Câte exemplare din fiecare film sunt disponibile în prezent 
+--(considerați că statusul unui exemplar nu este setat, deci nu poate fi utilizat)?
+
+--cu status setat
+select title_id, count(*)
+from title_copy
+where status = 'AVAILABLE'
+group by title_id;
+
+--cu status nesetat
+select title_id, count(*)
+from title_copy
+where (copy_id, title_id) not in (select copy_id, title_id
+                                  from rental
+                                  where act_ret_date is null)
+group by title_id
+order by title_id;
+
+--SAU
+
+select title_id, count(*)
+from (select title_id, copy_id
+      from title_copy
+    
+      minus
+    
+      select title_id, copy_id
+      from rental
+      where act_ret_date is null)
+group by title_id
+order by title_id;
+
+
+
+--6. Afișați următoarele informații: 
+--titlul filmului, numărul exemplarului, statusul setat și statusul corect.
+
+select title, copy_id, status, 
+       case when ((copy_id, tc.title_id) not in (select copy_id, title_id
+                                              from rental
+                                              where act_ret_date is null))
+            then 'Available'
+            else 'Rented'
+            end status_corect
+from title t join title_copy tc on (t.title_id = tc.title_id);
+
+--SAU 
+
+select title, copy_id, status, 
+       case when (copy_id, tc.title_id) in 
+       (select copy_id, title_id
+        from title_copy
+        where (copy_id, title_id) in (select copy_id, title_id
+                                      from title_copy
+                                      minus
+                                      select copy_id, title_id
+                                      from rental
+                                      where act_ret_date is null)
+       )
+            then 'Available'
+            when (copy_id, tc.title_id) in (select copy_id, title_id
+                                            from rental
+                                            where act_ret_date is null)                   
+            then 'Rented'
+            else 'Reserved'
+            end status_corect
+from title t join title_copy tc on (t.title_id = tc.title_id);
+
+
+
+--7
+--a. Câte exemplare au statusul eronat?
+
+select count(*)
+from(
+    select title, copy_id, status, 
+       case when ((copy_id, tc.title_id) not in (select copy_id, title_id
+                                              from rental
+                                              where act_ret_date is null))
+            then 'AVAILABLE'
+            else 'RENTED'
+            end status_corect
+from title t join title_copy tc on (t.title_id = tc.title_id)
+)
+where status <> status_corect;
+
+--b. Setați statusul corect pentru toate exemplarele care au statusul eronat. Salvați actualizările realizate.
+--Obs. Pentru rezolvare creați tabela title_copy_***, preluând structura și datele din tabela title_copy.
+
+create table title_copy_ttu
+as select * from title_copy;
+
+select * from title_copy_ttu;
+
+update title_copy_ttu tc
+set status = case when ((copy_id, tc.title_id) not in (select copy_id, title_id
+                                              from rental
+                                              where act_ret_date is null))
+            then 'AVAILABLE'
+            else 'RENTED'
+            end 
+where status <> case when ((copy_id, tc.title_id) not in (select copy_id, title_id
+                                              from rental
+                                              where act_ret_date is null))
+                then 'AVAILABLE'
+                else 'RENTED'
+                end ;
+
+commit;
+
+
+--8. Toate filmele rezervate au fost împrumutate la data rezervării? Afișați textul “Da” sau ”Nu” în funcție de situație.
+
+select * 
+from rental 
+where (member_id, title_id) in(select member_id, title_id
+                                from reservation
+                              );
+select case when count(*) = 0 then 'DA'
+                              else 'NU'
+       end raspuns
+from 
+    (select res_date, member_id, title_id
+     from reservation
+     
+     minus
+     
+     select book_date, member_id, title_id
+     from rental
+);
+
+
+--9. De câte ori a împrumutat un membru (nume și prenume) fiecare film (titlu)?
+
+select last_name, first_name, t.title, count(*) "Nr. imprumutari"
+from member m join rental r on (m.member_id = r.member_id)
+              join title t on (t.title_id = r.title_id)
+group by m.member_id, last_name, first_name, t.title
+order by m.member_id, t.title;
+
+
+
+--TEMA: 3, 10, 11, 12
+
+
+
+--10. De câte ori a împrumutat un membru (nume și prenume) fiecare exemplar (cod) al unui film (titlu)?
+
+--ca la 9, doar ca + title_copy
+
+--11. Obțineți statusul celui mai des împrumutat exemplar al fiecărui film (titlu).
+
+--group by, max
+
+--12. Pentru anumite zile specificate din luna curentă, obțineți numărul de împrumuturi efectuate.
+--    a. Se iau în considerare doar primele 2 zile din lună. -> se poate hardcoda 1 si 2
+--    b. Se iau în considerare doar zilele din lună în care au fost efectuate împrumuturi.
+--    c. Se iau în considerare toate zilele din lună, incluzând în rezultat și zilele în care nu au fost efectuate împrumuturi
+
+--pentru c:
+select trunc(sysdate, 'month') + level -1 ziua
+from dual
+connect by level <= extract (day from last_day(sysdate));
+
+
+select d.alldates, count(r.book_date)
+
+ from rental r right join (
+
+ select to_date('01.'||to_char(sysdate, 'mm')||'.'||to_char(sysdate, 'yyyy'),'dd.mm.yyyy')+level-1 as alldates
+
+ from dual
+
+ connect by level <= TO_CHAR(LAST_DAY(to_date('01.'||to_char(sysdate, 'mm')||'.'||to_char(sysdate, 'yyyy'),'dd.mm.yyyy')),'DD')
+
+ ) d on (to_char(r.book_date, 'dd-mm-yyyy') = to_char(d.alldates, 'dd-mm-yyyy'))
+
+ group by d.alldates
+
+ order by d.alldates;

@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1588267031 source:d:\theo\info\laboratoare fac\poo\lab 10\main.cpp
+	<iostream>
+	<ctime>
+	<vector>
+	<cassert>
+	<cstdlib>
+

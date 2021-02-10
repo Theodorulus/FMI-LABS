@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang = "ro">
+	<head>
+		<link rel="shortcut icon" type="image/x-icon" href="../images/./favicon.ico"/>
+		<title> Newsletter TH Cinema</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Newsletter-ul cinematografului TH Cinema din Bucuresti, sector 1, Strada Filmelor, nr. 1">
+		<meta name="keywords" content="cinema, cinematograf, film, newsletter cinema, noutăți cinema, abonare newsletter">
+		<meta name="author" content="Tudorache Theodor">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/styles/newsletter.css" type="text/css" />
+	</head>
+	<body>
+		<%- include('../fragmente/header') %>
+
+		<main>
+
+			<section>
+				<h2>ABONEAZĂ-TE LA NEWSLETTER</h2>
+				
+				<form>
+					<label for="mail_adress">Adresa de mail:</label><br><br>
+					<input type="text" id="mail_adress" name="mail_adress" class="casuta"><br><br>
+					<label for="phone_number">Număr de telefon:</label><br><br>
+					<input type="text" id="phone_number" name="phone_number" class="casuta"><br><br>
+					<input type="submit" value="Abonează-te" class="buton"><br><br>
+				</form>
+			</section>
+			
+			<p>Poți să te dezabonezi oricând cu un simplu click pe linkul din partea de jos a newsletterelor noastre.</p>
+			<hr>
+		</main>
+
+		<%- include('../fragmente/footer') %>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E26C8EA5-2BAE-3BC1-3B94-4DCFC35401DF" schemaObject="BB6E2FE8-17C8-CF1F-1E4E-734CA0C8F2F7" name="CLIENTS">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>CLIENTS</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:22 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CLIENT_ID" id="FEB3ADAC-EFC0-405D-C151-46DB3D554A07">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>CLIENTS</sourceObjSchema>
+<sourceObjName>CLIENT_ID</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LAST_NAME" id="98550FF6-28E8-24C3-F8B7-E50954288BF6">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>CLIENTS</sourceObjSchema>
+<sourceObjName>LAST_NAME</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FIRST_NAME" id="E40F07F8-1EEA-E3A1-B0CE-A186481460EB">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>CLIENTS</sourceObjSchema>
+<sourceObjName>FIRST_NAME</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BIRTH_DATE" id="2FC5A100-3AD1-4E36-EE8E-6B55F3558125">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>CLIENTS</sourceObjSchema>
+<sourceObjName>BIRTH_DATE</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BF4A4739-C2EE-8E34-5D73-E3015D9B78E8" schemaObject="BB6E2FE8-17C8-CF1F-1E4E-734CA0C8F2F7" name="CLIENTS_PK">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>SYS_C007341</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:24 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FEB3ADAC-EFC0-405D-C151-46DB3D554A07"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,18 @@
+div#c0 .dv{
+	display: inline-block;
+	vertical-align: baseline;
+	text-align: center;
+}
+div#c1 .dv{
+	margin: auto;
+	vertical-align: top;
+}
+div#c2 .dv{
+	display: flex;
+	vertical-align: middle;
+	margin: auto;
+}
+div#c3 .dv{
+	display: flex;
+	
+}

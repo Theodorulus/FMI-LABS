@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="ACTORS" directorySegmentName="seg_0" id="A32E179A-DF0D-D21A-F5C2-AA7CFD6ACB9C">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:10 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<schemaObject>DFB18B07-760B-151B-99C5-61C743696C90</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>F27E4E60-B60D-9459-069F-EE95A85104CC</segment>
+<tableSpace>707E2ADB-4DA4-299C-E6D4-7CBD19C44C07</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="BIRTH_DATE" id="79755233-C147-108E-A81D-4614B88A76C0">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="LAST_NAME" id="A14D7830-C805-EC18-F2ED-2CF95AE61D1D">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="FIRST_NAME" id="ADC99D9D-8076-3EC1-8C4E-8BE40DB04FB6">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ACTOR_ID" id="F11FF5B8-CE52-327C-0180-6FD8CDDB74A6">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="ACTORS_PK" id="CD279776-E7A0-74E8-C214-AE5B406B01DE">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:12 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<schemaObject>DFB18B07-760B-151B-99C5-61C743696C90</schemaObject>
+<segment>2C2B5197-7FAC-6786-D7B3-B6E8FBF8DA63</segment>
+<tableSpace>707E2ADB-4DA4-299C-E6D4-7CBD19C44C07</tableSpace>
+<indexSegment>2C2B5197-7FAC-6786-D7B3-B6E8FBF8DA63</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

@@ -1,0 +1,386 @@
+			html {
+				font-family: verdana;
+			}
+			
+			/*meniu*/
+			
+			
+			
+			.menu {
+				list-style-type: none;
+				margin-left: 5vw;
+				margin-right: 5vw;
+				margin-bottom: 0px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				padding-left: 0px;
+				padding-right: 0px;
+				overflow: hidden;
+				background-color: #333;
+			}
+			
+			.menu .login-container
+			{
+				float: right;
+				margin-top: 10px;
+			}
+			
+			.menu input[type=text] {
+				display: inline-block;
+				padding: 10px;
+				font-size: 17px;
+				border: none;
+				width: 10vw;
+				background-color: #ddd;
+			}
+			
+			.menu input[type=password] {
+				display: inline-block;
+				padding: 10px;
+				font-size: 17px;
+				border: none;
+				width: 10vw;
+				background-color: #ddd;
+			}
+			
+			.menu .login-container button {
+				display: inline-block;
+				float: right;
+				padding: 10px;
+				margin-right: 10px;
+				margin-left: 10px;
+				background: #ddd;
+				font-size: 17px;
+				border: none;
+				cursor: pointer;
+			}
+			
+			.menu>li{
+				border-style: solid;
+				border-color: #595959;
+				border-width: 1px;
+				margin-left: 20px;
+				margin-top: 5px;
+				margin-bottom: 5px;
+				float: left;
+			}
+			
+			.menu ul{
+				list-style-type: none;
+				padding: 0px;
+			}
+			
+			.menu>li a, .dropbtn {
+				display: block;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+			
+			.menu>li a:hover, .dropdown:hover .dropbtn {
+				background-color: #111;
+			}
+			
+			.dropdown {
+				/*position: relative;*/
+				display: inline-block;
+			}
+
+			.continut {
+				display: none;
+				position: absolute;
+				background-color: #333;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				z-index: 1;
+			}
+			
+			.continut li{
+				padding: 0px;
+				text-decoration: none;
+			}
+			
+			.continut li a{
+				color: white;
+				padding: 8% 15%;
+				text-decoration: none;
+				display: block;
+				text-align: center;
+			}
+
+			.dropdown:hover .continut {
+				display: block;
+			}
+			
+			@media screen and (max-width:1000px)
+			{
+				.menu {
+					margin-left: 0px;
+					margin-right: 0px;
+					margin-bottom: 0px;
+				}
+			}
+			
+			@media screen and (min-width:471px) and (max-width:550px)
+			{
+				.menu li:nth-of-type(1){
+					margin-left: 75px;
+				}
+				.menu li:nth-of-type(2){
+					margin-right: 100px;
+				}
+				.menu li:nth-of-type(3){
+					margin-left: 75px;
+				}
+			}
+			
+			@media screen and (min-width:396px) and (max-width:470px)
+			{
+				.menu li:nth-of-type(1){
+					margin-left: 50px;
+				}
+				.menu li:nth-of-type(2){
+					margin-right: 100px;
+				}
+				.menu li:nth-of-type(3){
+					margin-left: 50px;
+				}
+			}
+			
+			@media screen and (min-width:301px) and (max-width:395px)
+			{
+				.menu li:nth-of-type(2){
+					margin-right: 25px;
+				}
+			}
+			
+			@media screen and (max-width:300px)
+			{
+				.menu>li{
+					margin-right: 50px;
+					margin-left: 50px;
+				}
+			}
+			
+			/* /meniu */
+			
+			div#eroare{
+				color: red;	
+			}
+			
+			
+			.inregistrare{
+				text-align: center;
+			}
+			
+			.inregistrare input{
+				width: 30%;
+				padding: 15px;
+				margin: 5px 0 22px 35%;
+				display: block;
+				border: none;
+				background: #f1f1f1;
+				font-size: 20px;
+				
+			}
+			
+			.registerbtn {
+				  background-color: red;
+				  color: white;
+				  padding: 16px 20px;
+				  margin: 8px 0;
+				  border: none;
+				  cursor: pointer;
+				  width: 20%;
+				  font-size: 25px;
+			}
+			
+			.login-container>div {
+				text-align: center;
+			}
+			
+			.login-container>div>a {
+				text-decoration: underline;
+				color: #ddd;
+				padding-right: 7%;
+			}
+			
+			.logat{
+				float: right;
+				display: block;
+				color: #ddd;
+				padding-right: 2%;
+				text-align: center;
+			}
+			
+			.logat>a{
+				text-decoration: underline;
+				color: #ddd;
+			}
+			
+			/*titluri*/
+			h1{
+				text-align: center;
+				font-size: 40px;
+				text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+				color: red;
+			}
+			
+			h2{
+				color: red;
+				text-align: center;
+			}
+			
+			h3{
+				text-align: center;
+			}
+			/* /titlu*/
+			
+			/*imagini*/
+
+			.container{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.container>figure{
+				width: 15%;
+				margin-left: 2%;
+				margin-right: 2%;
+				margin-bottom: 2%;
+				margin-top: 0px;
+			}
+			
+			.container>figure img {
+				width: 100%;       
+				height: auto;
+				padding-bottom: 5%;
+			}
+			.container {
+				flex-wrap: wrap;
+			}
+			
+			.container>figure figcaption{
+				text-align: center;
+				font-size: 18px;
+			}
+			
+			@media screen and (min-width:751px) and (max-width:1250px) {
+				.container>figure{
+					width: 25%;
+					margin: 2%;
+				}
+			}
+			
+			@media screen and (min-width:451px) and (max-width:750px) {
+				.container>figure{
+					width: 40%;
+					margin: 3%;
+				}
+				.container>figure figcaption{
+					font-size: 18px;
+				}
+			}
+			
+			@media screen and (min-width:301px) and (max-width:450px) {
+				.container>figure{
+					width: 80%;
+					margin-bottom: 10%;
+				}
+				.container>figure figcaption{
+					font-size: 18px;
+				}
+			}
+			
+			@media screen and (max-width:300px) {
+				.container>figure{
+					width: 80%;
+					margin-bottom: 10%;
+				}
+				.container>figure figcaption{
+					font-size: 16px;
+				}
+			}
+			
+			/* /imagini*/
+			
+			hr {
+				width: 90%;
+			}
+			
+			/*footer*/
+
+			footer {
+				text-align: center;
+			}
+			
+			footer h2{
+				color:black;
+				font-size: 20px;
+			}
+			
+			footer div:nth-of-type(1) {
+				display:flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			footer div:nth-of-type(2) {
+				display:flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			footer figure img{
+				width: 45px;
+				height: 45px;
+			}
+			
+			footer figure.social{
+				margin: 15px;
+			}
+			
+			footer figure.contact{
+				margin: 5px;
+			}
+			
+			footer div:nth-of-type(2){
+				margin-right:2%;
+			}
+			
+			
+			/* /footer */
+			
+			/*buton top*/
+			
+			.top {
+				text-align: right;
+			}
+			
+			.buton {
+				background-color: red;
+				border: none;
+				color: white;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+			}
+			
+			.buton:hover{
+				background-color: #d61e1e;
+			}
+			
+			@media screen and (min-width:0px) and (max-width:750px)
+			{
+				footer .buton {
+				padding: 10px 15px;
+				font-size: 10px;
+				}
+			}
+			/* /buton top */

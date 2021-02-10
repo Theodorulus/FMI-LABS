@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "StudentInfo";
+}
+
+<div class="panel-body">
+    <div> Nume student: <strong>@Model.Nume</strong></div>
+    <br /><br />
+    <div> Email student:<strong> @Model.Email</strong></div>
+    <br /><br />
+    <div> Data nasterii student:<strong> @Model.DataNastere.ToString("d")</strong></div>
+    <br /><br />
+    <div> Domeniu student:<strong> @Model.Domain.Denumire</strong></div>
+    <br />
+</div>

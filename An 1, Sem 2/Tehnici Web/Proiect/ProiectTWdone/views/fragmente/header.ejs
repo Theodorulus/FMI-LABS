@@ -1,0 +1,55 @@
+<header>
+			<h1>TH CINEMA </h1>
+			
+			<nav>
+				<ul class="menu">
+					<li class="dropdown">
+						<a href="/" class="dropbtn"> ACASĂ </a>
+						<ul class="continut">
+							<li>
+								<a href="/#acum"> Acum în cinema </a>
+							</li>
+							<li>
+							<a href="/#in_curand"> În curând în cinema </a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="/luni"> PROGRAM </a> 
+					</li>
+					<li class="dropdown">
+						<a href="/tarife" class="dropbtn"> TARIFE </a>
+						<ul class="continut">
+							<li>
+								<a href="/tarife#preturi"> Prețuri </a>
+							</li>
+							<li>
+								<a href="/tarife#promotii"> Promoții </a>
+							</li>
+							<li>
+								<a href="/tarife#meniu"> Meniu </a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="/newsletter"> NEWSLETTER </a> 
+					</li>
+					<% if(!locals.username) { %>
+					<div class="login-container">
+						<form method="post" action="">
+							<input type="text" placeholder="Nume" name="username">
+							<input type="password" placeholder="Parola" name="parola">
+							<button type="submit">Logare</button>
+						</form>
+						<% if(locals.parola_gresita == true){ %> <div id="eroare">Nume/parola incorecte!</div> <%}%>
+						<div><a href="/inregistrare">Nu ai cont inca?Inregistreaza-te!</a><div>
+					</div>
+					<% } else { %>
+						<div class = "logat">
+							Logat: <%= locals.username %> <br>
+							<a href = "/logout"> Logout </a>
+						</div>
+					<% } %>
+				</ul>
+			</nav>
+</header>

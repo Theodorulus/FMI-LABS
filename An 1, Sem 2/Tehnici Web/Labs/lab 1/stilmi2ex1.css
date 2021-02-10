@@ -1,0 +1,50 @@
+
+
+<html>
+
+<head>
+<title> S.C. FAN TELECOM 52 S.R.L </title>
+</head>
+
+<body> 
+<div style="width:900px; position:relative; display:block; margin: 0 auto;">
+<img src="background.jpg"style="display: block; margin:0 auto; width:85%; height:auto;"/>
+</div>
+</body>
+
+</html>
+
+ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+
+			li {
+				float: left;
+			}
+			
+			li a {
+				display: block;
+				padding: 8px;
+				background-color: #dddddd;
+			}
+<style>
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+
+			li {
+				float: left;
+			}
+			
+			li a {
+				display: block;
+				padding: 8px;
+				background-color: #dddddd;
+			}
+	</style>

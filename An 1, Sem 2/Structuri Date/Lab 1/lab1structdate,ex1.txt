@@ -1,0 +1,72 @@
+#include <cstdio>
+
+int X,Y,Z;
+
+
+int main(){
+
+    int x=1,y=2,z=3;
+    printf("%d\n",x);
+    printf("%d\n",y);
+    printf("%d\n",z);
+
+    printf("\n");
+    printf("%X\n",&x);
+    printf("%X\n",&y);
+    printf("%X\n",&z);
+
+    int *p;
+    int * q;
+    int* r;
+
+    p=&x;
+    q=&y;
+    r=&z;
+
+    printf("\n");
+    printf("%X\n",p);
+    printf("%X\n",q);
+    printf("%X\n",r);
+
+
+printf("\n");
+    printf("%X\n",&p);
+    printf("%X\n",&q);
+    printf("%X\n",&r);
+
+
+    *p=15;
+    *q=16;
+    *r=17;
+
+    printf("\n");
+    printf("%d\n",x);
+    printf("%d\n",y);
+    printf("%d\n",z);
+
+    int * pointerLaAdresaZero = NULL;
+
+//*pointerLaAdresaZero=333;
+
+
+
+
+
+    int *pointer = new int;
+
+    printf("\n");
+    printf("%X\n",pointer);
+    *pointer = 333;
+    printf("%d\n",*pointer);
+
+
+
+    printf("\n");
+    printf("%X\n",&X);
+    printf("%X\n",&Y);
+    printf("%X\n",&Z);
+
+
+
+return 0;
+}

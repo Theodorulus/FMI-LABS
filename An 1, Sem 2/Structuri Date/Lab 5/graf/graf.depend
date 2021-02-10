@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1589371524 source:d:\theo\info\laboratoare fac\structuri date\lab 5\graf\main.cpp
+	<iostream>
+	<vector>
+	<list>
+

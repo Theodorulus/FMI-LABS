@@ -1,0 +1,154 @@
+	TEMA lab 1:
+select first_name, last_name, job_id, hire_date
+from employees;
+where hire_date BETWEEN ‘20-FEB-1987’ and ‘1-MAY-1989’
+order by date;
+
+select employee_id||','||first_name||','||last_name||','||email||','||phone_number||','||hire_date||','||job_id||','||salary||','||commission_pct||','||manager_id||','||department_id"Informatii complete"
+from employees;
+
+select first_name, department_id from employees where employee_id=104
+
+	LAB 2:
+
+-- 11 lab 1
+
+-- var 1
+SELECT last_name, department_id
+FROM employees
+WHERE department_id IN (10, 30)
+ORDER BY last_name;
+
+--var 2
+SELECT last_name nume, department_id
+FROM employees
+WHERE department_id IN (10, 30)
+ORDER BY nume;
+
+--var 3
+SELECT last_name, department_id
+FROM employees
+WHERE department_id IN (10, 30)
+ORDER BY 1;
+
+--12 lab 1
+SELECT last_name as Angajat, salary "Salariu lunar"
+FROM employees
+WHERE department_id IN (10, 30) and salary > 1500
+ORDER BY last_name;
+
+--13 lab 1
+SELECT SYSDATE
+FROM employees;
+
+desc dual;
+
+select 10+20
+from dual;
+
+/*
+TO_CHAR(data, format)
+
+TO_NUMBER
+
+TO_DATE
+*/
+
+SELECT TO_CHAR(SYSDATE, 'day-mon.year hh24 mi ss sssss d dd ddd')
+FROM dual;
+
+--14 lab 1
+
+--var 1
+SELECT last_name, hire_date
+FROM employees
+WHERE hire_date LIKE ('%87');
+
+/*
+%X% ->ABCXDEF / AXBCXDFE
+
+X% -> XABDF / XSDHXFD
+
+%X -> DDJHEFX / XDJJEX
+*/
+--var 2
+SELECT last_name, hire_date
+FROM employees
+WHERE TO_CHAR(hire_date, 'YYYY')='1987';
+
+--15 lab 1
+
+SELECT last_name, job_id
+FROM employees
+WHERE manager_id is null;
+
+--16 lab 1
+
+SELECT last_name, salary, commission_pct
+FROM employees
+WHERE commission_pct is not null
+ORDER BY salary DESC, commission_pct DESC;
+
+--17 lab 1
+
+SELECT last_name, salary, commission_pct
+FROM employees
+--WHERE commission_pct is not null
+ORDER BY salary DESC, commission_pct DESC;
+
+--18 lab 1
+
+SELECT last_name
+FROM employees
+WHERE upper(last_name) LIKE '__A%';
+
+--19 lab 1
+
+SELECT last_name, manager_id
+FROM employees
+WHERE upper(last_name) LIKE '%L%L%' AND (department_id = 30 or manager_id=102);
+
+--20 lab 1
+
+SELECT last_name, job_id, salary
+FROM employees
+WHERE (UPPER(job_id) like '%CLERK%' or UPPER(job_id) like '%REP%') AND salary not in (1000, 2000, 3000);
+
+--2 lab 2
+
+--LIKE
+SELECT initcap(first_name) Prenume, upper(last_name) Nume, length(last_name) Lungime
+FROM employees
+WHERE upper(last_name) like 'J%' or upper(last_name) like 'M%' or upper(last_name) like '__A%'
+ORDER BY Lungime desc;
+
+--SUBSTR
+SELECT initcap(first_name) Prenume, upper(last_name) Nume, length(last_name) Lungime
+FROM employees
+WHERE upper(last_name) like 'J%' or upper(last_name) like 'M%' or substr(upper(last_name), 3, 1) = 'A' 
+ORDER BY Lungime desc;
+
+--4 lab 2
+
+SELECT employee_id cod, last_name nume, length(last_name) lungime, instr(upper(last_name),'A', 1, 1) poz_litera
+FROM employees
+WHERE last_name like '%e';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

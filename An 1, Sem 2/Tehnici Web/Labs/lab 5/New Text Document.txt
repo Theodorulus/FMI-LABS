@@ -1,0 +1,4 @@
+mi 4 ex 5
+arhive: exemple coloane + clearfix
+
+tema: mi4 ex 1, ex 2 si ex 6

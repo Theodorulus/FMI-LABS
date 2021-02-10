@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang = "ro">
+	<head>
+		<link rel="shortcut icon" type="image/x-icon" href="../images/./favicon.ico"/>
+		<title> Tarife TH Cinema</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Tarifele cinemtografului TH Cinema din Bucuresti, sector 1, Strada Filmelor, nr. 1">
+		<meta name="keywords" content="cinema, cinematograf, film, tarife cinema, preturi cinema, premieră, avanpremieră">
+		<meta name="author" content="Tudorache Theodor">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/styles/tarife.css" type="text/css" />
+	</head>
+	<body>
+		<%- include('../fragmente/header') %>
+
+		<main>
+
+			<section id="preturi">
+				<h2>Prețuri</h2>
+				<table align="center" class="tabel">
+					<thead>
+						<tr>
+							<th ></th>
+							<th >Adult</th> 
+							<th >Copil</th>
+							<th >Elev/ Student/ Pensionar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td> AVANPREMIERĂ </td>
+							<td> 30 RON </td>
+							<td> 24 RON </td>
+							<td> 28 RON </td>
+						</tr>
+						<tr>
+							<td> PREMIERĂ </td>
+							<td> 26 RON </td>
+							<td> 20 RON </td>
+							<td> 20 RON </td>
+						</tr>
+						<tr>
+							<td> DUPĂ PREMIERĂ </td>
+							<td> 24 RON </td>
+							<td> 18 RON </td>
+							<td> 18 RON </td>
+						</tr>
+					</tbody>
+				</table>
+				<br>
+				<hr>
+			</section>
+			
+			<section id="promotii" class="promotii">
+				<h2>Promoții</h2>
+				<p>Dacă achizionati bilete online aveți reducere 2 RON pentru fiecare bilet achizionat. </p>
+				<p>Sâmbăta după ora 22:00 biletele la orice film sunt 15 lei. </p>
+				<p>De luni până vineri biletele la filmele înainte de ora 17:00 au reducere de 5 RON.</p>
+				<p><b>OFERTELE NU SE CUMULEAZA!</b></p>
+				<hr>
+			</section>
+
+			<section id="meniu" class="meniu">
+				<h2>Meniu</h2>
+				<table align="center" class="tabel" id="tabel_meniu">
+					<thead>
+						<tr>
+							<th >Băutură/ Gustare</th>
+							<th >Cantitate</th> 
+							<th >Preț</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td rowspan="2"> Coca-Cola </td>
+							<td> 500 ml</td>
+							<td> 8 RON </td>
+						</tr>
+						<tr>
+							<td> 250 ml</td>
+							<td> 6 RON </td>
+						</tr>
+						<tr>
+							<td rowspan="2"> Fanta </td>
+							<td> 500 ml</td>
+							<td> 8 RON </td>
+						</tr>
+						<tr>
+							<td> 250 ml</td>
+							<td> 6 RON </td>
+						</tr>
+						<tr>
+							<td rowspan="2"> Sprite </td>
+							<td> 500 ml</td>
+							<td> 8 RON </td>
+						</tr>
+						<tr>
+							<td> 250 ml</td>
+							<td> 6 RON </td>
+						</tr>
+						<tr>
+							<td rowspan="2"> Popcorn </td>
+							<td> MARE</td>
+							<td> 10 RON </td>
+						</tr>
+						<tr>
+							<td> MIC</td>
+							<td> 6 RON </td>
+						</tr>
+						<tr>
+							<td rowspan="2"> Nachos </td>
+							<td> MARE (include 2 sosuri)</td>
+							<td> 18 RON </td>
+						</tr>
+						<tr>
+							<td> MIC (include 1 sos)</td>
+							<td> 12 RON </td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<br>
+			<hr>
+		</main>
+		
+		<%- include('../fragmente/footer') %>
+	</body>
+</html>

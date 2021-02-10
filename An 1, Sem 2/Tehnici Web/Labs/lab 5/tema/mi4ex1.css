@@ -1,0 +1,17 @@
+div{
+	display: inline;
+}
+span{
+	background-color: red;
+	width: 70px;
+	height: 50px;
+} /* nu se aplica width si height pentru ca span-urile sunt incluse in paragrafe, iar width-ul si height-ul paragrafelor sunt mai mici */
+p#a span{
+	display: block;
+}
+p#b span{
+	display: inline-block;
+}
+p#c span{
+	display: none;
+}

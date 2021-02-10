@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang = "ro">
+	<head>
+		<link rel="shortcut icon" type="image/x-icon" href="../images/./favicon.ico"/>
+		<title> TH Cinema - Home</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="TH Cinema din Bucuresti, sector 1, Strada Filmelor, nr. 1">
+		<meta name="keywords" content="cinema, cinematograf, film, acum in cinema, in curand, filme">
+		<meta name="author" content="Tudorache Theodor">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/styles/register.css" type="text/css" />
+	</head>
+	<body>
+		<%- include('../fragmente/header') %>
+
+		<main>
+			<form action="/inreg" method="post">
+			<div class="inregistrare">
+				<h2>Inregistreaza-te</h2>
+				<p>Completeaza formularul de mai jos pentru a creea un cont.</p>
+				<hr>
+				
+				<label for="username"><b>Nume Utilizator</b></label>
+				<input type="text" placeholder="Nume Utilizator" name="username" id="username" required>
+				
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Email" name="email" id="email" required>
+
+				<label for="psw"><b>Parola</b></label>
+				<input type="password" placeholder="Parola" name="pass" id="pass" required>
+
+				<label for="phone"><b>Numar de telefon</b></label>
+				<input type="tel" placeholder="Nr. telefon" name="phone" id="phone" required>
+				
+				<label for="date"><b>Data nasterii</b></label>
+				<input type="date" placeholder="Data nasterii" name="data" id="data_nastere" required>
+				
+				<p>Apasand pe "Inregistrare" esti de acord cu <a href="#">Termenii si Conditiile</a> noastre.</p>
+				<button type="submit" class="registerbtn">Inregistrare</button>
+				<hr>
+
+				
+			</div>
+			</form>
+			
+		</main>
+		<%- include('../fragmente/footer') %>	
+		
+	</body>
+</html>

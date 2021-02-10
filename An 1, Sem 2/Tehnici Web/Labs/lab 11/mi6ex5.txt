@@ -1,0 +1,40 @@
+window.onload=function(){
+
+	document.getElementById("albastreste").onclick = albastreste //TO DO
+
+}
+
+function albastreste(){
+	pgfs=document.querySelectorAll("p");
+	for( let pgf of pgfs){
+		let stil = getComputedStyle(pgf);
+		if(stil.color=="rgb(255, 0, 0)")
+			//stil.color="blue"; - nu pot asa pentru ca stil e doar un obiect calculat, nu mai e legat de getElementById
+			pgf.style.color="blue"
+	}
+	//de observat si apoi de comentat
+	//alert(pgfs[0].style.color) // proprietatea style se refera DOAR la stilul inline
+	//pgfs[0].style.color="blue"
+	//alert(pgfs[0].style.color)
+}
+
+/*        
+
+
+                                  
+                            
+                                 
+                
+ 
+
+
+
+
+
+
+            
+
+
+
+
+*/

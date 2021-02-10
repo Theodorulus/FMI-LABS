@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<h1>@ViewBag.Message</h1>
+<h2>News</h2>
+
+<a class="btn btn-primary" href="/Categories/Index">Afisare categorii</a>
+
+<a class="btn btn-primary" href="/Articles/New">Adauga articol</a>
+<br />
+
+@foreach (var article in ViewBag.Articles)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">@article.Title</div>
+        <div class="panel-body">
+            Continut articol: <strong>@article.Content</strong>
+            <br />
+            <span class="label label-success">@article.Date</span>
+            <br />
+            <i class="glyphicon glyphicon-globe"></i> @article.Category.CategoryName
+        </div>
+        <div class="panel-footer">
+            <a class=" btn btn-sm btn btn-success" href="/Articles/Show/@article.Id">Afisare articol</a>
+        </div>
+    </div>
+}
+
+
+
+

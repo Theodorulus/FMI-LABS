@@ -1,0 +1,6 @@
+Lazar Manuela, 19, 9000
+Tudorache Theodor, 19, 30000
+Lazar Mimi, 42, 4000
+Lazar Vio, 42, 10000
+Tudorache Ionel, 50, 6500
+Tudorache Mariana, 50, 2500

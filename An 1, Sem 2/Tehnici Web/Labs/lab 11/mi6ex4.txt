@@ -1,0 +1,4 @@
+se foloseste
+
+document.getElementById("lista1").innerHTML+=document.getElementById("lista2").innerHTML
+document.getElementById("lista2").innerHTML="" / document.getElementById("lista2").remove()

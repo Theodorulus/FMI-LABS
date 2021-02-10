@@ -1,0 +1,476 @@
+
+			html {
+			font-family: verdana;
+			}
+			
+			/*meniu*/
+		
+			
+			
+			.menu {
+				list-style-type: none;
+				margin-left: 5vw;
+				margin-right: 5vw;
+				margin-bottom: 0px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				padding-left: 0px;
+				padding-right: 0px;
+				overflow: hidden;
+				background-color: #333;
+			}
+
+			.menu>li{
+				border-style: solid;
+				border-color: #595959;
+				border-width: 1px;
+				margin-left: 20px;
+				margin-top: 5px;
+				margin-bottom: 5px;
+				float: left;
+			}
+			
+			.menu ul{
+				list-style-type: none;
+				padding: 0px;
+			}
+			
+			.menu>li a, .dropbtn {
+				display: block;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+			
+			.menu>li a:hover, .dropdown:hover .dropbtn {
+				background-color: #111;
+			}
+			
+			.dropdown {
+				/*position: relative;*/
+				display: inline-block;
+			}
+
+			.continut {
+				display: none;
+				position: absolute;
+				background-color: #333;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				z-index: 1;
+			}
+			
+			.continut li{
+				padding: 0px;
+				text-decoration: none;
+			}
+			
+			.continut li a{
+				color: white;
+				padding: 8% 15%;
+				text-decoration: none;
+				display: block;
+				text-align: center;
+			}
+
+			.dropdown:hover .continut{
+				display: block;
+			}
+			
+			
+			
+			.prog{
+				list-style-type: none;
+				margin-top: 0px;
+				margin-left: 5vw;
+				margin-right: 5vw;
+				margin-bottom: 50px;
+				padding: 0px;
+				overflow: hidden;
+				background-color: #DCDCDC;
+				display:flex;
+				align-items: center;
+				justify-content: center;
+				height: 40px;
+				border: 1px solid #333;
+			}
+			
+			.zicurenta{
+				background-color: #d61e1e;
+				color: white;
+			}
+			
+			.prog>li a {
+				display: inline-block;
+				color: black;
+				text-align: center;
+				/*padding: 14px 16px;*/
+				text-decoration: none;
+				padding-left: 75px;
+				padding-right: 75px;
+				padding-top: 10px;
+				padding-bottom: 11px;
+				margin: 0px;
+			}
+			
+			.prog>li:hover{
+				background-color: red;
+			}
+			.prog>li:hover a{
+				color: white;
+			}
+			
+			.zicurenta{
+				background-color: #d61e1e;
+			}
+			
+			li.zicurenta a{
+				color: white;
+			}
+			
+			@media screen and (min-width:1001px) and (max-width:1500px)
+			{
+				.prog>li a {
+					padding-left: 40px;
+					padding-right: 40px;
+				}
+			}
+			
+			@media screen and (min-width:701px) and (max-width:1000px)
+			{
+				.prog>li a {
+					padding-left: 25px;
+					padding-right: 25px;
+				}
+			}
+			
+			@media screen and (min-width:551px) and (max-width:700px)
+			{
+				.prog>li a {
+					padding-left: 20px;
+					padding-right: 20px;
+				}
+			}
+			
+			@media screen and (min-width:400px) and (max-width:550px)
+			{
+				.prog>li a {
+					padding-left: 11px;
+					padding-right: 11px;
+				}
+			}
+			
+			@media screen and (min-width:301px) and (max-width:400px)
+			{
+				.prog>li a {
+					padding-left: 5px;
+					padding-right: 5px;
+				}
+			}
+			
+			@media screen and (min-width:0px) and (max-width:300px)
+			{
+				.prog>li a {
+					padding-left: 2px;
+					padding-right: 2px;
+				}
+			}
+			@media screen and (max-width:1000px)
+			{
+				.prog, .menu {
+					margin-left: 0px;
+					margin-right: 0px;
+				}
+				
+				.prog {
+					margin-bottom: 20px;
+				}
+			}
+			
+			@media screen and (min-width:471px) and (max-width:550px)
+			{
+				.menu li:nth-of-type(1){
+					margin-left: 75px;
+				}
+				.menu li:nth-of-type(2){
+					margin-right: 100px;
+				}
+				.menu li:nth-of-type(3){
+					margin-left: 75px;
+				}
+			}
+			
+			@media screen and (min-width:396px) and (max-width:470px)
+			{
+				.menu li:nth-of-type(1){
+					margin-left: 50px;
+				}
+				.menu li:nth-of-type(2){
+					margin-right: 100px;
+				}
+				.menu li:nth-of-type(3){
+					margin-left: 50px;
+				}
+			}
+			
+			@media screen and (min-width:301px) and (max-width:395px)
+			{
+				.menu li:nth-of-type(2){
+					margin-right: 25px;
+				}
+			}
+			
+			@media screen and (max-width:300px)
+			{
+				.menu>li{
+					margin-right: 50px;
+					margin-left: 50px;
+				}
+			}
+			
+			div#eroare{
+				color: red;	
+			}
+			
+			.menu .login-container
+			{
+				float: right;
+				margin-top: 10px;
+			}
+			
+			.menu input[type=text] {
+				display: inline-block;
+				padding: 10px;
+				font-size: 17px;
+				border: none;
+				width: 10vw;
+				background-color: #ddd;
+			}
+			
+			.menu input[type=password] {
+				display: inline-block;
+				padding: 10px;
+				font-size: 17px;
+				border: none;
+				width: 10vw;
+				background-color: #ddd;
+			}
+			
+			.menu .login-container button {
+				display: inline-block;
+				float: right;
+				padding: 10px;
+				margin-right: 10px;
+				margin-left: 10px;
+				background: #ddd;
+				font-size: 17px;
+				border: none;
+				cursor: pointer;
+				color: black;
+			}
+			
+			.login-container>div {
+				text-align: center;
+			}
+			
+			.login-container>div>a {
+				text-decoration: underline;
+				color: #ddd;
+				padding-right: 7%;
+			}
+			
+			.logat{
+				float: right;
+				display: block;
+				color: #ddd;
+				padding-right: 2%;
+				text-align: center;
+			}
+			
+			.logat>a{
+				text-decoration: underline;
+				color: #ddd;
+			}
+			
+			/* /meniu */
+			
+			/*titluri*/
+			h1{
+				text-align: center;
+				font-size: 40px;
+				text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+				color: red;
+			}
+			
+			h2{
+				color: red;
+				text-align: center;
+			}
+			
+			h3{
+				text-align: center;
+			}
+			/* /titlu*/
+			
+
+			/*imagini*/
+
+			.container{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.container>figure{
+				width: 15%;
+				margin-left: 2%;
+				margin-right: 2%;
+				margin-bottom: 2%;
+				margin-top: 0px;
+			}
+			
+			.container>figure img {
+				width: 100%;       
+				height: auto;
+				padding-bottom: 5%;
+			}
+			.container {
+				flex-wrap: wrap;
+			}
+			
+			.container>figure figcaption{
+				text-align: center;
+				font-size: 18px;
+			}
+			
+			@media screen and (min-width:751px) and (max-width:1250px) {
+				.container>figure{
+					width: 25%;
+					margin: 2%;
+				}
+			}
+			
+			@media screen and (min-width:451px) and (max-width:750px) {
+				.container>figure{
+					width: 40%;
+					margin: 3%;
+				}
+				.container>figure figcaption{
+					font-size: 18px;
+				}
+			}
+			
+			@media screen and (min-width:301px) and (max-width:450px) {
+				.container>figure{
+					width: 80%;
+					margin-bottom: 10%;
+				}
+				.container>figure figcaption{
+					font-size: 18px;
+				}
+			}
+			
+			@media screen and (max-width:300px) {
+				.container>figure{
+					width: 80%;
+					margin-bottom: 10%;
+				}
+				.container>figure figcaption{
+					font-size: 16px;
+				}
+			}
+			
+			/* /imagini*/
+			
+			hr {
+				width: 90%;
+			}
+			
+			/*footer*/
+
+			footer {
+				text-align: center;
+			}
+			
+			footer h2{
+				color:black;
+				font-size: 20px;
+			}
+			
+			footer div:nth-of-type(1) {
+				display:flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			footer div:nth-of-type(2) {
+				display:flex;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			footer figure img{
+				width: 45px;
+				height: 45px;
+			}
+			
+			footer figure.social{
+				margin: 15px;
+			}
+			
+			footer figure.contact{
+				margin: 5px;
+			}
+			
+			footer div:nth-of-type(2){
+				margin-right:2%;
+			}
+			
+			
+			/* /footer */
+			
+			.top {
+				text-align: right;
+			}
+			
+			.buton {
+				background-color: red;
+				border: none;
+				color: white;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+			}
+			button {
+				background-color: red;
+				border: none;
+				color: white;
+				padding: 10px 10px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+			}
+			
+			button:hover{
+				background-color: #d61e1e;
+			}
+			
+			.buton:hover{
+				background-color: #d61e1e;
+			}
+			
+			@media screen and (min-width:0px) and (max-width:750px)
+			{
+				footer .buton {
+				padding: 10px 15px;
+				font-size: 10px;
+				}
+			}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang = "ro">
+	<head>
+		<link rel="shortcut icon" type="image/x-icon" href="../images/./favicon.ico"/>
+		<title> TH Cinema - Home</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="TH Cinema din Bucuresti, sector 1, Strada Filmelor, nr. 1">
+		<meta name="keywords" content="cinema, cinematograf, film, acum in cinema, in curand, filme">
+		<meta name="author" content="Tudorache Theodor">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/styles/index.css" type="text/css" />
+		<script src="js/ejs.min.js"></script>
+		<script src="js/script.js"></script>
+	</head>
+	<body>
+		<%- include('../fragmente/header') %>
+
+		<main>
+			<div id = "ravase_film" class = "ravase"> </div>
+			<div id = "ravase_regizor" class = "ravase"> </div>
+			<div id = "fz"> <a href="/filmul_zilei" > Filmul zilei </a></div>
+			<section id="acum">
+				<h2>Acum în Cinema</h2>
+				
+					<div id="container_butoane">
+						<button id ="buton_3d"> Filtrare filme 3D </button>
+						<button id ="buton_2d"> Filtrare filme 2D </button>
+						<button id ="sort_cresc"> Sorteaza dupa runtime crescator </button>
+						<button id ="sort_desc"> Sorteaza dupa runtime descrescator </button>
+						<button id ="varsta"> Calculeaza varsta filmelor </button>
+						<br>
+						<button id ="start_interval"> Sterge primul film la 3 sec </button>
+						<button id ="stop_interval"> Opreste stergerea </button>
+						<br>
+						<input type="text" id="regizor" placeholder="Regizor">
+						<button id ="filtru_regizor"> Aplica filtru regizor </button>
+						<br>
+						<button id ="clear">Clear</button>
+						
+					</div>
+					<div class="container" id="afisFilme"></div>
+					
+					
+				<!--
+				<figure>
+					<img src="/images/baby_driver.png" alt="film baby diver" title="baby driver">
+					<figcaption>Baby Driver</figcaption>
+					<p>by Edgar Wright, 3D, 134 min</p>
+					<p>stars: Leonardo DiCaprio, Emily Mortimer, Mark Ruffalo</p>
+				</figure>
+				
+				<figure>
+					<img src="/images/joker.png" alt="film joker" title="joker">
+					<figcaption>Joker</figcaption>
+					<p>Edgar Wright, 3D, 134 min</p>
+				</figure>
+				
+				<figure>
+					<img src="/images/forrest_gump.png" alt="film forrest gump" title="forrest gump">
+					<figcaption>Forrest Gump</figcaption>
+				</figure>
+				
+				<figure>
+					<img src="/images/fight_club.png" alt="film fight club" title="fight club">
+					<figcaption>Fight Club</figcaption>
+				</figure>
+				
+				<figure>
+					<img src="/images/inglorious_basterds.png" alt="film inglorious basterds" title="inglorious basterds">
+					<figcaption>Inglorious Basterds</figcaption>
+				</figure>
+				
+				<figure>
+					<img src="/images/the_wolf_of_wallstreet.png" alt="film the wolf of wallstreet" title="the wolf of wallstreet">
+					<figcaption>The Wolf of Wallstreet</figcaption>
+				</figure>
+				
+				<figure>
+					<img src="/images/pulp_fiction.png" alt="film pulp fiction" title="pulp fiction">
+					<figcaption>Pulp Fiction</figcaption>
+				</figure>
+				-->
+					
+			</section>
+			
+			<section id="in_curand">
+				<hr>
+				<h2>În curând în Cinema</h2>
+					<section>
+						<h3> 17 iulie (avanpremiere: 15, 16 iulie) </h3> 
+						<div class="container">
+						
+						<figure>
+							<img src="/images/bloodshot.png" alt="film bloodshot" title="bloodshot">
+							<figcaption>Bloodshot</figcaption>
+						</figure>
+				
+						<figure>
+							<img src="/images/lassie.png" alt="film lassie" title="lassie">
+							<figcaption>Lassie Come Home</figcaption>
+						</figure>
+						
+						<figure>
+							<img src="/images/quiet_place_2.png" alt="film a quiet place 2" title="a quiet place 2">
+							<figcaption>A Quiet Place: Part II</figcaption>
+						</figure>
+				
+						<figure>
+							<img src="/images/my_spy.png" alt="film my spy" title="my spy">
+							<figcaption>My Spy</figcaption>
+						</figure>
+						
+						<figure>
+							<img src="/images/green_rush.png" alt="film green rush" title="green rush">
+							<figcaption>Green Rush</figcaption>
+						</figure>
+						
+						</div>
+					</section >
+					<section>
+						<hr>
+						<h3> 24 iulie (avanpremiere: 22, 23 iulie) </h3> 
+						<div class="container">
+						
+						<figure>
+							<img src="/images/le_franc.png" alt="film le franc" title="le franc">
+							<figcaption>Le Franc</figcaption>
+						</figure>
+				
+						<figure>
+							<img src="/images/nomad.png" alt="film nomad" title="nomad">
+							<figcaption>Nomad</figcaption>
+						</figure>
+						
+						<figure>
+							<img src="/images/logan.png" alt="film logan" title="logan">
+							<figcaption>Logan</figcaption>
+						</figure>
+						
+						<figure>
+							<img src="/images/death_proof.png" alt="film death proof" title="death proof">
+							<figcaption>Death Proof</figcaption>
+						</figure>
+						
+						</div>
+						<hr>
+					</section>
+			</section>
+			<section>
+				<h2>Quiz</h2>
+				<ol id = "quiz"></ol>
+				<p id = "puncte"></p>
+			</section>
+			<hr>
+		</main>
+		<%- include('../fragmente/footer') %>	
+		
+	</body>
+</html>

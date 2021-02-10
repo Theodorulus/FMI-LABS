@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang = "ro">
+	<head>
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/./favicon.ico"/>
+		<title> Program TH Cinema</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Programul cinematografului TH Cinema din Bucuresti, sector 1, Strada Filmelor, nr. 1">
+		<meta name="keywords" content="cinema, cinematograf, film, program cinema">
+		<meta name="author" content="Tudorache Theodor">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="../../styles/program.css" type="text/css" />
+	</head>
+	<body>
+		<%- include('../fragmente/header') %>
+		
+		<main>
+			<ul class="prog">
+				<li>
+					<a href="/luni"> Lun </a>
+				</li>
+				<li>
+					<a href="/marti"> Mar </a>
+				</li>
+				<li class="zicurenta">
+					<a href="/miercuri"> Mie </a>
+				</li>
+				<li>
+					<a href="/joi"> Joi </a>
+				</li>
+				<li>
+					<a href="/vineri"> Vin </a>
+				</li>
+				<li>
+					<a href="/sambata"> Sam </a>
+				</li>
+				<li>
+					<a href="/duminica"> Dum </a>
+				</li>
+			</ul>
+			
+			
+			<section>
+				<div class="container">
+				<figure>
+					<img src="../../images/baby_driver.png" alt="film baby driver" title="baby driver">
+					<figcaption>
+					<p>Baby Driver</p>
+					<button type="button">11:00</button>
+					<button type="button">16:00</button>
+					</figcaption>
+				</figure>
+				<figure>
+					<img src="../../images/joker.png" alt="film joker" title="joker">
+					<figcaption>
+					<p>Joker</p>
+					<button type="button">22:30</button>
+					</figcaption>
+				</figure>
+				
+				<figure>
+					<img src="../../images/the_godfather.png" alt="film godfather" title="godfather">
+					<figcaption>
+					<p>The Godfather</p>
+					<button type="button">20:20</button>
+					</figcaption>
+				</figure>
+				
+				<figure>
+					<img src="../../images/reservoir_dogs.png" alt="film reservoir dogs" title="reservoir dogs">
+					<figcaption>
+					<p>Reservoir Dogs</p>
+					<button type="button">13:30</button>
+					<button type="button">18:10</button>
+					</figcaption>
+				</figure>
+				<figure>
+					<img src="../../images/interstellar.png" alt="film interstellar" title="interstellar">
+					<figcaption>
+					<p>Interstellar</p>
+					<button type="button">11:00</button>
+					<button type="button">16:00</button>
+					</figcaption>
+				</figure>
+				<figure>
+					<img src="../../images/inglorious_basterds.png" alt="film inglorious basterds" title="inglorious basterds">
+					<figcaption>
+					<p>Inglorious Basterds</p>
+					<button type="button">11:00</button>
+					<button type="button">16:00</button>
+					</figcaption>
+				</figure>
+				</div>
+			</section>
+			
+			<hr>
+		</main>
+		<%- include('../fragmente/footer') %> 
+	</body>
+</html>

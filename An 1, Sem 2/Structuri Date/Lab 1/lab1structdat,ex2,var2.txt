@@ -1,0 +1,86 @@
+#include <cstdio>
+
+struct pereche{
+    int a,b;
+};
+
+
+struct lista{
+    int info;
+    lista *next;
+} *prim;
+
+
+void parcurgere(lista *pointer){
+    printf("%d ",(*pointer).info);
+    //parcurgere(pointer->next);
+    if ((*pointer).next!=NULL)
+    parcurgere((*pointer).next);
+    //parcurgere((&(*pointer))->next);
+}
+
+void insert_at_begin(int x){
+    lista *new_lista= new lista;
+        printf("element nou creat la adresa %X\n",new_lista);
+
+    new_lista->info=x;
+            printf("val info a fost atribuita cu  %d\n",new_lista->info);
+
+    new_lista->next=prim;
+            printf("new_lista->next =  %X\n",new_lista->next);
+
+    prim=new_lista; // my first attrib pointers
+            printf("noul pointer prim indica adresa %X\n",prim);
+
+printf("end insert %d\n\n",x);
+
+}
+
+
+int main(){
+
+    pereche T,U,V;
+    T.a=4;
+    T.b=6;
+
+    printf("\n%d %d",T.a,T.b);
+
+    printf("\n%X",&T);
+    printf("\n%X",&U);
+    printf("\n%X",&V);
+
+    printf("\n\n%X",&T.a);
+    printf("\n%X",&T.b);
+    printf("\n\n%X",&U.a);
+    printf("\n%X",&U.b);
+    printf("\n\n%X",&V.a);
+    printf("\n%X",&V.b);
+
+
+
+
+
+lista L,M,N;
+    L.info=1;
+    L.next=&M;
+    M.info=2;
+    M.next=&N;
+    N.info=3;
+    N.next=NULL;
+
+parcurgere(&L);
+
+
+
+
+
+    insert_at_begin(7);
+    insert_at_begin(8);
+    insert_at_begin(9);
+
+    parcurgere(prim);
+
+
+
+return 0;
+}

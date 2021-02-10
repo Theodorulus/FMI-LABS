@@ -1,0 +1,4 @@
+-consola: f12 sau inspect element
+-se pun breakpoints cu click.
+-se pune Watch pe butonul de resume. se adauga variabila cu + la watch
+-

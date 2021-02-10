@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Afisarea tuturor studentilor</h2>
+
+<h3> @ViewBag.Message</h3>
+
+@foreach (TudoracheAlexandruT42.Models.Student student in ViewBag.Students)
+{
+    <div class="panel panel-default">
+
+        @Html.Partial("StudentInfo", student)
+        <div class="panel-footer">
+            <a class="btn btn-sm btn btn-success" href="/Student/afisareStudent/@student.Id">Afisare student</a>
+        </div>
+    </div>
+}

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1588089310 source:d:\theo\info\laboratoare fac\structuri date\lab 4\problema2\main.cpp
+	<iostream>
+	<string>
+	<string.h>
+

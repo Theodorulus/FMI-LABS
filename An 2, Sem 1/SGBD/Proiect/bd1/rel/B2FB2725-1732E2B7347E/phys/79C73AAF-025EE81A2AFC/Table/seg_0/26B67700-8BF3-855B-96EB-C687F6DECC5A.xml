@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="SCREENINGS" directorySegmentName="seg_0" id="26B67700-8BF3-855B-96EB-C687F6DECC5A">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:22 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<schemaObject>BB6E2FE8-17C8-CF1F-1E4E-734CA0C8F2F7</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>564974BB-1D96-B90D-1F30-4B9C75D3102E</segment>
+<tableSpace>C44334F8-F5B2-951E-7AAA-21FDD32C26C8</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="HALL_ID" id="0DB1DD99-F631-D63E-17D0-6B458B8F4684">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MOVIE_ID" id="7084EC8D-EF94-A42D-4DC2-8A82BA11F763">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SHOWTIME" id="AAAC0E39-D153-47C1-0EA4-DA5F18F43542">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SCREENING_ID" id="BABBF01C-B186-0B02-74D4-51B053638B4D">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_SCREENINGS_HALLS" id="99474C4E-BD2D-12B8-8B43-BDCA1614EE95">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:25 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_SCREENINGS_MOVIES" id="A340CA26-FC2F-92FA-5207-6DDAD94177E0">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:25 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="SCREENINGS_PK" id="BC722CA3-C816-EB13-4C95-D755A0ECB194">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:25 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<schemaObject>BB6E2FE8-17C8-CF1F-1E4E-734CA0C8F2F7</schemaObject>
+<segment>DC6BCA50-E7C7-142F-8E6C-59C05F1C6259</segment>
+<tableSpace>C44334F8-F5B2-951E-7AAA-21FDD32C26C8</tableSpace>
+<indexSegment>DC6BCA50-E7C7-142F-8E6C-59C05F1C6259</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

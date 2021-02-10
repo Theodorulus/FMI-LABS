@@ -1,0 +1,144 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7386E22B-6256-CA04-E56D-FF6EB0B05E06" schemaObject="DFB18B07-760B-151B-99C5-61C743696C90" name="TICKETS">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>TICKETS</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TICKET_ID" id="338B75E7-CDB7-70B2-977D-BF1EE573BD2F">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>TICKETS</sourceObjSchema>
+<sourceObjName>TICKET_ID</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SCREENING_ID" id="2C5905CC-FE75-FAE1-6B2A-DB96305A200D">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>TICKETS</sourceObjSchema>
+<sourceObjName>SCREENING_ID</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="ADDA6B4A-A2E5-2AF6-8CFF-95EC3FCCA0AA" referredColumn="DEBDDFBF-D56D-FD60-355F-032400702885"/>
+</associations>
+</Column>
+<Column name="CLIENT_ID" id="8A4194D0-19D7-2376-2048-F1C767ED8DF1">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>TICKETS</sourceObjSchema>
+<sourceObjName>CLIENT_ID</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6C6C1705-3C9D-418D-7394-59A41C20CD10" referredColumn="C99C5779-D4FB-19A7-9CE9-09DC4DEF60C5"/>
+</associations>
+</Column>
+<Column name="SEAT_ID" id="7179A0CF-5BA2-4D69-549E-F073FAAC2E20">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>TICKETS</sourceObjSchema>
+<sourceObjName>SEAT_ID</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A503E3CC-8727-5492-9325-C06DE50B7976" referredColumn="61E68689-60E0-11CB-D9A6-F4E506965C6F"/>
+</associations>
+</Column>
+<Column name="PRICE" id="DF1559C1-979D-7717-90CE-C5E61A934434">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>TICKETS</sourceObjSchema>
+<sourceObjName>PRICE</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3F63A550-094F-0F86-C0E9-EE24955F5CCA" schemaObject="DFB18B07-760B-151B-99C5-61C743696C90" name="TICKETS_PK">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>SYS_C007376</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:12 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="338B75E7-CDB7-70B2-977D-BF1EE573BD2F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5A5B4CC0-B29F-5143-5D5C-AAE6FE75F2CC" name="FK_TICKETS_CLIENTS">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:12 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8A4194D0-19D7-2376-2048-F1C767ED8DF1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="22A54F85-3AD1-7129-5F0E-2E6420F55A39" name="FK_TICKETS_SCREENING">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:12 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2C5905CC-FE75-FAE1-6B2A-DB96305A200D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7AEF373A-AB81-0CF9-862B-D990A85F89A3" name="FK_TICKETS_SEATS">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:12 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7179A0CF-5BA2-4D69-549E-F073FAAC2E20"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

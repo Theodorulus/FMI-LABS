@@ -1,0 +1,14 @@
+aaaadd
+q0
+1
+q4
+9
+q0 a A q1 A,A
+q0 a z0 q1 A,z0
+q0 b A q2 B,B,B,A
+q1 a A q0 A
+q2 b B q2 B,B,B,B
+q2 c B q3 $
+q3 d A q3 $
+q3 c B q3 $
+q3 $ z0 q4 $

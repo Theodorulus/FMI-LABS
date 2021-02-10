@@ -1,0 +1,25 @@
+{
+  "name": "sapt12",
+  "version": "1.0.0",
+  "description": "site TH Cinema",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "filme",
+    "cinema",
+    "popcorn",
+    "nachos",
+    "3d"
+  ],
+  "author": "Tudorache Alexandru-Theodor",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "formidable": "^1.2.2"
+  },
+  "devDependencies": {}
+}
