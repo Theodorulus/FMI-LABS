@@ -1,0 +1,200 @@
+.data
+	m:.space 4
+	n:.space 4
+	p:.space 4
+	q:.space 4
+	a:.space 400
+	d:.space 400
+	c:.space 400
+	erra:.asciiz "Cele doua matrice nu se pot inmulti."
+	errb:.asciiz "Matricea nu este patratica, deci nu pot fi identificate doua diagonale."
+	sp:.asciiz " "
+	ent:.asciiz "\n"
+	da:.asciiz "Toate elementele din zona EST sunt pare"
+	nu:.asciiz "Toate elementele din zona EST sunt impare"
+.text
+main:
+	 #citesc m
+	li $v0, 5
+	syscall
+	move $t0, $v0
+	sw $t0, m
+	 #citesc n
+	li $v0, 5
+	syscall
+	move $t0, $v0
+	sw $t0, n
+	 #citesc p
+	li $v0, 5
+	syscall
+	move $t0, $v0
+	sw $t0, p
+	 #citesc q
+	li $v0, 5
+	syscall
+	move $t0, $v0
+	sw $t0, q
+	 #citesc matricea a intr-un vector
+	lw $t1, m
+	lw $t2, n
+	mul $t0, $t1, $t2
+	li $t1, 0
+	li $t2, 0
+citirea:
+	bge $t1, $t0, cont1
+	li $v0, 5
+	syscall
+	sw $v0, a($t2)
+	addi $t1, 1
+	addi $t2, 4
+	j citirea
+cont1:
+	 #citesc matricea d intr-un vector
+	lw $t1, p
+	lw $t2, q
+	mul $t0, $t1, $t2 
+	li $t1, 0
+	li $t2, 0
+citired:
+	bge $t1, $t0, cont2
+	li $v0, 5
+	syscall
+	sw $v0, d($t2)
+	addi $t1, 1
+	addi $t2, 4
+	j citired
+cont2:
+	 #verific ca n sa fie egal cu p
+	lw $t0, n
+	lw $t1, p
+	bne $t0, $t1, exit1
+	 #daca n=p , atunci incep sa inmultesc matricele
+	lw $t0, m
+	lw $t1, q
+	lw $t2, n
+	
+	li $t3, 0 #i
+
+	li $t5, 0 #j
+
+	li $t7, 0 #k
+
+	li $t4, 0
+
+	li $t9, 0
+	j loop3
+loop1:
+	bge $t3, $t0, gata
+	addi $t3, 1
+	li $t5, 0
+loop2:
+	bge $t5, $t1, loop1
+	li $t9, 0
+	addi $t5, 1
+	li $t7, 0
+loop3:
+	bge $t7, $t2, piv
+
+	lw $s0, n
+	mul $s0, $s0, $t3
+	add $s0, $s0, $t7
+	li $s1, 4
+	mul $s0, $s0, $s1
+
+	lw $s1, q
+	mul $s1, $s1, $t7
+	add $s1, $s1, $t5
+	li $s2, 4
+	mul $s1, $s1, $s2
+
+	lw $s3, a($s0)
+	lw $s4, d($s1)
+	mul $s3, $s3, $s4
+	add $t9, $t9, $s3
+	addi $t7, 1
+	
+	j loop3
+
+piv: #punere in vector
+	sw $t9, c($t4)
+	addi $t4, 4
+	j loop2
+gata:
+	lw $t1, m
+	lw $t2, q
+	mul $t0, $t1, $t2
+	li $t1, 0
+	li $t2, 0 
+	lw $t4, q
+afisarec:
+	bge $t1, $t0, cont3
+	lw $a0, c($t2)
+	li $v0, 1
+	syscall
+	la $a0, sp
+	li $v0, 4
+	syscall
+	addi $t1, 1
+	addi $t2, 4
+	rem $t3, $t1, $t4
+	beq $t3, $0, af
+	j afisarec
+af:
+	la $a0, ent
+	li $v0, 4
+	syscall
+	j afisarec
+
+cont3:
+	la $a0, ent
+	li $v0, 4
+	syscall
+	 #verific ca matricea c sa fie patratica
+	lw $t0, m
+	lw $t1, q
+	bne $t0, $t1, exit2
+	li $t2, 0 #i
+	li $t3, 0 #j
+	j loop5
+loop4:
+	bge $t2, $t0, afisda
+	addi $t2, 1
+	li $t3, 0
+loop5:
+	bge $t3, $t1, loop4
+	sge $t4, $t2, $t3
+	add $t5, $t2, $t3
+	mul $t6, $t1, $t2
+	add $t6, $t6, $t3
+	lw $t7, c($t6)
+	li $t8, 2
+	rem $t9, $t7, $t8
+	addi $t3, 1
+	li $t8, 1
+	beq $t4, $t8, loop5
+	bgt $t5, $t0, loop5
+	beq $t9, $t8, afisnu
+	j loop5
+afisnu:
+	la $a0, nu
+	li $v0, 4
+	syscall
+	j exit
+afisda:
+	la $a0, da
+	li $v0, 4
+	syscall
+	j exit
+	
+exit1:
+	la $a0, erra
+	li $v0, 4
+	syscall
+	j exit
+exit2:
+	la $a0, errb
+	li $v0, 4
+	syscall
+exit:
+	li $v0, 10
+	syscall

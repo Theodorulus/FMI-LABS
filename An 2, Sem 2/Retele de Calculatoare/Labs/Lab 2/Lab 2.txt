@@ -1,0 +1,69 @@
+Pasi pentru PC:
+1. Redenumim pc-ul
+2. Schimbam placa retea (oprim pc, apoi montam 1CGE)
+3. Schimbam IP din Desktop -> IP Configuration
+4. Serviciul de mail din Desktop -> Configure Mail
+
+Switch -> lucram doar cu 2960
+Conexiune intre laptop service si switch: Cablu Consola de la RS232(laptop) la Console(switch)
+
+Terminal laptop:
+	enable
+	configure terminal
+	no ip domain-lookup
+	hostname SwNumeSwitch
+	no cdp run
+	service password-encryption
+	enable password ciscoenapa55
+	enable secret ciscosecpa55
+	banner motd # Vineri la ora 12:00 serverul va intra in mentenanta !#
+	line console 0
+	password ciscoconpa55
+	login
+	logging synchronous
+	exec-timeout 20 20
+	exit
+	line vty 0 15
+	password ciscovtypa55
+	login
+	exec-timeout 25 20
+	exit
+	exit
+	copy running-config startup-config (dupa, enter)
+	
+	show clock
+	clock set 08:37:20 26 Feb 2021 (data curenta)
+	show clock
+	
+	configure terminal
+	ip domain-name info.ro
+	username Admin01 privilege 15 secret Admin01pa55
+	line vty 0 15
+	transport input ssh
+	login local
+	exit
+	crypto key generate rsa -> 2048 bits
+	
+	interface vlan 1
+	description Legatura cu LAN 192.168.242.0/24
+	ip address 192.168.242.2 255.255.255.0
+	no shutdown
+	
+	exit
+	exit
+	copy running-config startup-config
+
+Conexiune intre pc si switch: Cablu Copper Straight-Through de la Gigabit ethernet0(pc) la Gigabit ethernet0/2(switch)
+
+Command prompt pc:
+	ping 192.168.242.2
+	ssh -l Admin01 192.168.242.2 (se adauga parola Admin01pa55)
+	exit
+
+SERVER:
+1. Redenumim server-ul
+2. Schimbam placa retea (oprim severul, apoi montam 1CGE)
+3. Schimbam IP din Desktop -> IP Configuration
+4. Serviciul de mail din Desktop -> Configure Mail
+5. La services configurare DNS
+6. La services configurare email

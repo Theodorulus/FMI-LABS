@@ -1,0 +1,54 @@
+ROUTER WIRELESS:
+WRT300N (DE LA WIRLESS DEVICES)
+Configurare router wireless:
+-schimbam placa retea cu WPC300N
+-Intram in web browser
+-intram pe 192.168.0.1
+-Static IP
+-internet ip address: 10.10.10.6
+-subnet mask: 255.255.255.252
+-default gateway: 10.10.10.5
+-dns 1: 209.165.201.222
+la network setup:
+-ip address:192.168.242.129
+-mask: 255.255.255.192
+-start ip address:192
+-maximum number of users: 66
+
+-Click pe router
+-GUI
+-wireless(in partea de sus langa setup)
+-nume:WIFI-NUMELE_TAU
+-standard channel: 6
+-wireless security(sub wireless)
+-security mode: WPA2 Personal
+-passphrase: 123456789
+
+PE LAPTOP:
+-wireless network
+-profiles
+-new
+-WIFI-NUMELE_TAU
+
+CONFIGURARE GLOBALA:
+	parola: ciscoconpa55
+	enable
+	parola:ciscosecpa55
+	configure terminal
+
+interface giga 0/2
+description #Descriere mate#
+ip address 10.10.10.5 255.255.255.252
+no shutdown
+
+
+
+
+
+
+
+
+
+
+
+
