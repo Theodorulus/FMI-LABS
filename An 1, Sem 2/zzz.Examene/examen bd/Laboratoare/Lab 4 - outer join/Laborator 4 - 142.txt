@@ -1,0 +1,164 @@
+-- LABORATOR 3
+Exemplu Nonequijoin:
+SELECT last_name, salary, grade_level, lowest_sal, highest_sal
+FROM employees, job_grades
+WHERE salary BETWEEN lowest_sal AND highest_sal;
+
+select * from job_grades;
+
+-- NATURAL JOIN
+SELECT last_name, job_id, job_title 
+FROM employees NATURAL JOIN jobs;
+
+SELECT last_name, department_id
+FROM employees NATURAL JOIN departments;
+
+-- JOIN 
+SELECT last_name, department_name, location_id
+FROM employees e, departments d
+WHERE e.department_id = d.department_id; -- 106 rezultate deoarece exista un angajat care nu are departament
+
+
+-- SQL3 - USING
+SELECT last_name, department_name, location_id
+FROM employees JOIN departments USING (department_id);
+
+-- SQL3 - ON
+SELECT last_name, department_name, location_id
+FROM employees JOIN departments ON (e.department_id = d.department_id);
+
+-- dorim sa afisam si angajatii FARA departament  -> (+)
+SELECT last_name, department_name, location_id
+FROM employees e, departments d
+WHERE e.department_id = d.department_id (+);
+
+-- SQL3 - ON - dorim sa afisam TOTI angajatii chiar daca au sau nu departament
+SELECT last_name, department_name, location_id
+FROM employees e LEFT JOIN departments d ON (e.department_id = d.department_id);
+
+-- SQL3 - ON - dorim sa afisam TOATE departamentele chiar daca au sau nu angajati
+SELECT last_name, department_name, location_id
+FROM employees e RIGHT JOIN departments d ON (e.department_id = d.department_id);
+
+--dorim sa afisam TOATE departamentele chiar daca au sau nu angajati
+--dorim sa afisam TOTI angajatii chiar daca au sau nu departament
+-- plus intersectia - elementele comune
+SELECT last_name, department_name, location_id
+FROM employees e FULL JOIN departments d ON (e.department_id = d.department_id);
+
+
+1. Scrieți o cerere pentru a se afisa numele, luna (în litere) şi anul angajării pentru toți
+salariații din acelasi departament cu Gates, al căror nume conţine litera “a”. Se va
+exclude Gates.
+
+select ang.last_name, to_char(ang.hire_date, 'month-yyyy'), gates.last_name, gates.employee_id
+from employees ang join employees gates on (ang.department_id = gates.department_id)
+where upper(gates.last_name) = 'GATES' and lower(ang.last_name) like '%a%'
+      and initcap(ang.last_name) != 'Gates'; 
+
+
+2. Să se afișeze codul şi numele angajaţilor care lucrează în același departament cu
+cel puţin un angajat al cărui nume conţine litera “t”. Se vor afişa, de asemenea, codul şi
+numele departamentului respectiv. Rezultatul va fi ordonat alfabetic după nume.
+
+select ang.employee_id, ang.last_name, coleg.employee_id, d.department_id, department_name
+from employees ang join employees coleg on (ang.department_id = coleg.department_id)
+                   join departments d on (ang.department_id = d.department_id)
+where ang.employee_id != coleg.employee_id and lower(coleg.last_name) like '%t%'
+order by ang.last_name; -- order by 2 
+
+
+3. Să se afișeze numele, salariul, titlul job-ului, oraşul şi ţara în care lucrează
+angajații conduși direct de King.
+
+select e.last_name, e.salary, job_title, city, country_name, k.last_name, k.employee_id
+from employees e join employees k on (e.manager_id = k.employee_id)
+                 join jobs j on (e.job_id = j.job_id)
+                 join departments d on (e.department_id = d.department_id)
+                 join locations l on (d.location_id = l.location_id)
+                 join countries c on (l.country_id = c.country_id)
+where upper(k.last_name) like 'KING';
+
+
+4. Să se afișeze codul departamentului, numele departamentului, numele și job-ul
+tuturor angajaților din departamentele al căror nume conţine şirul ‘ti’. De asemenea, se
+va lista salariul angajaţilor, în formatul “$99,999.00”. Rezultatul se va ordona alfabetic
+după numele departamentului, şi în cadrul acestuia, după numele angajaţilor.
+
+SELECT d.department_id, department_name, job_id, last_name, to_char(salary,'$99,999.00')
+FROM employees e JOIN departments d ON (e.department_id = d.department_id)
+WHERE lower(department_name) like '%ti%'
+ORDER BY 2, 4;
+
+
+5. Cum se poate implementa full outer join?
+
+-- join 
+SELECT distinct last_name, department_name, location_id
+FROM employees e FULL JOIN departments d ON (e.department_id = d.department_id); -- 121 rezultate
+
+106 + 1 + 16 -> 123 de rezultate returnate de full join 
+
+-- operatori pe multimi
+
+--afisam TOTI angajatii chiar daca au sau nu departament
+SELECT last_name, department_name, location_id
+FROM employees e LEFT JOIN departments d ON (e.department_id = d.department_id) -- 121 rezultate
+
+UNION -- elementele comune si necomune luate o singura data
+
+--afisam TOATE departamentele chiar daca au sau nu angajati
+SELECT last_name, department_name, location_id
+FROM employees e RIGHT JOIN departments d ON (e.department_id = d.department_id);
+
+
+6. Se cer codurile departamentelor al căror nume conţine şirul “re” SAU în care
+lucrează angajaţi având codul job-ului “SA_REP”.
+
+-- operatori pe multimi
+select department_id
+from departments 
+where lower(department_name) like '%re%' --40, 70, 120, 140, 150, 250, 260
+
+UNION
+
+select department_id
+from employees
+where upper(job_id) like 'SA_REP'; -- 80, NULL;
+
+
+-- join 
+select distinct d.department_id
+from employees e full join departments d on (e.department_id = d.department_id)
+where lower(department_name) like '%re%' or upper(job_id) like 'SA_REP';
+
+8. Să se obțină codurile departamentelor în care nu lucreaza nimeni (nu este introdus
+nici un salariat în tabelul employees). Se cer două soluţii.
+Obs: Operatorii pe mulţimi pot fi utilizaţi în subcereri. Coloanele care apar în clauza
+WHERE a interogării trebuie să corespundă, ca număr şi tip de date, celor din clauza
+SELECT a subcererii.;
+
+-- varianta 1 join
+
+-- afisam intersectia - elementele comune + toate departamentele chiar daca au sa nu angajati
+select * 
+from employees e right join departments d on (e.department_id = d.department_id);
+
+-- trebuie sa afisam departamentele care nu au angajati
+select d.department_id, department_name
+from employees e right join departments d on (e.department_id = d.department_id)
+where e.department_id is null;
+--where e.employee_id is null;
+
+-- varianta 2 cu minus 
+SELECT department_id "Cod departament"
+FROM departments  -- din lista unica a tuturor departamentelor (in departments - department_id este cheie primara)
+
+MINUS -- scadem
+
+SELECT department_id
+FROM employees;  -- departamentele IN CARE LUCREAZA ANGAJATI (in employees - department_id este cheie externa)
+
+=> departamentele in care NU LUCREAZA angajati
+
+

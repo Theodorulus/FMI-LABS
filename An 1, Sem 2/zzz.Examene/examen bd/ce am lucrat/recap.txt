@@ -1,0 +1,151 @@
+select * from timbru;
+
+select * from vinde;
+
+select * from este_asigurat;
+
+select * from vanzator;
+
+select * from soc_asigurare;
+
+1. Sa se obtina societatile de asigurari (cod, nume) care au asigurat toate timbrele emise in anul 2017.
+
+select sa.cod_asigurator, nume_societate
+from soc_asigurare sa join este_asigurat ea on (sa.cod_asigurator = ea.cod_asigurator)
+where cod_timbru in (select cod_timbru
+                     from timbru
+                     where to_char(data_emitere,'yyyy') = 2017)
+group by sa.cod_asigurator, nume_societate
+having count(cod_timbru) = (select count(cod_timbru)
+                             from timbru
+                             where to_char(data_emitere,'yyyy') = 2017);
+
+
+2. Creati tabelele TIMBRU_PNU, VINDE_PNU si VANZATOR_PNU (unde p reprezinta prima litera din prenume si 
+nu reprezinta primele doua litere din nume) prin copierea structurii si continutului tabelelor 
+TIMBRU, VINDE si VANZATOR. Atentie la constrangerile de integritate 
+(acestea trebuie adaugate ulterior – Vezi Laborator 7)
+
+select * from timbru;
+
+select * from vinde;
+
+select * from vanzator;
+
+create table timbru_ttu as
+    select * from timbru;
+    
+select * from timbru_ttu;
+
+create table vinde_ttu1 as
+    select * from vinde;
+
+select * from vinde_ttu1;
+
+create table vanzator_ttu1 as
+    select * from vanzator;
+
+select * from vanzator_ttu1;
+
+select * from user_constraints
+where lower(table_name) = 'timbru';
+
+select * from user_constraints
+where lower(table_name) = 'timbru_ttu';
+
+select * from user_constraints
+where lower(table_name) = 'vinde';
+
+select * from user_constraints
+where lower(table_name) = 'vinde_ttu1';
+
+
+alter table timbru_ttu
+add constraint pk_timbru_ttu primary key(cod_timbru);
+
+alter table vanzator_ttu1
+add constraint pk_vanzator_ttu1 primary key(cod_vanzator);
+
+alter table vinde_ttu1
+add constraint fk_timbru_ttu foreign key(cod_timbru) references timbru_ttu(cod_timbru);
+
+alter table vinde_ttu1
+add constraint fk_vanzator_ttu foreign key(cod_vanzator) references vanzator_ttu1(cod_vanzator);
+
+alter table vinde_ttu1
+add constraint pk_compus_ttu primary key(cod_timbru, cod_vanzator);
+
+
+3. Actualizati coloana “timbre_vandute” a tabelului VANZATOR_PNU
+(OBS: trebuie sa rezolvati acest exercitiu folosind tabelele 'create' la exercitiul anterior), 
+astfel incat aceasta sa contina numarul de timbre vandute de fiecare vanzator.
+
+select * from vanzator;
+
+select * from vinde;
+
+update vanzator_ttu1 v
+set timbre_vandute = (select count(cod_timbru)
+                      from vinde
+                      where cod_vanzator = v.cod_vanzator);
+
+commit;
+
+4. Creati tabelul “valoare_totala_pnu” (unde p reprezinta prima litera din
+prenume si nu reprezinta primele doua litere din nume) care sa contina codul
+timbrului, codul vanzatorului, numele timbrului, numele vanzatorului, numarul
+total de timbre si suma totala vanduta pentru fiecare timbru in parte.
+
+Coloanele se vor numi: cod_timbru, cod_vanzator, nume_timbru, nume_vanzator, numar_total_timbre, suma_vanduta
+
+desc timbru;
+desc vanzator;
+
+create table valoare_totala_ttu
+    (cod_timbru NUMBER(5),
+     cod_vanzator NUMBER(5),
+     nume_timbru VARCHAR2(20) NOT NULL,
+     nume_vanzator VARCHAR2(20) NOT NULL,
+     numar_total_timbre NUMBER(5) NOT NULL,
+     suma_vanduta NUMBER(10) NOT NULL,
+     primary key(cod_timbru, cod_vanzator)
+    );
+
+insert into valoare_totala_ttu (cod_timbru, cod_vanzator, nume_timbru, nume_vanzator, numar_total_timbre, suma_vanduta)
+    (select t.cod_timbru CodTimbru, vanz.cod_vanzator, t.nume NumeTimbru, vanz.nume NumeVanzator,
+     (select count(cod_timbru)
+      from vinde
+      where cod_timbru = t.cod_timbru) "Total Timbre",
+      (select sum(val_cumparare)
+       from vinde
+       where cod_timbru = t.cod_timbru) "Suma Vanduta"
+     from vanzator vanz join vinde v on (vanz.cod_vanzator = v.cod_vanzator)
+                        join timbru t on(v.cod_timbru = t.cod_timbru)
+    );
+
+select * from vinde;
+
+select * from valoare_totala_ttu;
+
+5. Sa se creeze o vizualizare “info_pnu” care contine informatii despre
+vanzatorii (nume, cod) si timbrele vandute de acestia (cod, nume,
+data_emitere) care au fost emise in anul 2018. Care sunt coloanele
+actualizabile ale acestei vizualizari? Justificati.
+
+create or replace view info_ttu
+    as(select vanz.nume as NumeVanz, vanz.cod_vanzator, t.cod_timbru, t.nume as NumeTimbru, t.data_emitere
+       from vanzator vanz join vinde v on(vanz.cod_vanzator =v.cod_vanzator)
+                          join timbru t on (v.cod_timbru = t.cod_timbru)
+       where to_char(data_emitere, 'yyyy') = 2018);
+       
+select * from info_ttu;
+
+select * from user_updatable_columns
+where lower(table_name) = 'info_ttu';
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1588509763 source:d:\theo\info\laboratoare fac\poo\tema 2\main.cpp
+	<iostream>
+	"Location.hpp"
+
+1588506395 d:\theo\info\laboratoare fac\poo\tema 2\location.cpp
+	"Location.hpp"
+
+1588511074 d:\theo\info\laboratoare fac\poo\tema 2\location.hpp
+	<iostream>
+
+1588508879 d:\theo\info\laboratoare fac\poo\tema 2\player.cpp
+
+1588509691 d:\theo\info\laboratoare fac\poo\tema 2\player.hpp
+	"Location.hpp"
+	"Map.hpp"
+
+1588507750 d:\theo\info\laboratoare fac\poo\tema 2\map.cpp
+	"Map.hpp"
+	<iostream>
+	<cassert>
+	<cstdlib>
+
+1588508653 d:\theo\info\laboratoare fac\poo\tema 2\map.hpp
+	<iostream>
+	"Location.hpp"
+

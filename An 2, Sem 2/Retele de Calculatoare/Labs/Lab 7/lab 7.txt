@@ -1,0 +1,98 @@
+	Contectare la switch cu laptop service:
+
+ciscoconpa55
+enable
+ciscosecpa55
+configure terminal
+no cdp run
+interface range fa 0/1-24
+shutdown
+ip default-gateway 178.188.32.1
+exit
+
+	In CMD PC-FRANTA:
+ping 178.188.32.2
+
+	In router:
+
+ciscoconpa55
+enable
+ciscosecpa55
+configure terminal
+interface range giga 0/1-2
+shutdown
+exit
+interface serial  0/0/1
+shutdown
+exit
+ip route 178.188.40.0 255.255.255.192 serial 0/0/0
+ip route 178.188.40.68 255.255.255.252 serial 0/0/0
+ip route 178.188.40.72 255.255.255.252 serial 0/0/0
+ip route 178.188.0.0 255.255.224.0 serial 0/0/0
+
+	In urmatorul router:
+
+ciscoconpa55
+enable
+ciscosecpa55
+configure terminal
+interface giga 0/2
+shutdown
+exit
+ip route 178.188.32.0 255.255.248.0 serial 0/0/0
+ip route 178.188.0.0 255.255.224.0 serial 0/0/1
+
+	In CMD:
+ping 178.188.40.1
+ping 178.188.40.66
+ping 178.188.40.65
+ping 178.188.32.2
+ssh -l Admin01 178.188.32.2
+
+	In urmatorul router:
+
+ciscoconpa55
+enable
+ciscosecpa55
+configure terminal
+interface range giga 0/1-2
+shutdown
+exit
+interface serial 0/0/0
+shutdown
+exit
+ip route 178.188.40.0 255.255.255.192 serial 0/0/1
+ip route 178.188.40.68 255.255.255.252 serial 0/0/1
+ip route 178.188.40.64 255.255.255.252 serial 0/0/1
+ip route 178.188.32.0 255.255.248.0 serial 0/0/1
+
+	In CMD franta:
+ping 40.69
+ping 40.73
+ping 40.74
+ping 0.1
+ping 0.15
+
+	Mail din pc-franta:
+TO: server@info.ro
+Sub: Test
+Content: Verificare mail
+	In server:
+Mail -> receive
+
+	In CMD franta:
+ftp 178.188.40.62
+cisco
+cisco
+dir
+get asa842-k8.bin
+(Dupa ce se transfera datele:)
+exit
+quit
+dir
+
+	In terminal RFEROE#, RFIJI#:
+show ip route
+
+Apoi se configureaza si celelalte doua switchuri la fel ca primul
+

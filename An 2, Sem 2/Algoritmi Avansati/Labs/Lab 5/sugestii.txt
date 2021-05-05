@@ -1,0 +1,14 @@
+Putem lua de pe net.
+
+1. Determinant din curs 8 pag 31
+2.- Varfurile sunt date in sens trigonometric.
+  - Luam cel mai din stanga punct. Verificam sa fie viraje la stanga. Daca da, il adaugam in multimea punctelor din acoperirea convexa. Daca nu, trecem la urmatorul punct si il taiem pe cel din mijloc.
+3.- Pentru toate muchiile, punctele din interiorul poligonului vor avea viraj la stanga
+- Puncte din exteriorul poligonului: exista o muchie cu viraj la dreapta.
+- Cautare binara: trebuie sa gasim muchiile relevante pentru punctul respectiv. 
+- Preprocesare liniara: cel mai stanga pct + cel mai din dreapta punct (se poate face la citire)
+- cel mai din stanga -> cel mai din dreapta => frontiera inferioara
+- cel mai din dreapta -> cel mai din stanga => frontiera superioara
+- luam o muchie de pe f.i si una de pe f.s. si efectuam testul de viraj
+- muchiile le luam astfel: cautare binara pe axa OX pentru fiecare frontiera. Vom ajunge la 2 pct consecutive si efectual virajul.
+4.- Trebuie sa gasim acoperirea convexa cu graham scan.

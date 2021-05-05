@@ -9,7 +9,7 @@ dim_pop = int(fin.readline())
 #intervalul de definitie al functiei
 a, b = [float(x) for x in fin.readline().split()]
 #parametri functiei de maximizat
-x2, x1, x0 = [float(x) for x in fin.readline().split()]
+x3, x2, x1, x0 = [float(x) for x in fin.readline().split()]
 precizie = int(fin.readline())
 prob_recomb = float(fin.readline())
 prob_mutatie = float(fin.readline())
@@ -56,22 +56,20 @@ def calculare_x(cromozom):
     return x
 
 def calculare_f(x):
-    return x * x * x2 + x * x1 + x0
+    return x * x * x * x3 + x * x * x2 + x * x1 + x0
 
 #populatia (array de array-uri binare):
 pop = []
 print("Populatia initiala:")
+for i in range(dim_pop):
+    cromozom = []
+    for j in range(l):
+        cromozom.append(random.randint(0, 1))
+    pop.append(cromozom)
 
 #Vom avea nr_etape
 #Daca k = 0, atunci suntem la prima etapa si trebuie afisate toate detaliile cerute, altfel, vom afisa doar maximul functiei f la final
 for k in range(nr_etape):
-
-    for i in range(dim_pop):
-        cromozom = []
-        for j in range(l):
-            cromozom.append(random.randint(0, 1))
-        pop.append(cromozom)
-
     valori_x = []
     valori_f = []
     for i in range(1, len(pop) + 1):
@@ -99,20 +97,27 @@ for k in range(nr_etape):
     max_f = max(valori_f)
     indice_individ_elitist = valori_f.index(max_f)
     individ_elitist = pop[indice_individ_elitist]
+    max_x = valori_x[indice_individ_elitist]
 
     if k == 0:
         print()
         print("Probabilitati selectie:")
 
     #Initializez suma totala a functiilor
-    f_total = sum(valori_f)
+    f_total = 0
+    for x in valori_f:
+        if x > 0:
+            f_total += x
     probabilitati_selectie = []
     for i in range(1, len(pop) + 1):
         if k == 0:
             print("cromozom", end=" ")
             if i < 10:
                 print(end=" ")
-        probabilitati_selectie.append(valori_f[i - 1] / f_total)
+        if valori_f[i - 1] > 0:  #in caz ca va fi input gresit si functia nu va fi strict pozitiva
+            probabilitati_selectie.append(valori_f[i - 1] / f_total)
+        else:
+            probabilitati_selectie.append(0);
         if k == 0:
             print(i, "probabilitate", probabilitati_selectie[i - 1])
 
@@ -131,7 +136,7 @@ for k in range(nr_etape):
         print(s)
 
     cromozomi_selectati = []
-    for i in range(dim_pop - 1):
+    for i in range(dim_pop - 1):          #fara -1
         u = random.uniform(0, s)
         cromozom_selectat = binary_search(u, intervale_selectie)
         cromozomi_selectati.append(cromozom_selectat)
@@ -143,7 +148,7 @@ for k in range(nr_etape):
         print()
         print("Dupa selectie:")
 
-    for i in range(1, dim_pop):
+    for i in range(1, dim_pop):             #  + 1):
         if k == 0:
             if i < 10:
                 print(end=" ")
@@ -164,7 +169,7 @@ for k in range(nr_etape):
     # populatia dupa selectie
     pop_dupa_selectie = []
     nr_participanti_incrucisare = 0
-    for i in range(1, dim_pop):
+    for i in range(1, dim_pop):             #  + 1):
         if k == 0:
             if i < 10:
                 print(end=" ")
@@ -188,13 +193,18 @@ for k in range(nr_etape):
 
     #in cromozomi_crossover salvam cate un tuplu pentru fiecare din cromozomii selectati pentru incrucisare format din cromozom si indicele acestuia
     cromozomi_crossover = []
-    for i in range(dim_pop - 1):
+    for i in range(dim_pop - 1):                #fara -1
         if pop_dupa_selectie[i][1] == True:
             cromozomi_crossover.append((pop_dupa_selectie[i][0], i + 1))
 
     # Daca nr_participanti_incrucisare este impar, atunci vom incrucisa cromozomul 1 cu 2, 2 cu 3, ..., nr_participanti_incrucisare cu 1
     if nr_participanti_incrucisare % 2 == 1:
-        punct_rupere = random.randint(0, l - 1)
+        punct_rupere1 = random.randint(0, l - 1)
+        punct_rupere2 = random.randint(0, l - 1)
+        if punct_rupere2 < punct_rupere1:
+            aux = punct_rupere2
+            punct_rupere2 = punct_rupere1
+            punct_rupere1 = aux
         if k == 0:
             print()
         cromozomi_dupa_recombinare = []
@@ -203,10 +213,16 @@ for k in range(nr_etape):
                 print("Recombinare dintre cromozomul", cromozomi_crossover[i][1], "(partea din stanga) cu cromozomul", cromozomi_crossover[i + 1][1], "(partea din dreapta):")
                 afisare_cromozom(cromozomi_crossover[i][0], end=" ")
                 afisare_cromozom(cromozomi_crossover[i + 1][0], end=" ")
-                print("punct", punct_rupere)
-            left = cromozomi_crossover[i][0][:punct_rupere].copy()
-            right = cromozomi_crossover[i + 1][0][punct_rupere:].copy()
-            cromozom_dupa_combinare = left + right
+                print("puncte", punct_rupere1, punct_rupere2)
+            left1 = cromozomi_crossover[i][0][:punct_rupere1].copy()
+            #mid1 = cromozomi_crossover[i][0][punct_rupere1:punct_rupere2].copy()
+            right1 = cromozomi_crossover[i][0][punct_rupere2:].copy()
+
+            #left2 = cromozomi_crossover[i + 1][0][:punct_rupere1].copy()
+            mid2 = cromozomi_crossover[i + 1][0][punct_rupere1:punct_rupere2].copy()
+            #right2 = cromozomi_crossover[i + 1][0][punct_rupere2:].copy()
+
+            cromozom_dupa_combinare = left1 + mid2 + right1
             if k == 0:
                 print("Rezultat", end=" ")
                 afisare_cromozom(cromozom_dupa_combinare, end="")
@@ -216,10 +232,11 @@ for k in range(nr_etape):
             print("Recombinare dintre cromozomul", cromozomi_crossover[-1][1], "(partea din stanga) cu cromozomul", cromozomi_crossover[0][1],"(partea din dreapta):")
             afisare_cromozom(cromozomi_crossover[-1][0], end=" ")
             afisare_cromozom(cromozomi_crossover[0][0], end=" ")
-            print("punct", punct_rupere)
-        left = cromozomi_crossover[-1][0][:punct_rupere].copy()
-        right = cromozomi_crossover[0][0][punct_rupere:].copy()
-        cromozom_dupa_combinare = left + right
+            print("puncte", punct_rupere1, punct_rupere2)
+        left = cromozomi_crossover[-1][0][:punct_rupere1].copy()
+        mid = cromozomi_crossover[0][0][punct_rupere1:punct_rupere2]
+        right = cromozomi_crossover[-1][0][punct_rupere2:].copy()
+        cromozom_dupa_combinare = left + mid + right
         if k == 0:
             print("Rezultat", end=" ")
             afisare_cromozom(cromozom_dupa_combinare, end="")
@@ -231,22 +248,32 @@ for k in range(nr_etape):
             print()
         cromozomi_dupa_recombinare = []
         for i in range(0, len(cromozomi_crossover) - 1, 2):
-            punct_rupere = random.randint(0, l - 1)
+            punct_rupere1 = random.randint(0, l - 1)
+            punct_rupere2 = random.randint(0, l - 1)
+            if punct_rupere2 < punct_rupere1:
+                aux = punct_rupere2
+                punct_rupere2 = punct_rupere1
+                punct_rupere1 = aux
             if k == 0:
                 print("Recombinare dintre cromozomul", cromozomi_crossover[i][1], "cu cromozomul", cromozomi_crossover[i + 1][1],":")
                 afisare_cromozom(cromozomi_crossover[i][0], end=" ")
                 afisare_cromozom(cromozomi_crossover[i + 1][0], end=" ")
-                print("punct", punct_rupere)
-            left = cromozomi_crossover[i][0][:punct_rupere].copy()
-            right = cromozomi_crossover[i + 1][0][punct_rupere:].copy()
-            cromozom_dupa_combinare = left + right
+                print("puncte", punct_rupere1, punct_rupere2)
+            left1 = cromozomi_crossover[i][0][:punct_rupere1].copy()
+            mid1 = cromozomi_crossover[i][0][punct_rupere1:punct_rupere2].copy()
+            right1 = cromozomi_crossover[i][0][punct_rupere2:].copy()
+
+            left2 = cromozomi_crossover[i + 1][0][:punct_rupere1].copy()
+            mid2 = cromozomi_crossover[i + 1][0][punct_rupere1:punct_rupere2].copy()
+            right2 = cromozomi_crossover[i + 1][0][punct_rupere2:].copy()
+            cromozom_dupa_combinare = left1 + mid2 + right1
             if k == 0:
                 print("Rezultat", end=" ")
                 afisare_cromozom(cromozom_dupa_combinare, end=" ")
             cromozomi_dupa_recombinare.append(cromozom_dupa_combinare)
-            left = cromozomi_crossover[i + 1][0][:punct_rupere].copy()
-            right = cromozomi_crossover[i][0][punct_rupere:].copy()
-            cromozom_dupa_combinare = left + right
+            #left = cromozomi_crossover[i + 1][0][:punct_rupere].copy()
+            #right = cromozomi_crossover[i][0][punct_rupere:].copy()
+            cromozom_dupa_combinare = left2 + mid1 + right2
             if k == 0:
                 afisare_cromozom(cromozom_dupa_combinare, end="")
             cromozomi_dupa_recombinare.append(cromozom_dupa_combinare)
@@ -258,7 +285,7 @@ for k in range(nr_etape):
         print("Dupa recombinare:")
     j = 0
     pop_dupa_incrucisare = []
-    for i in range(1, dim_pop):
+    for i in range(1, dim_pop):      # +1):
         if k == 0:
             if i < 10:
                 print(end=" ")
@@ -293,7 +320,7 @@ for k in range(nr_etape):
         print("Au fost modificati cromozomii: ")
     # Variabila ok o folosind pentru a afla daca a fost vreun individ modificat
     ok = False
-    for i in range(dim_pop - 1):
+    for i in range(dim_pop - 1):                   # fara -1
         u = random.uniform(0, 1)
         if u < prob_mutatie:
             p = random.randint(0, l - 1)
@@ -309,7 +336,7 @@ for k in range(nr_etape):
     if k == 0:
         print()
         print("Dupa mutatie(fara membru elitist):")
-    for i in range(1, dim_pop):
+    for i in range(1, dim_pop):                    # + 1):
         if k == 0:
             if i < 10:
                 print(end=" ")
@@ -354,7 +381,7 @@ for k in range(nr_etape):
         print("Evolutia maximului:")
 
     #Afisam maximul calculat la inceput si performanta medie
-    print(max_f, sum(valori_f)/len(valori_f))
+    print("x=", max_x, "f =", max_f, "Performanta medie =", sum(valori_f)/len(valori_f))
 
 sys.stdout = original_stdout
 fout.close()

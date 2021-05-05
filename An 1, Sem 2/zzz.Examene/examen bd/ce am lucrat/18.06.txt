@@ -1,0 +1,617 @@
+
+select (first_name || ' ' || last_name) Nume, salary
+from employees
+where salary + nvl(commission_pct, 0)* salary > 2850;
+
+--outer join
+
+SELECT e.employee_id, d.department_id
+FROM employees e join departments d on (e.department_id = d.department_id(+));
+
+
+--subcerere sincronizata
+
+SELECT first_name , department_id, (SELECT SUM(salary)
+                                    FROM employees e2
+                                    WHERE e2.department_id = e1.department_id)
+FROM employees e1;
+
+-- group by
+SELECT manager_id, COUNT(employee_id)
+FROM employees
+GROUP BY manager_id
+HAVING COUNT(employee_id)>5;
+
+--LABORATOR 4(lab 5 si 6)
+
+2. Să se afişeze cel mai mare salariu, cel mai mic salariu, suma şi media salariilor
+tuturor angajaţilor. Etichetaţi coloanele Maxim, Minim, Suma, respectiv Media. Sa se
+rotunjeasca media salariilor. 
+
+SELECT MAX(salary) Maxim, min(salary) Minim, sum(salary) Suma, avg(salary) Media
+FROM employees;
+
+3. Să se modifice problema 2 pentru a se afişa minimul, maximul, suma şi media
+salariilor pentru FIECARE job. 
+
+SELECT job_id, MAX(salary) Maxim, min(salary) Minim, sum(salary) Suma, avg(salary) Media
+FROM employees
+GROUP BY job_id; 
+
+4. Să se afişeze numărul de angajaţi pentru FIECARE departament.
+
+SELECT department_id, COUNT(employee_id) "Nr ang"
+FROM employees
+GROUP BY department_id;
+
+5. Să se determine numărul de angajaţi care sunt şefi. Etichetati coloana “Nr.
+manageri”. De ce am folosit cuvântul cheie DISTINCT? Ce am fi obţinut dacă îl omiteam? 
+
+select count(distinct(manager_id)) "Nr. manageri"
+from employees;
+
+6. Să se afişeze diferenţa dintre cel mai mare si cel mai mic salariu. Etichetati
+coloana “Diferenta”.
+
+select max(salary) - min(salary) "Diferenta"
+from employees;
+
+7. Scrieţi o cerere pentru a se afişa numele departamentului, locaţia, numărul de
+angajaţi şi salariul mediu pentru angajaţii din acel departament. Coloanele vor fi
+etichetate corespunzător.
+
+select d.department_name, l.city, count(employee_id), avg(salary)
+from employees e join departments d on (e.department_id = d.department_id)
+                 join locations l on (l.location_id = d.location_id)
+group by d.department_name, l.city;
+
+8. Să se afişeze codul şi numele angajaţilor care au salariul mai mare decât salariul
+mediu din firmă. Se va sorta rezultatul în ordine descrescătoare a salariilor
+
+select employee_id, first_name, salary
+from employees 
+where salary > (select avg(salary)
+                from employees)
+order by salary desc;
+
+9. Pentru fiecare şef, să se afişeze codul său şi salariul celui mai prost platit
+subordonat. Se vor exclude cei pentru care codul managerului nu este cunoscut. De
+asemenea, se vor exclude grupurile în care salariul minim este mai mic de 1000$.
+Sortaţi rezultatul în ordine descrescătoare a salariilor.
+
+select manager_id, min(salary)
+from employees e
+where manager_id is not null
+group by manager_id
+having min(salary)>=1000;
+
+16. Sa se afiseze codul, numele departamentului si numarul de angajati care
+lucreaza in acel departament pentru:
+a) departamentele in care lucreaza mai putin de 4 angajati;
+
+select e.department_id, d.department_name, count(employee_id)
+from employees e join departments d on (e.department_id = d.department_id)
+group by e.department_id, d.department_name
+having count(employee_id) < 4;
+
+b) departamentul care are numarul maxim de angajati.
+
+select e.department_id, d.department_name, count(employee_id)
+from employees e join departments d on (e.department_id = d.department_id)
+group by e.department_id, d.department_name
+having count(employee_id) = (select max(count(employee_id))
+                             from employees
+                             group by department_id);
+
+17. Sa se afiseze salariatii care au fost angajati în aceeaşi zi a lunii în care cei mai
+multi dintre salariati au fost angajati;
+
+select *
+from employees
+where to_char(hire_date,'dd')  = (select to_char(hire_date,'dd')
+                                  from employees
+                                  group by to_char(hire_date,'dd')
+                                  having count(employee_id) = (select max(count(employee_id))
+                                                               from employees
+                                                               group by to_char(hire_date,'dd')));
+
+18. Să se obţină numărul departamentelor care au cel puţin 15 angajaţi.
+
+select count(count(department_id)) "Nr depart"
+from employees
+group by department_id
+having count(*) > 15;
+
+19. Să se obţină codul departamentelor şi suma salariilor angajaţilor care lucrează în
+acestea, în ordine crescătoare. Se consideră departamentele care au mai mult de
+10 angajaţi şi al căror cod este diferit de 30.
+
+select department_id, sum(salary)
+from employees
+where department_id != 30
+group by department_id
+having count(*) > 10
+order by sum(salary);
+
+20. Care sunt angajatii care au mai avut cel putin doua joburi?
+
+select e.employee_id, e.first_name, e.last_name, count(j.job_id) "Nr. joburi in trecut"
+from employees e join job_history j on (e.employee_id = j.employee_id)
+group by e.employee_id, e.first_name, e.last_name
+having count(j.job_id) >= 2;
+
+-- sau
+
+select employee_id, count(job_id)
+from job_history
+group by employee_id
+having count(job_id) >= 2;
+
+21. Să se calculeze comisionul mediu din firmă, luând în considerare toate liniile din
+tabel.
+
+SELECT AVG(NVL(commission_pct, 0))
+FROM employees;
+
+24. Să se afişeze codul, numele departamentului şi suma salariilor pe departamente.
+
+select e.department_id, d.department_name, sum(salary)
+from employees e join departments d on (e.department_id = d.department_id)
+group by e.department_id, d.department_name;
+
+SELECT d.department_id, department_name,a.suma
+FROM departments d, (SELECT department_id ,SUM(salary) suma
+                     FROM employees
+                     GROUP BY department_id) a
+WHERE d.department_id =a.department_id; 
+
+25. Să se afişeze numele, salariul, codul departamentului si salariul mediu din
+departamentul respectiv.
+
+select last_name, salary, department_id, (select round(avg(salary))
+                                          from employees e2
+                                          where e1.department_id = e2.department_id
+                                          group by department_id) "Salariu Mediu"
+from employees e1;
+
+--Subcereri corelate
+
+--LABORATOR 5(lab 7)
+
+3. Sa se obtina numele salariatilor care lucreaza intr-un departament in care exista cel putin 1
+angajat cu salariul egal cu salariul maxim din departamentul 30.
+
+select last_name
+from employees
+where department_id in (select distinct(department_id)
+                        from employees
+                        where salary = (select max(salary)
+                                        from employees
+                                        where department_id = 30)
+                        and department_id != 30);
+
+
+4. Sa se obtina numele primilor 3 angajati avand salariul maxim. Rezultatul se va afişa în ordine
+crescătoare a salariilor. 
+
+SELECT last_name, salary, rownum
+FROM (SELECT *
+        FROM employees
+        ORDER BY SALARY DESC)
+where rownum <= 3;
+
+6. Să se determine locaţiile în care se află cel puţin un departament.
+
+select distinct(location_id)
+from departments;
+
+7. Să se determine departamentele în care nu există nici un angajat.
+
+select department_id
+from departments
+where department_id not in (select department_id
+                            from employees
+                            where department_id is not null);
+
+--Division
+
+--LABORATOR 6(lab 8 si 9)
+
+Exemplu: Să se obţină codurile salariaţilor ataşaţi tuturor proiectelor pentru care s-a alocat un buget
+egal cu 10000.
+
+select employee_id
+from works_on
+where project_id in (select project_id
+                     from projects
+                     where budget = 10000)
+group by employee_id
+having count(project_id) = (select count(*)
+                            from projects
+                            where budget = 10000
+                            );
+                            
+select * from works_on;
+
+1. Să se listeze informaţii despre angajaţii care au lucrat în toate proiectele demarate în primele 6
+luni ale anului 2006. 
+
+select e.employee_id, e.last_name, e.first_name
+from employees e join works_on w on (e.employee_id = w.employee_id)
+                 join projects p on (p.project_id = w.project_id)
+where w.project_id in  (select project_id
+                        from projects
+                        where to_number(to_char(start_date,'mm')) <= 6 and to_char(start_date,'yyyy') = '2006')
+group by e.employee_id, e.last_name, e.first_name
+having count(w.project_id) = (select count(project_id)
+                              from projects
+                              where to_number(to_char(start_date,'mm')) <= 6 and to_char(start_date,'yyyy') = '2006');
+
+
+select * from projects;
+
+2. Să se listeze informaţii despre proiectele la care au participat toţi angajaţii care au deţinut alte 2
+posturi în firmă.
+
+select *
+from projects
+where project_id in (select project_id
+                     from works_on
+                     where employee_id in  (select employee_id
+                                            from job_history
+                                            group by employee_id
+                                            having count(job_id) = 2)
+                     group by project_id
+                     having count(employee_id) =   (select count(count(employee_id))
+                                                    from job_history
+                                                    group by employee_id
+                                                    having count(job_id) = 2));
+
+select employee_id
+from job_history
+group by employee_id
+having count(job_id) = 2;
+
+3. Să se obţină numărul de angajaţi care au avut cel puţin trei job-uri, luându-se în considerare şi
+job-ul curent.
+
+select count(count(employee_id)) "Numar angajati"
+from job_history
+group by employee_id
+having count(job_id) >= 2;
+
+4. Pentru fiecare ţară, să se afişeze numărul de angajaţi din cadrul acesteia.
+
+select c.country_id, count(employee_id)
+from employees e join departments d on (e.department_id = d.department_id)
+                 join locations l on (l.location_id = d.location_id)
+                 right join countries c on (c.country_id = l.country_id)
+group by c.country_id;
+
+select count(employee_id)
+from employees join departments using (department_id)
+               join locations using (location_id)
+               right join countries using (country_id)
+group by country_id;
+
+5. Să se listeze codurile angajaţilor şi codurile proiectelor pe care au lucrat. Listarea va cuprinde şi
+angajaţii care nu au lucrat pe nici un proiect.
+
+select e.employee_id, w.project_id
+from employees e left join works_on w on (e.employee_id = w.employee_id);
+
+9. Să se afişeze lista angajaţilor care au lucrat numai pe proiecte conduse de managerul de proiect
+având codul 102.
+
+select employee_id
+from works_on
+where project_id in  (select project_id
+                      from projects
+                      where project_manager = 102)
+minus
+select employee_id
+from works_on
+where project_id not in  (select project_id
+                          from projects
+                          where project_manager = 102);
+
+10. a) Să se obţină numele angajaţilor care au lucrat cel puţin pe aceleaşi proiecte ca şi angajatul
+având codul 200.
+
+select employee_id, last_name
+from employees
+where employee_id in (select employee_id
+                      from works_on
+                      where project_id in (select project_id
+                                           from works_on
+                                           where employee_id = 200
+                                           )
+                            and employee_id != 200
+                      group by employee_id
+                      having count(project_id) >= (select count(project_id)
+                                                   from works_on
+                                                   where employee_id = 200
+                                           )
+                      );
+
+
+
+select project_id
+from works_on
+where employee_id = 200;
+
+
+b) Să se obţină numele angajaţilor care au lucrat cel mult pe aceleaşi proiecte ca şi angajatul având
+codul 200
+
+select employee_id, last_name
+from employees
+where employee_id in (select employee_id
+                      from works_on
+                      where project_id in (select project_id
+                                           from works_on
+                                           where employee_id = 200
+                                           )
+                            and employee_id != 200
+                      group by employee_id
+                      having count(project_id) <= (select count(project_id)
+                                                   from works_on
+                                                   where employee_id = 200
+                                           )
+                      )
+minus
+
+select employee_id, last_name
+from employees
+where employee_id in (select employee_id
+                      from works_on
+                      where project_id not in (select project_id
+                                           from works_on
+                                           where employee_id = 200
+                                           )
+                      );
+                     
+11. Să se obţină angajaţii care au lucrat pe aceleaşi proiecte ca şi angajatul având codul 200.
+
+select employee_id, last_name
+from employees
+where employee_id in (select employee_id
+                      from works_on
+                      where project_id in (select project_id
+                                           from works_on
+                                           where employee_id = 200
+                                           )
+                            and employee_id != 200
+                      group by employee_id
+                      having count(project_id) = (select count(project_id)
+                                                   from works_on
+                                                   where employee_id = 200
+                                           )
+                      )
+minus
+
+select employee_id, last_name
+from employees
+where employee_id in (select employee_id
+                      from works_on
+                      where project_id not in (select project_id
+                                           from works_on
+                                           where employee_id = 200
+                                           )
+                      );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Create delete etc
+
+1. Sa se obtina societatile de asigurari (cod, nume) care au asigurat TOATE timbrele emise in anul 2017.
+
+select * 
+from soc_asigurare
+where cod_asigurator in (select cod_asigurator
+                         from este_asigurat
+                         where cod_timbru in (select cod_timbru
+                                              from timbru
+                                              where to_char(data_emitere,'yyyy') = 2017)
+                         group by cod_asigurator
+                         having count(cod_timbru) = (select count(cod_timbru)
+                                                     from timbru
+                                                     where to_char(data_emitere,'yyyy') = 2017));
+
+select cod_timbru
+from timbru
+where to_char(data_emitere,'yyyy') = 2017;
+
+8. Sa se afiseze vanzatorii care au vandut cel mult aceleasi timbre ca si vanzatorul 1.
+
+select cod_vanzator
+from vinde
+where cod_timbru in (select cod_timbru
+                     from vinde
+                     where cod_vanzator = 1)
+        and cod_vanzator != 1
+group by cod_vanzator
+having count(cod_timbru) <= (select count(cod_timbru)
+                             from vinde
+                             where cod_vanzator = 1)
+minus
+select cod_vanzator
+from vinde
+where cod_timbru not in (select cod_timbru
+                     from vinde
+                     where cod_vanzator = 1);
+select cod_timbru
+from vinde
+where cod_vanzator = 1;
+
+select * from vinde;
+
+
+2. Creati tabelele TIMBRU_PNU, VINDE_PNU si VANZATOR_PNU (unde p
+reprezinta prima litera din prenume si nu reprezinta primele doua litere din
+nume) prin copierea structurii si continutului tabelelor TIMBRU, VINDE si
+VANZATOR. Atentie la constrangerile de integritate (acestea trebuie
+adaugate ulterior – Vezi Laborator 7);
+
+
+drop table timbru_ttu;
+
+create table timbru_ttu as select * from timbru;
+
+drop table vinde_ttu1;
+
+create table vinde_ttu as select * from vinde;
+
+drop table vanzator_ttu1;
+
+create table vanzator_ttu as select * from vanzator;
+
+
+select * from timbru_ttu;
+
+select * from vinde_ttu;
+
+select * from vanzator_ttu;
+
+alter table timbru_ttu
+add constraint pk_timbru_ttu primary key(cod_timbru);
+
+select * from user_constraints
+where lower(table_name) = 'timbru_ttu';
+
+alter table vanzator_ttu
+add constraint pk1_vanzator_ttu primary key(cod_vanzator);
+
+select * from user_constraints
+where lower(table_name) = 'vanzator_ttu';
+
+alter table vinde_ttu
+add constraint fk1_vinde_ttu foreign key(cod_timbru) references timbru_ttu(cod_timbru);
+
+alter table vinde_ttu
+add constraint fk2_vinde_ttu foreign key(cod_vanzator) references vanzator_ttu(cod_vanzator);
+
+alter table vinde_ttu
+add constraint pk_vinde_ttu primary key(cod_timbru, cod_vanzator);
+
+select * from user_constraints
+where lower(table_name) = 'vinde_ttu';
+
+3. Actualizati coloana “timbre_vandute” a tabelului VANZATOR_PNU
+(OBS: trebuie sa rezolvati acest exercitiu folosind tabelele create la exercitiul
+anterior), astfel incat aceasta sa contina numarul de timbre vandute de fiecare
+vanzator;
+
+update vanzator_pnu v
+set timbre_vandute = (select count(cod_timbru)
+                      from vinde
+                      where cod_vanzator = v.cod_vanzator);
+
+select * from timbru_ttu;
+
+select * from vinde_ttu;
+
+select * from vanzator_ttu;
+
+4. Creati tabelul “valoare_totala_pnu” care sa contina codul timbrului, 
+codul vanzatorului, numele timbrului, numele vanzatorului, numarul total de timbre si 
+suma totala vanduta pentru fiecare timbru in parte
+
+
+Coloanele se vor numi: cod_timbru, cod_vanzator, nume_timbru, nume_vanzator, numar_total_timbre, suma_vanduta
+
+desc timbru;
+
+desc vanzator;
+
+create table valotare_totala_pnu (
+    cod_timbru number(5),
+    cod_vanzator number(5),
+    nume_timbru varchar2(20) not null,
+    nume_vanzator varchar2(20) not null,
+    numar_total_timbre number(5) not null,
+    suma_vanduta number(5) not null,
+    primary key(cod_timbru, cod_vanzator)
+);
+
+insert into valoare_totala_pnu (cod_timbru, cod_vanzator, nume_timbru, nume_vanzator, numar_total_timbre, suma_vanduta)
+    (SELECT t.cod_timbru, vanz.cod_vanzator, t.nume, vanz.nume, 
+        (select count(cod_timbru)
+         from vinde
+         where cod_timbru = t.cod_timbru) "Total timbre",
+             
+        (select sum(val_cumparare)
+         from vinde
+         where cod_timbru = t.cod_timbru) as "Suma vanduta"
+         
+     FROM timbru t join vinde vi on (t.cod_timbru = vi.cod_timbru)
+                   join vanzator vanz on (vi.cod_vanzator = vanz.cod_vanzator)
+     );
+
+select * from valoare_totala_pnu;
+
+5. Sa se creeze o vizualizare “info_pnu” care contine informatii despre
+vanzatorii (nume, cod) si timbrele vandute de acestia (cod, nume,
+data_emitere) care au fost emise in anul 2018. Care sunt coloanele
+actualizabile ale acestei vizualizari? Justificati;
+
+drop view info_ttu;
+
+create or replace view info_ttu 
+                      as(select v.nume, v.cod_vanzator CodVanz, t.nume NumeTimbru, t.cod_timbru CodTimbru, t.data_emitere DataEmitere
+                         from vanzator v join vinde vi on (v.cod_vanzator = vi.cod_vanzator)
+                                         join timbru t on (t.cod_timbru = vi.cod_timbru)
+                         where to_char(t.data_emitere,'yyyy') = 2018);
+                         
+
+select * from info_ttu;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
