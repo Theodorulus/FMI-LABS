@@ -1,0 +1,8 @@
+Q - punct query
+
+Punctul martor M trebuie ales in felul urmator:
+	alege M random, departat de poligon
+	P, M, Q trebuie sa fie necoliniare (oricare ar fi P un varf al poligonului)
+	altfel, incearca sa iei alt punct M pana e adevarata conditia de mai sus
+
+Acest lucru ne scuteste de verificari ale diferitelor edge case-uri.

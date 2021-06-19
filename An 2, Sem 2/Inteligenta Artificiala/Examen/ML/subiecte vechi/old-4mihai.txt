@@ -1,0 +1,59 @@
+1. Care dintre urmatoarele tehnici nu este o metoda de prevenire a overfittingului?
+	A. Normalizarea datelor
+B. Oprirea timpurie a antrenarii
+C. Utilizarea regularizarii
+D. Scaderea ratei de invatare
+
+2. Care dintre urmatoarele functii de activare este recomandata pentru stratul de iesire cu 10 neuroni al unei retele neuronale ce identifica cifra scrisa intr-o imagine?
+A. Leaky ReLU
+B. ReLU
+C. Liniara
+	?D. Softmax
+
+3. Care ditre aceste optiuni pot sa ajute in imbunatatirea capacitatii de generalizarea unui model de invatare automata?
+A. Cresterea numarului de parametri antrenabili ai modelului
+B. Continuarea antrenarii pana se ajunge la overfitting
+C. Micsorarea setului de antrenare
+	?D. Adaugarea unui termen de regularizare
+
+4. Daca un clasificator are acuratete 1% pe o multime de antrenare cu 100 clase, cel mai probabil:
+A. Este in regin optim de antrenare
+B. Este in regim de suprainvatare
+	?C. Nici una dintre variante
+D. Acurateata este potrivita
+
+5. Pentru care dintre urmatoarele probleme putem masura performanta unui model de invatare automata folosind media patratelor erorilor?
+	A. Estimarea veniturilor viitoare ale unei companii
+B. Detectarea semafoarelor dintr-o imagine
+C. Recunoasterea actiunilor dintr-un clip video
+D. Identificarea limbii unui text
+
+6. Metodele Kernel ne pot ajuta la:
+A. Transformarea ponderilor modelului
+	B. Transformarea datelor liniar separabile in date neliniar separabile
+C. Transformarea datelor neliniar separabile in date liniar separabile
+D. Transformarea etichetelor
+
+7. Ce dimensiune spatiala va avea un activation map dupa aplicarea unui strat de pooling de 11x11 cu stride=4 pe o intrare de 227x227?
+A. 16x16
+	B. 55x55
+C. 128x128
+D. 127x127
+
+8. Care din urmatoarele metode este folosita pentru a combate bias-ul modelului?
+A. Reducerea numarului de exemple
+B. F1-score
+	C. Alegerea unui model mai complex
+D. Early stopping
+
+9. Care din urmatoarele clasificatoare au o decizie liniara?
+A. KNN
+	?B. Naive Bayes
+C. MLP fara functii de transfer
+	?D. SVM cu kernel RBF
+
+10. Putem prefera sa utilizam functia de neliniaritate ReLU in comparatie cu Sigmoida deoarece:
+A. Are mereu rezultate mai bune
+B. Este derivabila in 0
+	?C. Gradientii se satureaza doar pe semiaxa negativa
+D. Este conceputa special pentru probleme de clasificare

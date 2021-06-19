@@ -1,0 +1,65 @@
+.login{
+	text-align: center;
+	margin: 3% 30%;
+	background: rgba(25, 25, 25, .5);
+	width: 30%;
+	padding: 7% 5% 10% 5%;
+	border-radius: 5px;
+	border: 1px solid #bebac2;
+	color: white;
+}
+
+
+
+.register{
+	text-align: center;
+	margin: 3% 30%;
+	background: rgba(25, 25, 25, .5);
+	width: 30%;
+	padding: 2% 5% 2% 5%;
+	border-radius: 5px;
+	border: 1px solid #bebac2;
+	color: white;
+}
+
+.login input{
+	width: 50%;
+	padding: 15px;
+	margin: 5% 15% 5% 22%;
+	display: block;
+	border: none;
+	background: #f1f1f1;
+	font-size: 20px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.register input{
+	width: 70%;
+	padding: 15px;
+	margin: 5% 15% 5% 13%;
+	display: block;
+	border: none;
+	background: #f1f1f1;
+	font-size: 20px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.register a {
+	text-decoration: underline;
+	color: white;
+}
+			
+.loginbtn {
+	background-color: #1b0024;
+	color: white;
+	padding: 16px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 30%;
+	font-size: 20px;
+	border-radius: 5px;
+}
+

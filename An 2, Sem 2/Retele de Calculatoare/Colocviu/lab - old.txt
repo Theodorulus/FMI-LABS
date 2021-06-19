@@ -1,0 +1,248 @@
+conectare 
+pc giga -> switch giga 0/2 (straight-throught)
+switch giga 0/1 -> router 0/0 (straight-throught)
+router -> router (dte) (seriale la fel 0/0/0 -> 0/0/0 sau 0/0/1 -> 0/0/1) 
+SERVER giga 0/0 -> switch 0/2 (straight-throught)
+router (giga 0/1) -> wifi (internet 0/0)  (copper cross-over)
+
+PC:
+punem placa de retea CGE
+IP: .10 mask
+gateway: primul din range 
+dns: ultimul din range pt ramura de server
+EMAIL:
+name: nume email: nume@info.ro
+server: ultimul ip din range pt ramura de server
+username: nume password: 123456
+
+
+SWITCH (2960-24TT)
+
+enable
+clock set ora + data
+configure terminal
+no ip domain-lookup
+no cdp run
+hostname nume_host
+ip default-gateway gateway (primul din range)
+ip domain-name info.ro
+
+interface range fa 0/1-24
+shutdown
+exit
+
+service password-encryption
+enable password ciscoenapa55
+enable secret ciscosecpa55
+banner motd # Sedinta luni # 
+line console 0
+password ciscoconpa55
+login
+logging synchronous
+exec-timeout 20 20
+exit
+line vty 0 15
+password ciscovtypa55
+login
+exec-timeout 25 20
+transport input ssh
+login local
+exit 
+username Admin01 privilege 15 secret Admin01pa55
+crypto key generate rsa
+2048
+
+logging host adresa_server
+service timestamps log datetime msec
+service timestamps debug datetime msec
+
+interface vlan 1
+description Legatura cu network_address
+ip address switch_address mask_address
+no shutdown
+exit
+
+exit
+copy running-config startup-config
+
+
+
+ROUTER (2911)
+
+punem placa de retea 2T
+
+enable
+clock set ora + data
+configure terminal
+no ip domain-lookup
+no cdp run
+hostname nume_host
+ip domain-name info.ro
+
+interface range GigabitEthernet 0/0 - GigabitEthernet 0/2
+shutdown
+exit
+interface Serial 0/0/0
+shutdown
+exit
+interface Serial 0/0/1
+shutdown
+exit
+
+service password-encryption
+security password min-length 10
+login block-for 60 attempts 3 within 20
+enable password ciscoenapa55
+enable secret ciscosecpa55
+banner motd # Sedinta luni #
+banner login # Accesul persoanelor neautorizate este interzis #
+line console 0
+password ciscoconpa55
+login
+logging synchronous
+exec-timeout 20 20
+exit 
+line vty 0 15
+password ciscovtypa55
+login
+exec-timeout 25 20
+transport input ssh
+login local
+exit 
+username Admin01 privilege 15 secret Admin01pa55
+crypto key generate rsa
+2048
+
+logging host adresa_server
+service timestamps log datetime msec
+service timestamps debug datetime msec
+
+interface GigabitEthernet 0/0
+ip address adresa_router mask
+no shutdown
+exit
+
+exit
+copy running-config startup-config
+
+VEZI IP ROUTE: SHOW IP ROUTE
+
+ROUTARE STATICA
+
+configure terminal
+interface Serial 0/0/0
+ip address ip_legatura 255.255.255.252
+no shutdown
+exit
+interface Serial 0/0/1
+ip address ip_legatura 255.255.255.252
+no shutdown
+exit
+ip route X masca serial 0/0/0  - pt fiecare ( trebuie N.A. din normal nu din legatura)
+
+ROUTARE DINAMICA
+
+enable
+configure terminal
+interface Serial 0/0/0
+ip address ip_legatura 255.255.255.252
+no shutdown
+exit
+interface Serial 0/0/1
+ip address ip_legatura 255.255.255.252
+no shutdown
+exit
+router rip
+version 2
+no auto-summary
+network 160.180.96.0 (N.A. BEGA)
+network 160.180.0.0 (N.A. BIRLAD)
+network 160.180.64.0 (N.A. BUZAU)
+network 160.180.112.0 (N.A. BUZAU-BEGA)
+network 160.180.112.8 (N.A. BEGA-BIRLAD)
+exit
+exit
+copy running-config startup-config
+
+
+SERVER
+
+PUNE CGE
+ip in settings
+si ip in giga (trb sa o schimbi)
+services -> http -> off
+		 -> dns -> on -> name (name: info.ro -> addres: ip server)
+		 -> address cu dns add
+		 -> email domain name set si adauga useri (NU UITA DE SERVER)
+email -> configure email
+dhcp -> on -> 
+	poolname: buzauPool
+	default gateway: primul din range
+	dns server: ip server
+	start ip address: NA.10 (ca la pc)
+	subnet mask: masca
+	nr of users: nr total useri - 10
+	ADD
+	
+	
+SYSLOG
+router server:conf t
+router server: logging ip_server
+router server: do wr
+router server: debug ip icmp
+
+
+APOI IN ROUTER IN INTERFACE GIGA 0/0 (AIA SPRE PC)
+ip helper-address ip_server
+
+
+WI-FI (300N)
+cross-over (router: giga si wifi: internet)
+wifi -> gui -> static
+(pui alea la ip, masca, default, dns)
+ip address: ip din conex
+mask: masca de la conex
+default: primul din range de la conex
+dns: ip server
+
+ip address: 192.168.242.129 (din buzunar)   sau 192.168.100.1 sau 40.100
+mask: 255.255.255.192
+
+start ip adress aia de sus si nr users!
+save
+WIRELESS ->
+SSID : numele
+standard channel: 6
+wireless security: WPA2 personal pass: 123456789
+in laptopu de service pun email si la ip adress dai static si apoi dhcp( sa se reseteze)
+pc wireless -> profiles -> new -> WIFI-FIJI
+advanced setup next next 
+security wpa2-personal next
+123456789 next save connect to network
+
+
+MAC
+ipconfig /all
+WIFI -> wireless -> wireless mac filter -> bifeaza a 2 a (PERMIT PCs)
+
+Testare FTP 
+
+ftp ip(domeniu)
+cisco
+cisco
+dir
+get asa842-k8.bin
+quit
+dir
+
+
+router dhcp 
+
+ip dhcp excluded-address x y   (10.96.16.0 10.96.16.9)
+ip dhcp pool PoolFranta
+network ip mask  (N.A. mask)
+default-router ip (adresa router)
+dns-server ip (server)
+ip helper-address adresa_routerului_server (interface giga 0/0)
+
+

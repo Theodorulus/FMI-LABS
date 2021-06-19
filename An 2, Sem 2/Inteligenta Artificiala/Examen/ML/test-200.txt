@@ -1,0 +1,60 @@
+1. Cati clasificatori binari vor fi antrenati pentru o problema multi-class cu 9 clase folosind schema de combinare one-vs-one?
+A. 36
+B. 9
+	C. 72
+D. 1
+
+2. Care este avantajul utilizarii kernel-urilor in cazul clasificatorilor de tip SVM.
+A. Permite translatarea datelor intr-un spatiu superior (Hilbert) in care acestea sunt intotdeauna liniar separabile.
+B. Niciunul. Utilizarea a mai multe straturi elimina necesitatea unui kernel.
+C. Poate transforma clasificatorul in unul non-liniar si permite modelarea unei frontiere de decizie mai complexa.
+D. Elimina necesitatea normalizarii datelor si transforma modelul SVM intr-un clasificator liniar.
+
+3. De ce in cadrul algorimului de gradient descent pasul de update presupune scaderea gradientului si nu adunarea sa la valoarea curenta a ponderilor?
+A. Este irelevant deoarece rata de invatare poate fi si pozitiva si negativa eliminand importanta semnului.
+B. Deoarece un gradient pozitiv in raport cu o pondere semnifica faptul ca o crestere in valoare a ponderii va duce la o crestere in valoare a rezultatului functiei de pierdere iar in acest caz este necesara o scadere a valorii ponderii. Deasemenea, un gradient negativ releva faptul ca o crestere in valoare a ponderii va duce la o scadere in valoare a rezultatului functiei de pierdere, caz in care scaderea gradientului (negativ), duce la o crestere a ponderii si la scaderea erorii modelului.
+C. Deoarece valorile negative ajuta la convergenta si la prevenirea fenomenelor de overfitting si underfitting (explicand performanta ridicata a retelelor neurale in contextul problemelor industriale).
+D. Deoarece este necesar ca valoarea ponderilor sa nu explodeze.
+
+4. Cate ponderi invatabile (inclusiv bias) are un filtru convolutional de dimensiune 9x9x5?
+A. 23
+B. 24
+	C. 406
+D. 405
+
+5. Care va fi valoarea activarilor P = [[-3, -1], [2, -1], [1.4, 1.8]], dupa aplicarea functiei softmax (trucheat la doua zecimale)?
+A. [[0.21, 0.88], [0.98, 0.04], [0.40, 0.59]]
+	B. [[0.11, 0.88], [0.95, 0.04], [0.40, 0.59]]
+C. [[0.31, 0.88], [0.95, 0.04], [-0.40, 0.59]]
+D. [[0.31, 0.88], [-0.95, 0.04], [0.40, 0.59]]
+
+6. Cati clasificatori sunt utilizati in antrenarea unui SVM cu abordare one vs one pentru urmatoarele date: [(2,2),(1,2),(1,1),(2,1),(1,1),(-1,-1),(1,-1),(-1,1)], cu etichetele: [1,2,1,4,2,3,4,3]?
+A. 8
+B. 10
+C. 5
+	D. 6
+
+7. Care este avantajul utilizarii kernel-urilor in cazul clasificatorilor de tip SVM.
+A. Permite translatarea datelor intr-un spatiu superior (Hilbert) in care acestea sunt intotdeauna liniar separabile.
+B. Poate transforma clasificatorul in unul non-liniar si permite modelarea unei frontiere de decizie mai complexa.
+C. Niciunul. Utilizarea a mai multe straturi elimina necesitatea unui kernel.
+D. Elimina necesitatea normalizarii datelor si transforma modelul SVM intr-un clasificator liniar.
+
+8. Care este, in general, beneficiul adus de utilizarea a mai multe straturi de neuroni (doua sau mai multe) in cazul retelelelor neurale?
+A. Marirea numarului de parametrii prin utilizarea a mai multe straturi de neuroni duce la prevenirea fenomenului de regularizare.
+B. Utilizarea unui numar mare de straturi de neuroni cu activare liniara duce la o putere de modelare sporita.
+C. Marirea numarului de parametrii prin utilizarea a mai multe straturi de neuroni duce la prevenirea fenomenului de overfitting.
+D. Utilizarea a mai multe straturi permite invatarea automata a unor reprezentari din ce in ce mai abstracte a inputurilor.
+
+9. De ce in cadrul algorimului de gradient descent pasul de update presupune scaderea gradientului si nu adunarea sa la valoarea curenta a ponderilor?
+A. Este irelevant deoarece rata de invatare poate fi si pozitiva si negativa eliminand importanta semnului.
+B. Deoarece valorile negative ajuta la convergenta si la prevenirea fenomenelor de overfitting si underfitting (explicand performanta ridicata a retelelor neurale in contextul problemelor industriale).
+C. Deoarece un gradient pozitiv in raport cu o pondere semnifica faptul ca o crestere in valoare a ponderii va duce la o crestere in valoare a rezultatului functiei de pierdere iar in acest caz este necesara o scadere a valorii ponderii. Deasemenea, un gradient negativ releva faptul ca o crestere in valoare a ponderii va duce la o scadere in valoare a rezultatului functiei de pierdere, caz in care scaderea gradientului (negativ), duce la o crestere a ponderii si la scaderea erorii modelului.
+D. Deoarece este necesar ca valoarea ponderilor sa nu explodeze.
+
+10. Care din urmatorii algoritmi se foloseste pentru optimizare ponderilor retelelor neuronale?
+A. Dropout
+B. Knn
+C. Naive Bayes
+	D. SGD cu momentum
+

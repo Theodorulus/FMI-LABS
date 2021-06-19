@@ -1,0 +1,79 @@
+#games>div{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 3%;
+	
+}
+
+#games figure {
+	width: 45%;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-bottom: 2%;
+	margin-top: 0px;
+}
+
+
+#games figure img {
+	width: 100%;       
+	height: auto;
+	margin-bottom: 1%;
+	border-radius: 5px;
+	transition: 0.5s;
+}
+
+#games figure img:hover {
+	filter: brightness(30%);
+}
+
+#games figure figcaption{
+	text-align: center;
+	font-size: 30px;
+	margin: 0px;
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
+#games a {
+	text-decoration: none;
+	color: #bebac2;
+	
+}
+
+
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.image-container .playbtn {
+	display: block;
+  	position: fixed;
+  	top: 38%;
+  	left: 26.7%;
+  	transform: translate(-50%, -50%);
+  	ms-transform: translate(-50%, -50%);
+  	background-color: #322145;
+  	color: white;
+  	font-size: 16px;
+  	padding: 20px 40px;
+  	border: none;
+  	cursor: pointer;
+  	border-radius: 5px;
+	height:10px;
+	width:15px;
+}
+
+.image-container .playbtn:hover {
+  background-color: #1b0024;
+}
+
+.image-container img:hover + .playbtn, .playbtn:hover{
+  display:inline-block;
+}
+
+
+
+
