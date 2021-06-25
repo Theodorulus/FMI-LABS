@@ -1,0 +1,4 @@
+<if (0 <= i, i = i + -4; while (0 <= i, {i + -4}), skip), i -> 3>   -> ID
+<if (0 <= 3, i = i + -4; while (0 <= i, {i + -4}), skip), i -> 3>   -> LEQ-TRUE
+<if (true, i = i + -4; while (0 <= i, {i + -4}), skip), i -> 3> -> IF-TRUE
+<i = i + -4; while (0 <= i, {i + -4}), i -> 3> 

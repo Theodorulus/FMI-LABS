@@ -1,4 +1,3 @@
-
 --- Monada Maybe
 
 {- Monada Maybe este definita in GHC.Base 

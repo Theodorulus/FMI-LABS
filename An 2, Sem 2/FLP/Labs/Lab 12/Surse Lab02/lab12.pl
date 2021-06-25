@@ -79,6 +79,20 @@ trans_a_b([a|Tail1], [b|Tail2]) :-
     trans_a_b(Tail1, Tail2).
 
 
+trans_a_b(X, Y) :- all_a(X), all_b(Y), length(X, L1), length(Y, L2), L1==L2.
+
+trans_a_b1([], []).
+trans_a_b1([a|Tail1], [b|Tail2]) :-
+    trans_a_b1(Tail1, Tail2).
+
+/**
+scalarMult(_, [], _).
+scalarMult(X, [Head|Tail], [HRes|TRes]) :- HRes is X * Head, scalarMult(X, Tail, TRes).
+
+dot([], [], 1). 
+dot([H1|T1], [H2|T2], Result) :- Result is Result + H1 * H2, dot(T1, T2, Result).
+*/
+
 /** <examples>
 ?- 3+5 = +(3,5).
 true

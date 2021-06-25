@@ -1,0 +1,3 @@
+1. alg. de unificare
+2. se da un program si se cere ca la 2 (in special Solutia 2)
+3. variabile legate/libere

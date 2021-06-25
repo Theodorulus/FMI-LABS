@@ -1,5 +1,5 @@
 
---- Monada Identity
+--- Monada Writer
 
 {-
 
@@ -28,6 +28,23 @@ instance Monoid log => Functor (Writer log) where -- fara Monoid: * No instance 
 -}
 
 newtype StringWriter a = StringWriter { runStringWriter :: (a, String)}
+
+instance (Show a) => Show (StringWriter a) where
+  show (StringWriter y) = show y
+
+instance Monad StringWriter where
+  return a = StringWriter a
+  ma >>= k = k (runStringWriter ma)
+
+instance Applicative StringWriter where
+  pure = return
+  mf <*> ma = do
+    f <- mf
+    a <- ma
+    return (f a)
+
+instance Functor StringWriter where
+  fmap f ma = pure f <*> ma
 
 instance Show a=>Show (StringWriter a) where
     show  ma ="Output:" ++ s ++ "\nValue:" ++ show a

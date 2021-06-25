@@ -10,20 +10,21 @@ prog :: Prog -> DomProg
 prog (On s) = stmt s 0
 
 stmt :: Instr -> DomInstr
-stmt (e :> s) m = let v = expr e m in (v: (stmt s v))
+stmt (e :> s) m = let v = expr e m in (v: stmt s v)
 stmt Off _ = []
 
 expr :: Expr -> DomExpr
 expr Mem env = env
 expr (V i) _ = i
-expr (ex1 :+ ex2) env = (expr ex1 env) + (expr ex2 env)
+expr (ex1 :+ ex2) env = expr ex1 env + expr ex2 env
 
 p1 = On ( (V 3) :> ((Mem :+ (V 5)):> Off))
 p2 = On ( (V 5) :> ((Mem :+ (V 4)):> (((Mem :+ (V 3))) :> Off)))
 
 
 type Name = String
-data Hask = HTrue
+data Hask = 
+   HTrue
  | HFalse
  | HLet Name Hask Hask
  | HLit Int
@@ -57,6 +58,7 @@ instance Eq Value where
      (==) (VInt a) (VInt b) = a == b
      (==) _ _ = error ("Nu se poate face egalitatea")
 
+
 hEval :: Hask -> DomHask
 hEval HTrue env = VBool True
 hEval HFalse env = VBool False
@@ -88,3 +90,4 @@ h0 = (HLam "x" (HLam "y" ((HVar "x") :+: (HVar "y"))))
       :$: (HLit 4)
 
 h1 = HLet "x" (HLit 3) ((HLit 4) :+: HVar "x")
+

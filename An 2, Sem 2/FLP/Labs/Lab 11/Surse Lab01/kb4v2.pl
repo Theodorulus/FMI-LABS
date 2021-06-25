@@ -88,7 +88,7 @@ ancestor_of(Ancestor, Person) :- parent_of(Ancestor, Person);
 % raspunde false pentru varibabile instantiate, dar nu forteaza instantierea
 % not_parent(X,Y) :- \+ parent_of(X,Y).
 
-not_parent(X,Y) :- (    male(X);female(X)), (male(Y); female(Y)), \+ parent_of(X,Y).
+not_parent(X,Y) :- (male(X);female(X)), (male(Y); female(Y)), \+ parent_of(X,Y).
 
 ancestor_not_parent(X,Y) :- ancestor_of(X,Y), \+parent_of(X,Y).
 
