@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="HALLS" directorySegmentName="seg_0" id="4C7A9815-387F-7BF8-94BB-00569738A333">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:22 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<schemaObject>BB6E2FE8-17C8-CF1F-1E4E-734CA0C8F2F7</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>564974BB-1D96-B90D-1F30-4B9C75D3102E</segment>
+<tableSpace>C44334F8-F5B2-951E-7AAA-21FDD32C26C8</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="HALL_NUMBER" id="156BDEAE-F997-C5D5-CEFE-FFD08D031864">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HALL_ID" id="2284950B-D9D6-244E-BA20-D4164B8A0580">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CAPACITY" id="2340C7D3-A9BB-C1DA-2181-2BD4874B02EF">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="HALLS_PK" id="BFFDD044-8964-276E-3662-1CF11423A43B">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:24 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<schemaObject>BB6E2FE8-17C8-CF1F-1E4E-734CA0C8F2F7</schemaObject>
+<segment>DC6BCA50-E7C7-142F-8E6C-59C05F1C6259</segment>
+<tableSpace>C44334F8-F5B2-951E-7AAA-21FDD32C26C8</tableSpace>
+<indexSegment>DC6BCA50-E7C7-142F-8E6C-59C05F1C6259</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

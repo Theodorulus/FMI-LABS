@@ -1,0 +1,128 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+#Exercitiul 1
+
+O familie are doi copii. Care este probabilitatea ca ambii copii sa fie baieti stiind ca cel putin unul dintre copii este baiat? Care este probabilitate ca ambii copii sa fie baieti stiind ca cel mai tanar este baiat?
+
+Consideram evenimentele $A = \{\text{Familia are ambii copii B}\}$ si $B = \{\text{Familia are cel putin un B}\}$ si vrem sa determinam probabilitarea
+
+$$
+\mathbb{P}(A|B) = \frac{\mathbb{P}(A\cap B)}{\mathbb{P}(B)} = \frac{\mathbb{P}(A)}{\mathbb{P}(B)}\approx \frac{N(A)}{N(B)}\
+$$
+
+```{r}
+# Ctrl + Alt + I - generam chunk R
+# Ctrl + Shift + Enter - rulam codul din chunk-ul R
+
+N = 10 ^ 5
+
+scopil1 = sample(c("F", "B"), N, replace = TRUE)
+scopil2 = sample(c("F", "B"), N, replace = TRUE)
+
+nr_fam_2B = sum(scopil1 == "B" & scopil2 == "B")
+nr_fam_cp1B = sum(scopil1 == "B" | scopil2 == "B")
+
+nr_fam_pB = sum(scopil1 == "B")
+
+
+p1 = nr_fam_2B / nr_fam_cp1B
+p_fam_2B = nr_fam_2B / N
+p1
+
+p2 = nr_fam_2B / nr_fam_pB
+p2
+
+```
+
+#Exercitiul 2
+
+Problema Monty Hall
+
+```{r}
+Monty_Hall = function(usa_masina = 1, usa_aleasa = 2, strategia = 1){
+  
+  usi = 1:3
+  
+  #Monty Hall intoarce usa necastigatoare
+  
+  if(usa_aleasa != usa_masina){
+    usa_monty = usi[-c(usa_aleasa, usa_masina)]
+  }
+  else{
+    usa_monty = sample(usi[-usa_aleasa], 1)
+  }
+  
+  #print(paste0("Monty Hall intoarce usa cu numarul ", usa_monty, ", in spatele careia se afla o capra."))
+  
+  if(strategia ==2){
+    usa_aleasa = usi[-c(usa_aleasa, usa_monty)]
+  }
+  
+  raspuns = usa_masina ==usa_aleasa
+  
+  #if(raspuns){
+  #  print("Ai castigat!")
+  #}
+  #else{
+  #  print(paste0("Ai pierdut! Masina se afla in spatele usii cu numarul ", usa_masina, 
+  #        ", dar tu ai ales usa cu numarul ", usa_aleasa))
+  #}
+  return(raspuns)
+}
+
+```
+```{r}
+joc1 = Monty_Hall(2, 2, 1)
+joc2 = Monty_Hall(2, 2, 2)
+```
+```{r}
+N = 10^5
+
+set.seed(123)
+
+sample(1:3, 10, replace = T)
+
+usa_m = sample(1:3, N, replace = TRUE)
+usa_a = 2
+
+strateg = 2
+
+start = proc.time()
+
+rezultate_joc = logical(N)
+
+for(i in 1:N){
+  rezultate_joc[i] = Monty_Hall(usa_m[i], usa_a, strateg)
+}
+
+prob1 = sum(rezultate_joc) / N
+prob1
+
+proc.time() - start
+
+Monty_vect = Vectorize(Monty_Hall, "usa_masina")
+
+start2 = proc.time()
+
+prob_s1 = sum(Monty_vect(usa_m, usa_a, strateg)) / N
+prob_s1
+
+proc.time() - start2
+```
+
+
+
+
+
+
+
+
+
+
+

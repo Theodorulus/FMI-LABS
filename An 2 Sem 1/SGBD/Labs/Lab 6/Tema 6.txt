@@ -1,0 +1,245 @@
+--1
+
+CREATE TABLE INFO_TTU
+(
+id number(3) primary key,
+utilizator varchar2(50),
+data date,
+comanda varchar2(50),
+nr_linii number(3),
+eroare varchar2(200)
+);
+
+CREATE SEQUENCE s_info_ttu
+start with 1;
+
+--2
+--FUNCTIE
+
+CREATE OR REPLACE FUNCTION f2_ttu2
+    (v_nume employees.last_name%TYPE DEFAULT 'Bell') 
+RETURN NUMBER IS 
+    salariu employees.salary%type; 
+    BEGIN 
+        SELECT salary INTO salariu 
+        FROM employees 
+        WHERE last_name = v_nume;
+        
+        insert into info_ttu
+        values(s_info_ttu.nextval, USER, SYSTIMESTAMP, 'SELECT', 1, null);
+        RETURN salariu; 
+    EXCEPTION 
+        WHEN NO_DATA_FOUND THEN 
+            --RAISE_APPLICATION_ERROR(-20000, 'Nu exista angajati cu numele dat'); 
+            insert into info_ttu
+            values(s_info_ttu.nextval, USER, SYSTIMESTAMP, 'SELECT', 0, 'Nu exista angajati cu numele dat');
+            return -1;
+        WHEN TOO_MANY_ROWS THEN 
+            --RAISE_APPLICATION_ERROR(-20001, 'Exista mai multi angajati cu numele dat'); 
+            insert into info_ttu
+            values(s_info_ttu.nextval, USER, SYSTIMESTAMP, 'SELECT', 3, 'Exista mai multi angajati cu numele dat');
+            return -2;
+        WHEN OTHERS THEN 
+            --RAISE_APPLICATION_ERROR(-20002,'Alta eroare!');
+            insert into info_ttu
+            values(s_info_ttu.nextval, USER, SYSTIMESTAMP, 'SELECT', 0, 'Alta eroare!');
+            return -3;
+END f2_ttu2;
+/
+
+--apelare
+
+BEGIN 
+    DBMS_OUTPUT.PUT_LINE(f2_ttu2); -- functioneaza si fara paramentru pentru ca exista valoare default('Bell')
+    DBMS_OUTPUT.PUT_LINE(f2_ttu('King')); 
+    DBMS_OUTPUT.PUT_LINE(f2_ttu('K')); 
+END; 
+/ 
+
+SELECT * FROM INFO_TTU;
+
+--PROCEDURA
+
+CREATE OR REPLACE PROCEDURE p2_ttu2
+    (v_nume employees.last_name%TYPE) 
+    IS 
+        salariu employees.salary%TYPE; 
+    BEGIN 
+        SELECT salary INTO salariu 
+        FROM employees 
+        WHERE last_name = v_nume; 
+        
+        insert into info_ttu
+        values(s_info_ttu.nextval, USER, SYSTIMESTAMP, 'SELECT', 1, null);
+        
+    EXCEPTION 
+        WHEN NO_DATA_FOUND THEN 
+            --RAISE_APPLICATION_ERROR(-20000, 'Nu exista angajati cu numele dat'); 
+            insert into info_ttu
+            values(s_info_ttu.nextval, USER, SYSTIMESTAMP, 'SELECT', 0, 'Nu exista angajati cu numele dat');
+        WHEN TOO_MANY_ROWS THEN 
+            --RAISE_APPLICATION_ERROR(-20001, 'Exista mai multi angajati cu numele dat'); 
+            insert into info_ttu
+            values(s_info_ttu.nextval, USER, SYSTIMESTAMP, 'SELECT', 3, 'Exista mai multi angajati cu numele dat');
+        WHEN OTHERS THEN 
+            --RAISE_APPLICATION_ERROR(-20002,'Alta eroare!');
+            insert into info_ttu
+            values(s_info_ttu.nextval, USER, SYSTIMESTAMP, 'SELECT', 0, 'Alta eroare!');
+END p2_ttu2; 
+/
+
+--apelare 
+
+BEGIN 
+p2_ttu2('King');
+p2_ttu2('Bell'); 
+p2_ttu2('Kal'); 
+END; 
+/
+
+SELECT * FROM INFO_TTU;
+
+--3
+
+select * from locations;
+
+-- nr de angajati care lucreaza in prezent in orasul x
+select count(*)
+from locations l, employees e, departments d
+where l.location_id = d.location_id
+and d.department_id = e.department_id
+and upper(city) = 'LONDON';
+
+select city from locations
+where city = 'London';
+
+
+
+
+CREATE OR REPLACE FUNCTION ex3_ttu
+    (v_oras locations.city%type)
+RETURN NUMBER IS
+    nr NUMBER;
+    oras locations.city%type;
+BEGIN
+    SELECT city into oras
+    FROM locations
+    WHERE upper(city) = upper(v_oras);
+    
+    IF SQL%ROWCOUNT = 0 THEN
+        insert into info_ttu
+        values(s_info_ttu.nextval, USER, SYSTIMESTAMP, 'SELECT', 0, 'Nu exista orasul dat.');
+        return -2;
+    END IF;
+
+    SELECT COUNT(*) INTO nr
+    FROM locations l, employees e, departments d
+    WHERE l.location_id = d.location_id
+          AND d.department_id = e.department_id
+          AND upper(city) = upper(v_oras);
+
+    if nr =0 then
+        insert into info_ttu
+        values(s_info_ttu.nextval, USER, SYSTIMESTAMP, 'SELECT', 0, 'In orasul dat nu exista niciun angajat.');
+        return -1;
+    end if;
+
+    select count(*) into nr
+    from
+    (select employee_id
+     from job_history jh
+     where exists  (select employee_id
+                    from locations l, employees e, departments d
+                    where l.location_id = d.location_id
+                    and d.department_id = e.department_id
+                    and jh.employee_id = e.employee_id
+                    and city = v_oras)
+    group by employee_id
+    having count(distinct(job_id)) >=2);
+    
+    insert into info_ttu
+    values(s_info_ttu.nextval, USER, SYSTIMESTAMP, 'SELECT', 1, NULL);
+    
+    return nr;
+    EXCEPTION
+        WHEN No_data_found THEN
+        insert into info_ttu
+        values(s_info_ttu.nextval,USER,SYSTIMESTAMP,'SELECT',0,'Nu exista orasul dat');
+        return -2;
+end ex3_ttu;
+/
+
+--apelare
+
+BEGIN 
+    DBMS_OUTPUT.PUT_LINE(ex3_ttu('London'));
+    DBMS_OUTPUT.PUT_LINE(ex3_ttu('Venice'));
+    DBMS_OUTPUT.PUT_LINE(ex3_ttu('Oradea'));
+END; 
+/
+
+SELECT * FROM INFO_TTU;
+
+--4
+
+create table employee_ttu as (select * from employees);
+
+select * from employee_ttu;
+
+CREATE OR REPLACE PROCEDURE tema4_ttu
+    (emp_id employees.employee_id%TYPE) 
+    IS 
+         TYPE tablou_ids IS TABLE OF employees.employee_id%TYPE;
+         v_ids tablou_ids;
+         salariu employees.salary%TYPE;
+         linii_schimbate NUMBER(5);
+         CURSOR c is 
+                     select e.employee_id
+                     from employees e join employees m on (e.manager_id = m.employee_id)
+                     where m.employee_id = emp_id or m.employee_id in (select e1.employee_id 
+                                                                    from employees e1 join employees m1 on (e1.manager_id = m1.employee_id)
+                                                                    where m1.employee_id = emp_id or m1.employee_id in 
+                                                                    (select e2.employee_id 
+                                                                     from employees e2 join employees m2 on (e2.manager_id = m2.employee_id)
+                                                                     where m2.employee_id = emp_id));
+    BEGIN 
+        linii_schimbate := 0;
+        FOR i in c LOOP
+            SELECT salary INTO salariu 
+            FROM employee_ttu
+            WHERE employee_id = i.employee_id;
+            
+            salariu := salariu * 1.1;
+            
+            UPDATE employee_ttu
+            SET salary = salariu
+            WHERE employee_id = i.employee_id;
+            
+            linii_schimbate := linii_schimbate + 1;
+        END LOOP;
+        
+        IF linii_schimbate <> 0 THEN
+            insert into info_ttu
+            values(s_info_ttu.nextval, USER, SYSTIMESTAMP, 'INSERT', linii_schimbate, null);
+        ELSE
+            insert into info_ttu
+            values(s_info_ttu.nextval, USER, SYSTIMESTAMP, 'INSERT', linii_schimbate, 'Nu exista manageri cu id-ul dat');
+        END IF;
+        
+    EXCEPTION 
+        WHEN OTHERS THEN 
+            --RAISE_APPLICATION_ERROR(-20002,'Alta eroare!');
+            insert into info_ttu
+            values(s_info_ttu.nextval, USER, SYSTIMESTAMP, 'SELECT', 0, 'Alta eroare!');
+END tema4_ttu; 
+/
+
+--apelare
+
+BEGIN 
+    tema4_ttu(100);
+    tema4_ttu(0);
+END; 
+/
+
+select * from info_ttu;

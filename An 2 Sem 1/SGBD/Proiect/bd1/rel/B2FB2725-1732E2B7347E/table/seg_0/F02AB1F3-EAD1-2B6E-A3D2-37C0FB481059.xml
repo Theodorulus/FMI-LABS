@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F02AB1F3-EAD1-2B6E-A3D2-37C0FB481059" schemaObject="BB6E2FE8-17C8-CF1F-1E4E-734CA0C8F2F7" name="TICKET_TYPES">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>TICKET_TYPES</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:22 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TYPE_ID" id="BE642A63-8D5B-7851-57AE-9671615BAA32">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>TICKET_TYPES</sourceObjSchema>
+<sourceObjName>TYPE_ID</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TYPE_NAME" id="B0F9753B-0F2C-F233-DB14-28D26663CBE4">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>TICKET_TYPES</sourceObjSchema>
+<sourceObjName>TYPE_NAME</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRICE" id="65809E5A-582C-8C2B-3E8C-6D694172FAB1">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>TICKET_TYPES</sourceObjSchema>
+<sourceObjName>PRICE</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4FC27D47-CC38-9090-8CAC-21AC402D472C" schemaObject="BB6E2FE8-17C8-CF1F-1E4E-734CA0C8F2F7" name="TICKET_TYPES_PK">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>SYS_C007382</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:24 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BE642A63-8D5B-7851-57AE-9671615BAA32"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

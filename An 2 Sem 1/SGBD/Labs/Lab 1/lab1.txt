@@ -1,0 +1,56 @@
+--11. Adăugaţi un comentariu tabelei emp_***.
+
+create table emp_ttu as select * from employees;
+
+--adauga comentariu pe tabel
+COMMENT ON TABLE emp_ttu IS 'Informaţii despre angajati';
+
+--adauga comentariu pe coloana
+COMMENT ON column emp_ttu.salary IS 'Salariu anga[jati';
+
+--stergere comentariu
+COMMENT ON TABLE emp_ttu IS '';
+
+--12. Folosind vizualizarea user_tab_comments afişaţi comentariul adăugat tabelului emp_***.
+
+select *
+from user_tab_comments
+where table_name = upper('emp_ttu');
+
+--comm de pe coloana
+select *
+from user_col_comments
+where table_name = upper('emp_ttu');
+
+
+--13. Modificaţi formatul datei calendaristice setat la nivel de sesiune astfel încât datele calendaristice 
+--să respecte următoarea formă 01.10.2011 16:10:05.
+
+ALTER SESSION SET NLS_DATE_FORMAT = 'dd.mm.yyyy hh24:mi:ss';
+
+select sysdate from dual;
+
+--14. Rulaţi următoarea cerere SQL:
+
+SELECT EXTRACT(YEAR FROM SYSDATE)
+FROM dual;
+
+--15. Modificaţi cererea anterioară astfel încât să obţineţi ziua, respectiv luna datei curente.
+
+--ziua
+SELECT EXTRACT(day FROM SYSDATE)
+FROM dual;
+
+--luna
+SELECT EXTRACT(month FROM SYSDATE)
+FROM dual;
+
+--16. Afişaţi numele tuturor tabelelor personale create (nume_tabel_***).
+
+select * 
+from user_tables
+where table_name like upper('emp_%');
+
+--23. Folosind tabelul departments generaţi automat script-ul SQL de inserare a înregistrărilor în acest tabel
+--TEMA ^^
+

@@ -1,0 +1,22 @@
+﻿@model TudoracheAlexandruT42.Models.Student
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Afisare student</h2>
+<div class="panel panel-default">
+    @Html.Partial("StudentInfo", Model)
+
+    <div class="panel-footer">
+        <a class="btn btn-sm btn btn-warning" href="/Student/Edit/@Model.Id">Modificare student</a>
+        <br />
+        @using (Html.BeginForm(actionName: "Delete", controllerName: "Student", method: FormMethod.Post,
+                               routeValues: new { id = Model.Id }))
+        {
+            @Html.HttpMethodOverride(HttpVerbs.Delete)
+
+            <button class="btn btn-danger" type="submit">Sterge student</button>
+        }
+    </div>
+</div>

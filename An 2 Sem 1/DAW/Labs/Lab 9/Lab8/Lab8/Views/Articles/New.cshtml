@@ -1,0 +1,34 @@
+﻿@model Laborator5App.Models.Article
+
+
+@{
+    ViewBag.Titlu = "New";
+}
+
+<h2>Adaugare articol</h2>
+<br />
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Articles"))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    @Html.Label("Title", "Titlu Articol")
+    <br />
+    @Html.TextBox("Title", null, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Title, null, new { @class = "text-danger" })
+    <br /><br />
+    @Html.Label("Content", "Continut Articol")
+    <br />
+    @Html.TextArea("Content", null, new { @class = "form-control" })
+    @Html.ValidationMessage("Content", "", new { @class = "text-danger" })
+    <br /><br />
+    @Html.Label("Selectati categoria")
+    <br />
+    @Html.DropDownListFor(m => m.CategoryId, new SelectList(Model.Categ, "Value", "Text"),
+    "Selectati categoria", new { @class = "form-control"})
+    @Html.ValidationMessage("CategoryId", "", new { @class = "text-danger" })
+    <br />
+    <button class="btn btn-success" type="submit">Adauga articol</button>
+}
+
+

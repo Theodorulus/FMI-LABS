@@ -1,0 +1,25 @@
+﻿
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="jumbotron">
+            <h1 class="font-roboto">@ViewBag.FirstArticle.Title</h1>
+            <p class="font-montserrat truncate">@ViewBag.FirstArticle.Content</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var article in ViewBag.Articles)
+    {
+        <div class="col-xs-6 row-style">
+            <h1 class="font-roboto">@article.Title</h1>
+            <p class="font-montserrat truncate">@article.Content</p>
+
+
+            <a class="btn btn-sm btn-success" href="/Account/Register">Register</a>
+            <a class="btn btn-sm btn-success" href="/Account/Login">Log in</a>
+
+        </div>
+    }
+</div>

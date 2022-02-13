@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "SearchRes";
+}
+
+<h2>Rezultatele cautarii</h2>
+
+<div>
+    @if (ViewBag.SearchRes.Count > 0)
+    {
+        foreach (TudoracheAlexandruT42.Models.Student stud in ViewBag.SearchRes)
+        {
+        <div class="panel panel-default">
+            @Html.Partial("StudentInfo", stud)
+            <div class="panel-footer">
+                <a class="btn btn-sm btn btn-success" href="/Student/afisareStudent/@stud.Id">Afisare student</a>
+            </div>
+        </div>
+        <br /><br />
+        }
+    }
+    else
+    {
+         <h3>Nu s-au gasit rezultate!</h3>
+    }
+</div>

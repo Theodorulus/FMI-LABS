@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="MOVIES" directorySegmentName="seg_0" id="400C9978-69D4-C49F-30F3-DC4D3AE7A897">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:10 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<schemaObject>DFB18B07-760B-151B-99C5-61C743696C90</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>F27E4E60-B60D-9459-069F-EE95A85104CC</segment>
+<tableSpace>707E2ADB-4DA4-299C-E6D4-7CBD19C44C07</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<inMemory>NO</inMemory>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="RELEASE_DATE" id="1823E864-9FCE-0249-1FAE-B53A675499AE">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MOVIE_ID" id="5F6FE99C-1A59-A7C1-9EF5-23A63735382A">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MOVIE_NAME" id="93EB1C06-7B9D-FD06-784B-12B5D3422DF1">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DIRECTOR_NAME" id="D532AE8F-F87A-0AA2-CC57-0BB469A93428">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="AGE_RESTRICTION" id="D63FF893-A179-BB91-5323-C2F7D5F4F16B">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="GENRE" id="F5B37BCD-2F03-B09A-D829-6F63D870B435">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:11 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="MOVIES_PK" id="5DDAF000-A0D8-10B8-D8A7-F94D9AB0213F">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-06 15:50:12 UTC</createdTime>
+<ownerDesignName>bd</ownerDesignName>
+<schemaObject>DFB18B07-760B-151B-99C5-61C743696C90</schemaObject>
+<segment>2C2B5197-7FAC-6786-D7B3-B6E8FBF8DA63</segment>
+<tableSpace>707E2ADB-4DA4-299C-E6D4-7CBD19C44C07</tableSpace>
+<indexSegment>2C2B5197-7FAC-6786-D7B3-B6E8FBF8DA63</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

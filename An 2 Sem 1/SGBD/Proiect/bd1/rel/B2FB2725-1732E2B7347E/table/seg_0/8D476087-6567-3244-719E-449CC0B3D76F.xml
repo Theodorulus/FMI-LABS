@@ -1,0 +1,129 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8D476087-6567-3244-719E-449CC0B3D76F" schemaObject="BB6E2FE8-17C8-CF1F-1E4E-734CA0C8F2F7" name="TICKETS">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>TICKETS</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:22 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="TICKET_ID" id="AEB6A544-8A77-3CE9-67E9-0234E3321C36">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>TICKETS</sourceObjSchema>
+<sourceObjName>TICKET_ID</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SCREENING_ID" id="D7B85AE6-2DB3-56DF-5CC3-E8FE392E30C4">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>TICKETS</sourceObjSchema>
+<sourceObjName>SCREENING_ID</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="61CE8137-1F21-65AA-79E7-4F48DB3E78F4" referredColumn="BABBF01C-B186-0B02-74D4-51B053638B4D"/>
+</associations>
+</Column>
+<Column name="CLIENT_ID" id="23998CC7-49F9-2062-E0A6-14C54D71D9EE">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>TICKETS</sourceObjSchema>
+<sourceObjName>CLIENT_ID</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="38AECB79-FC72-B495-E363-29590059A122" referredColumn="FEB3ADAC-EFC0-405D-C151-46DB3D554A07"/>
+</associations>
+</Column>
+<Column name="TYPE_ID" id="90FE4810-80D2-0EA0-B838-920C07F6B516">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>TICKETS</sourceObjSchema>
+<sourceObjName>TYPE_ID</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:23 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E517FA8A-EAB0-C2DA-6563-49927229E53F" referredColumn="BE642A63-8D5B-7851-57AE-9671615BAA32"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BBEDE188-3DFB-D8DF-CC00-78CA5EF3A554" schemaObject="BB6E2FE8-17C8-CF1F-1E4E-734CA0C8F2F7" name="TICKETS_PK">
+<sourceConnName>Cinema</sourceConnName>
+<sourceObjSchema>SYSTEM</sourceObjSchema>
+<sourceObjName>SYS_C007386</sourceObjName>
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:24 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AEB6A544-8A77-3CE9-67E9-0234E3321C36"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="87B11DC1-F599-1D1D-3A4D-479F8A99A94F" name="FK_TICKETS_CLIENTS">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:25 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="23998CC7-49F9-2062-E0A6-14C54D71D9EE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7AB1ACC4-F1B1-5B65-AAD0-0B31F390A3C0" name="FK_TICKETS_SCREENINGS">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:25 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D7B85AE6-2DB3-56DF-5CC3-E8FE392E30C4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9F82F59E-15A8-28D9-1347-89436E135DCE" name="FK_TICKETS_TYPES">
+<createdBy>Theo</createdBy>
+<createdTime>2021-01-07 13:23:25 UTC</createdTime>
+<ownerDesignName>bd1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="90FE4810-80D2-0EA0-B838-920C07F6B516"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
