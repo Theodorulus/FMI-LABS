@@ -1,0 +1,61 @@
+!!!2 din 10 sunt gresite!!!
+
+1. Fiind date etichetele y = [23, 14, 30, 45, 18, 31] si predictiile aferente p = [26, 20, 39, 38, 18, 33], care este masura Kendall Tau?
+	A. 0.6
+B. 0.4
+C. 1.0
+D. 0.2
+
+2. Care din urmatoarele este o schema de combinare a mai multor clasificatori binari pentru a rezolva o problema de clasificare cu k > 2 clase?
+	A. One vs All
+B. Leave one out
+C. SGD
+D. Cross-validation
+
+3. Care este iesirea unei retele neuronale cu 3 unitati ascunse si o unitate de iesire cu activari de tip ReLU pentru intrarea x = [1, -2], daca ponderile sunt W1 = [-0.5, 3, -2; 2, -1, 0], B1 = [0, 1, -1], W2 = [-1; 1; 2], B2 = [2]?
+A. 8
+B. 1
+	C. 0
+D. 4.5
+
+4. Cand este mai eficient sa folosim reprezentarea primala a datelor?
+A. Cand avem o problema de clasificare binara (cu doua clase)
+B. Cand avem o problema de clasificare cu foarte multe clase (mai mult de doua)
+C. Cand numarul de trasaturi este mai mare decat numarul de exemple
+	D. Cand numarul de trasaturi este mai mic decat numarul de exemple
+
+5. Care este valoarea de iesire a perceptronului daca intrare=[1.4, 0.3], ponderi=[-0.5, 0.2], bias=1.0 (functia de activare - sign)?
+	A. 1
+B. -0.36
+C. 0.36
+D. -1
+
+6. Fiind urmatoarele puncte [(2, 2), (6, 5), (3, 0), (0, 1), (1, 0), (2, 3)] si etichetele corespunzatoare [2, 2, 1, 0, 1, 1]. Folosind metoda kNN, k=1 si distanta Euclideana, care este eticheta prezista pentru punctul (2, 4)?
+A. 0
+B. 2
+C. Nu se poate determina
+	D. 1
+
+7. In cazul analizei liniar discriminante, hiperplanul pe care se proiecteaza punctele este:
+A. Orienta astfel incat punctele sa fie cat mai departate
+	B. Paralel cu hiperplanul de separare, distanta fiind controlata prin bias
+C. Orientat astfel incat punctele sa fie cat mai apropriate
+D. Perpendicular pe hiperplanul de separare
+
+8. Care din urmatoarele activari sunt rezultatul aplicarii functiei de activare softmax?
+	A. [[0.3, 0.7], [0.2, 0.8], [0.9, 0.1]]
+B. [0.1, 0.99]
+C. [[0.01, 0.99], [0.99, 0.02], [0.7, 0.3]]
+D. [[-1, 2], [0.4, 0.6]]
+
+9. Ce dimensiune spatiala va avea un activation map dupa aplicarea unui strat de pooling de 2x2 cu stride=2 pe o intrare de 32x32?
+A. 8x8
+B. 32x32
+	C. 16x16
+D. 28x28
+
+10. Care din urmatorii algoritmi se foloseste pentru optimizare ponderilor retelelor neuronale?
+A. ADALINE
+	B. SGD cu momentum
+C. Dropout
+D. Naive Bayes

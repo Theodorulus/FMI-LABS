@@ -1,0 +1,25 @@
+Ex. 1:
+
+a) Knapsack unde greutatea = valoarea; Putem face ceva cu BFS si incercam sa ne apropiem de nodul K
+b) Argumentare 1/2 aprox:
+	Daca avem o anumita suma, presupunem ca este < K/2. Daca va veni un elem > K/2 va fi inlocuita suma, altfel va incapea in suma.
+
+Ex. 2:
+
+1) 80, 80, 40
+  a) DA
+  b) NU
+2) Adevarat/Fals
+3) Ca in curs 2 la problema load balacing + ordered-scheduling alg
+
+Ex. 3:
+
+1) cica usoara
+  a) daca ar exista alg polinomial, atunci problema ciclului hamiltonian poate fi rezolvata tot in timp polinomial
+  b) cica banala -> ne ajuta la c
+  c) 
+2) cica mai complicata
+  a) cica banal -> se recomanda sa cautam 4 puncte in plan(cu cap), vedem cum e apcm pentru cele 4 puncte. Adaugam inca un punct(cu cap) si vedem ca apcm e mai mare decat cel de 4 puncte.
+  b) cica mai complicata -> 
+
+Ex. 4:

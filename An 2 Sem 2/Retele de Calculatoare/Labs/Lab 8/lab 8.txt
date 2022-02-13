@@ -1,0 +1,119 @@
+CERINTE:
+
+142.243.188.126/15
+
+LAB ELBA : 8191 useri
+LAN WIFI ELBA: 30 useri
+LAN EUFRAT: 63 USERI -> SERVER
+
+PAS 1.
+1000.1110/1111.001|1/1011.1100/0111.1110
+1111.1111/1111.111|0/0000.0000/0000.0000
+
+N.A.= 142.242.0.0
+B.A.= 142.243.255.255/15
+R.A.= 142.242.0.1-142.255.255.254
+
+PAS 2.
+
+	2 ^ 13 < 8191 < 2 ^ 14
+
+	2 ^ 6  < 63 < 2 ^ 7
+
+	2^1 <   2   < 2^2
+	
+	2^1 <   2   < 2^2
+
+PAS 3.
+
+-ELBA 8191 H; 32 - 14 = 18 -> masca retea
+
+N.A. =  142.242.        0.0/18
+	  8.  8/1100.0000/0000.00000
+B.A. = 142.242.63.255
+R.A. = 142.242.0.1 - 142.242.63.254/18
+
+-EUFRAT 63 H; 32 - 7 = 25 -> masca retea
+
+N.A. =  142.242.64.0/25
+	  8.  8. 8/1000.00000
+B.A. = 142.242.64.127/25
+R.A. = 142.242.64.1 - 142.242.64.126/25
+
+-ELBA-WIFI ELBA 2 H; 32 - 30 = 2
+
+N.A. = 142.242.64.128/30
+B.A. = 142.242.64.131/30
+R.A. = 142.242.64.129-142.242.64.130
+
+-ELBA-EUFRAT 2 H; 32 - 30 = 2
+N.A. = 142.242.64.132
+B.A. = 142.242.64.135
+R.A. = 142.242.64.133 - 142.242.64.134
+
+
+La server -> Services:
+HTTP -> https
+DNS
+EMAIL
+
+DHCP:
+	Service-> on
+	Pool name: ELBA
+	Default Gateway: 142.242.0.1
+	DNS: 142.242.64.126
+	START IP: 142.242.0.115
+	Subnet: 255.255.192.0
+	Max nr of users: 16275
+	
+	ADD
+Luam pc Test; 
+Legam pc test cu switch elba in fast ethernet 0/24;
+Activam interface fast ethernet 0/24 :https://gyazo.com/02767795132d03fe43b5a237534150c3 ;
+IP TEST: https://gyazo.com/c1da320a4932f614c0b6e59692204856 ;
+
+
+
+
+
+
+
+
+
+
+
+
+RELBA#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+RELBA(config)#interface giga 0/1
+RELBA(config-if)#description Legatura cu routerul WIFI-ELBA
+RELBA(config-if)#ip address 142.242.64.129 255.255.255.252
+RELBA(config-if)#no shutdown
+
+RELBA(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to up
+
+RELBA(config-if)#exit
+RELBA(config)#interface serial 0/0/0
+RELBA(config-if)#description Legatura cu routerul REUFRAT
+RELBA(config-if)#ip address 142.242.64.133.255.255.252
+                            ^
+% Invalid input detected at '^' marker.
+	
+RELBA(config-if)#ip address 142.242.64.133 255.255.255.252
+RELBA(config-if)#
+
+
+https://gyazo.com/db03ff07da4784512d46e13c36134922
+https://gyazo.com/71fbafc34e2cdb4baa18ced416b05a6c
+https://gyazo.com/245b93fe6e158e16e0da90e19da64d6c
+https://gyazo.com/7007247d16acbef9acabf8fb5ee8ba28
+https://gyazo.com/0098c4ad39df1bc4f01ebbb9e3213051
+https://gyazo.com/cd00349b3927ebfd64fb7a5bf1180a81
+https://gyazo.com/71a331671bfe96d517a56a142d70a820
+https://gyazo.com/c94d9d400d8dc0b8e366656a36a82eb1
+https://gyazo.com/d83717e49c40a5049d082bf6d0dd172a
+https://gyazo.com/cc71388743cdab8e64741aecc3d48a68
+https://gyazo.com/faa488430a0f341be4c4116e7411adf1
+https://gyazo.com/0dc340573c365663647bacbe74238a1a
+

@@ -1,0 +1,18 @@
+ex. 1
+- 
+
+ex. 2
+- pentru x-mon luam cel mai din stanga punct si cel mai din dreapta
+- verificam ca toate punctele dintre cel mai din stanga si cel mai din dreapta sa aiba x-urile in crestere si din dreapta in stanga sa aiba x-urile in descrestere
+- pentru y-mon luam cel mai de jos si cel mai de sus
+- la fel ca la x-mon doar ca pentru y
+
+ex. 3
+- 2 metode
+- metoda 1. gasesti centrul si raza; dist(D, O) > < = raza +- epsilon, unde D e punctul dat, O centrul cercului
+- metoda 2. Conditie: ABC viraj la stanga. ...
+
+ex. 4
+- AC este ilegala daca D este in interiorul cercului circumscris triunghiului ABC
+- BD este ilegala daca C este in interiorul cercului circumscris triunghiului ABD
+- Daca D este in interior, AC este ilegal; Daca D este pe cerc, ambele sunt legale; Daca D este in afara cercului, BD este ilegala.

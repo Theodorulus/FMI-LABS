@@ -1,0 +1,40 @@
+Mai intai, numerotam regulile:
+
+1. p(c,b).
+2. p(a,b).
+3. r(b,c).
+4. r(b,a).
+5. r(X,Z) :- r(Y,X), r(Y,Z).
+6. r(X,Y) :- p(Y,X).
+
+r(a, c)
+
+Pentru a rezolva r(a, c) putem aplica regulile 3, 4, 5 sau 6.
+Aplicam regula 3. Nu trebuiesc facute redenumiri.
+    	- Unificam r(a, c) cu r(b, c) - unificare esuata, backtrack
+Aplicam regula 4. Nu trebuiesc facute redenumiri.
+  	- Unificam r(a, c) cu r(b, a) - unificare esuata, backtrack
+Aplicam regula 5.
+	- Redenumim regula 5 in r(X1, Z1) :- r(Y1, X1), r(Y1, Z1).
+	- Unificam r(a, c) cu r(X1, Z1) - obtinem X1 = a, Z1 = c
+	- Inlocuim r(a, c) cu r(Y1, X1), r(Y1, Z1) si aplicam substitutia de mai sus
+	- Obtinem noua tinta r(Y1, a), r(Y1, c)
+	
+	- Trebuie sa rezolvam r(Y1, a). Putem aplica regulile 3, 4, 5 sau 6.
+	- Aplicam regula 3. Nu trebuiesc facute redenumiri.
+		- Unificam r(Y1, a) cu r(b, c) - unificare esuata, backtrack
+	- Aplicam regula 4. Nu trebuiesc facute redenumiri.
+		- Unificam r(Y1, a) cu r(b, a) - obtinem Y1 = b
+		- Inlocuim r(Y1, a) cu multimea vida.
+		- Obtinem tinta vida. Avem solutie: true
+-> Daca s-ar fi ajuns la regula 6, atunci executia ar fi aratat asa:
+Aplicam regula 6.
+	- Redenumim regula 6 in r(X1, Y1) :- p(Y1, X1).
+	- Unificam r(a, c) cu r(X1, Y1) - obtinem X1 = a, Y1 = c
+	- Inlocuim r(a, c) cu p(Y1, X1) si aplicam substitutia de mai sus
+	- Obtinem noua tinta p(c, a)
+	- Trebuie sa rezolvam p(c, a). Putem aplica regulile 1 sau 2.
+	- Aplicam regula 1. Nu trebuiesc facute redenumiri.
+		-Unificam p(c, a) cu p(c, b) - unificare esuata, backtrack
+	- Aplicam regula 2. Nu trebuiesc facute redenumiri.
+		-Unificam p(c, a) cu p(a, b) - unificare esuata, backtrack

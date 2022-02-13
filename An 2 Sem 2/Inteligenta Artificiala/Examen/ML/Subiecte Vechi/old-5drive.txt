@@ -1,0 +1,60 @@
+1. Fie urmatoarele probabilitati pentru evenimentele A, B, P(A)=0.3 P(B)=0.5 P(A|B)=0.33, care este valoarea P(B|A)?
+	A. 0.55
+B. 0.65
+C. 0.75
+D. 0.45
+
+2. Fiind data urmatoarea multime de antrenare cu etichetele corespunzatoare: X_train = ((1,0),(1,1),(1,2),(2,1),(0,1),(-1,1),(-1,-1),(-1,2)) Y_train = (1,5,4,3,2,3,3,2), cati clasificatori sunt antrenati pentru un SVM folosind abordarea ONE vs ALL?
+	A. 5
+B. 4
+C. 6
+D. 10
+
+3. Care dintre urmatoarele asigura media 0 pentru fiecare din trasaturile din setul de date? X reprezinta setul de date, X_i represinta setul de trasaturi i al tuturor exemplelor din setul de date iar x reprezinta un exemplu din setul de date.
+A. L1 Normalization ( x / sum |x_i| pentru fiecare exemplu x )
+B. L2 Normalization ( x / sqrt(sum x_i^2 ) pentru fiecare exemplu x )
+C. Standard Normalization ( X_i / std(X_i) - mean(X_i) pentru fiecare trasatura i )
+	D. Min-Max Scaling ( (X_i - min(X_i)) / (max(X_i) - min(X_i)) pentru fiecare trasatura i )
+
+4. Cate ponderi (inclusiv bias) are o retea neuronala cu configuratia 2-5-8-1 (primul numar este dimensiunea datelor de intrare, urmatoarele numere reprezinta numarul de neuroni de pe fiecare strat)?
+A. 58
+B. 74
+	C. 72
+D. 76
+
+5. Care sunt punctele in care dreapta de separare a percetronului w = [2, -4], b = [-1] intersecteaza axele?
+A. (-1, 0) si (0, 0.5)
+B. (0, -1) si (0.5, 0)
+C. (0, 0.5) si (0.25, 0)
+	D. (0.5, 0) si (0, -0.25)
+
+6. Care este rezultatul modelului "Masini cu vectori suport" pentru datele de intrare X = [0.5, -2, -5, 0.9], daca ponderile sunt W = [-2, -1.2, -3, 1.2] si bias-ul b = -0.5?
+	A. 1
+B. -1
+C. 2
+D. 0
+
+7. Care este valoarea de iesire a perceptronului daca input=[2.4, 3.0], ponderi=[-0.5, 0.2], bias=0.0 (functia de activare - sign)?
+	A. -1
+B. 0
+C. 1
+D. -0.6
+
+8. Care este precizia unui clasificator daca etichetele corecte sunt y = [1, 1, 1, 1, 0, 0, 0, 1] si cele prezise sunt y_hat = [1, 0, 0, 1, 0, 1, 1, 1]?
+A. 0.2
+B. 0.4
+C. 0.1
+	D. 0.6
+
+9. Cum ajuta normalizarea in contextul unui clasificator KNN?
+A. Normalizarea creste performanta cand setul de date este balansat
+	B. Normalizarea aduce trasaturi diferite pe aceesi scala astfel incat distantele L1/L2 dintre exemple sa nu fie impactate de variantele diversificate
+C. Normalizarea ajuta la reducerea zgomotului si asigura o convergenta mai inceata
+D. Normalizarea nu ajuta
+
+10. Care dintre urmatoarele afirmatii este gresita?
+A. Retele neuronale pot invata problema XOR
+	?B. Setarea parametrului C la o valoare prea mare in timpul antrenarii unui SVM poate conduce la supra-invatare
+C. Tangenta hiperbolica nu se satureaza
+D. Al doilea strat dintr-o retea neuronala nu poate primi date de intrare
+

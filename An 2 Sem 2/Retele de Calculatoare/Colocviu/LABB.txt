@@ -1,0 +1,2 @@
+Calculare IP principal: 	http://jodies.de/ipcalc
+Calculare IP-uri secundare: 	http://vlsmcalc.net/

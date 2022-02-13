@@ -1,0 +1,78 @@
+IDA* 
+
+Solutie: 
+1)
+######
+...dd#
+#.eee#
+#c.ef#
+#aa.f#
+#g..h#
+######
+
+Cost:  0
+Lungime:  1
+Solutie gasita in 0 milisecunde
+
+----------------
+
+A* 
+
+Solutie: 
+1)
+######
+...dd#
+#.eee#
+#c.ef#
+#aa.f#
+#g..h#
+######
+
+Cost:  0
+Lungime:  1
+Solutie gasita in 0 milisecunde
+Nr. maxim de noduri existente la un moment dat in memorie: 1
+Nr. total de noduri calculate: 1
+
+----------------
+
+A* optimizat 
+
+Solutie: 
+1)
+######
+...dd#
+#.eee#
+#c.ef#
+#aa.f#
+#g..h#
+######
+
+Cost:  0
+Lungime:  1
+Solutie gasita in 0 milisecunde
+Nr. maxim de noduri existente la un moment dat in memorie: 1
+Nr. total de noduri calculate: 1
+
+----------------
+
+UCS 
+
+Solutie: 
+1)
+######
+...dd#
+#.eee#
+#c.ef#
+#aa.f#
+#g..h#
+######
+
+Cost:  0
+Lungime:  1
+Solutie gasita in 0 milisecunde
+Nr. maxim de noduri existente la un moment dat in memorie: 1
+Nr. total de noduri calculate: 1
+
+----------------
+

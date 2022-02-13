@@ -1,0 +1,6 @@
+I.
+1. a X b (prost)
+2. d V
+3. a V
+4. c V
+5. d X c

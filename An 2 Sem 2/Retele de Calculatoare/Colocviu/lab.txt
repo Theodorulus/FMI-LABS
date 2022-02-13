@@ -1,0 +1,398 @@
+CABLARE:
+pc giga -> switch giga 0/2 (straight-throught)
+switch giga 0/1 -> router 0/0 (straight-throught)
+router -> router (dte) (seriale la fel 0/0/0 -> 0/0/0) 
+SERVER giga 0/0 -> switch 0/2 (straight-throught)
+router giga 0/1 -> wifi internet (copper cross-over)
+
+CONFIGURARE GLOBALA:
+	parola: ciscoconpa55
+	enable
+	parola:ciscosecpa55
+	configure terminal
+
+
+*LAPTOP SERVICE:
+-Schimbi numele in SERVICE
+
+
+*PC:
+-Schimbi numele in (NUME)
+-Inlocuim placa de retea cu NM-1CGE
+-IP: 
+  .IPv4: N.A. + 10
+  .mask: mask-ul calculat
+  .gateway: primul din range 
+  .dns: ultimul din range DE LA SERVER
+-EMAIL:
+  .name: (NUME) 
+  .email: (NUME)@INFO.RO
+  .incoming server: ultimul ip din range pt ramura de server
+  .outgoing server: ultimul ip din range pt ramura de server
+  .username: (NUME)
+  .password: 123456
+
+
+*SWITCH (2960)
+
+-Schimbi numele in Sw(NUME)
+-Conectezi laptop-ul SERVICE cu cablu CONSOLE din RS232 in Console
+-IN TERMINAL laptop SERVICE:
+
+enable
+configure terminal
+no ip domain-lookup
+
+hostname Sw(NUME)
+ip default-gateway (N.A. + 1)
+
+no cdp run
+service password-encryption
+interface range fa 0/1-24
+shutdown
+exit
+enable password ciscoenapa55
+enable secret ciscosecpa55
+banner motd # Luni la ora 10:00 sedinta IT !#
+
+line console 0
+password ciscoconpa55
+login
+logging synchronous
+exec-timeout 30 30
+exit
+line vty 0 15
+password ciscovtypa55
+login
+logging synchronous
+exec-timeout 30 25
+end
+copy running-config startup-config
+
+clock set 08:35:20 21 May 2021
+show clock
+	
+configure terminal
+ip domain-name info.ro
+username Admin01 privilege 15 secret Admin01pa55
+line vty 0 15
+transport input ssh
+login local
+exit
+crypto key generate rsa
+2048
+
+logging host (IP SERVER)
+
+service timestamps log datetime msec
+service timestamps debug datetime msec
+interface vlan 1
+
+description Legatura cu ramura (IP N.A./MASCA)
+ip address (IP N.A. + 2) (MASK)
+
+no shutdown
+end
+copy running-config startup-config
+
+-SE CABLEAZA PC CU Switch [pc giga -> switch giga 0/2 (straight-throught)]
+-In PC: Desktop-> Command Prompt-> dupa ce se inverzeste cablul la Switch:
+
+ping (N.A. + 2)
+ssh -l Admin01 (N.A. + 2)
+Admin01pa55
+exit
+
+
+*ROUTER (2911)
+
+-Schimbi numele in R(NUME)
+-Punem placa de retea HWIC-2T
+-Conectezi laptop-ul SERVICE cu cablu CONSOLE din RS232 in Console
+-IN TERMINAL laptop SERVICE:
+
+N
+
+enable
+configure terminal
+no ip domain-lookup
+
+hostname R(NUME)
+
+no cdp run
+interface range giga 0/1-2
+shutdown
+exit
+interface serial 0/0/0
+shutdown
+exit
+interface serial 0/0/1
+shutdown
+exit
+service password-encryption
+security passwords min-length 10
+login block-for 45 attempts 3 within 15
+enable password ciscoenapa55
+enable secret ciscosecpa55
+banner login # Accesul persoanelor neautorizate este scrict interzis !#
+banner motd # Luni serverul nu va functiona !#
+
+line console 0
+password ciscoconpa55
+login
+logging synchronous
+exec-timeout 30 25
+exit
+line vty 0 15
+password ciscovtypa55
+login
+logging synchronous
+exec-timeout 30 30
+end
+copy running-config startup-config 
+
+clock set 08:35:20 21 May 2021
+show clock
+
+configure terminal
+ip domain-name info.ro
+username Admin01 privilege 15 secret Admin01pa55
+line vty 0 15
+transport input ssh
+login local
+exit
+crypto key generate rsa
+2048
+
+logging host (IP SERVER)
+
+service timestamps log datetime msec
+service timestamps debug datetime msec
+interface giga 0/0
+
+description Legatura cu LAN (IP N.A./MASCA)
+ip address (IP N.A. + 1) (MASK)
+ip helper-address (IP SERVER)
+
+no shutdown
+end
+copy running-config startup-config
+
+
+(VEZI IP ROUTE: SHOW IP ROUTE)
+
+
+-ROUTARE STATICA - in terminal laptop SERVICE:
+
+configure terminal
+
+(
+DACA EXISTA WIFI:
+interface giga 0/1
+description Legatura cu WIFI-(NUME)
+ip address (N.A. + 1 DE LA LEGATURA CU WIFI) 255.255.255.252
+no shutdown
+exit
+)
+
+interface serial 0/0/0
+description Legatura cu routerul (RURMATORUL-ROUTER / RANTERIORUL-ROUTER)
+ip address (N.A. + 1 DE LA LEGATURA CU URMATORUL / N.A. + 2 DE LA LEGATURA CU ANTERIORUL ROUTER) 255.255.255.252
+no shutdown
+exit
+
+interface serial 0/0/1
+description Legatura cu routerul (RURMATORUL-ROUTER / RANTERIORUL-ROUTER)
+ip address (N.A. + 1 DE LA LEGATURA CU URMATORUL / N.A. + 2 DE LA LEGATURA CU ANTERIORUL ROUTER) 255.255.255.252
+no shutdown
+exit
+
+ip route (IP N.A.) (MASK) serial 0/0/0(stanga) sau serial 0/0/1(dreapta)  - pt fiecare (la wifi trebuie serial 0/0/0(stanga) sau serial 0/0/1(dreapta) si N.A. de la legatura intre lan si wifi; la restul N.A. din LAN )
+
+ROUTARE DINAMICA - in terminal laptop SERVICE:
+
+configure terminal
+
+(
+DACA EXISTA WIFI:
+interface giga 0/1
+description Legatura cu WIFI-(NUME)
+ip address (N.A. + 1 DE LA LEGATURA CU WIFI) 255.255.255.252
+no shutdown
+exit
+)
+
+interface serial 0/0/0
+description Legatura cu routerul (RURMATORUL-ROUTER / RANTERIORUL-ROUTER)
+ip address (N.A. + 1 DE LA LEGATURA CU URMATORUL / N.A. + 2 DE LA LEGATURA CU ANTERIORUL ROUTER) 255.255.255.252
+no shutdown
+exit
+
+interface serial 0/0/1
+description Legatura cu routerul (RURMATORUL-ROUTER / RANTERIORUL-ROUTER)
+ip address (N.A. + 1 DE LA LEGATURA CU URMATORUL / N.A. + 2 DE LA LEGATURA CU ANTERIORUL ROUTER) 255.255.255.252
+no shutdown
+exit
+
+router rip
+version 2
+no auto-summary
+network (N.A. de la reteaua proprie)
+network (N.A. de la toate legaturile care pleaca din reteaua proprie (inclusiv WIFI))
+end
+
+(show ip route -> ca sa vezi cate sunt cu R in fata)
+
+copy running-config startup-config
+
+
+-Se cableaza de la Switch(Giga 0/1) spre Router(Giga 0/0)
+-In PC: Desktop-> Command Prompt-> dupa ce se inverzeste cablul la Router:
+
+ping (N.A. + 1)
+ssh -l Admin01 (N.A. + 1)
+Admin01pa55
+exit
+
+
+*SERVER
+
+-Schimbam placa de retea cu una NM-1CGE
+-IP: 
+  .IPv4: Cel mai mare din range
+  .mask: mask-ul calculat
+  .gateway: primul din range 
+  .dns: ultimul din range DE LA SERVER
+-EMAIL:
+  .name: SERVER 
+  .email: SERVER@INFO.RO
+  .incoming server: ultimul ip din range pt ramura de server
+  .outgoing server: ultimul ip din range pt ramura de server
+  .username: SERVER
+  .password: 123456
+-Services -> http -> trecem pe off
+  	  -> dns -> on -> name: info.ro, addres: (IP SERVER) -> add
+	  -> ftp -> Username: (nume); Password: serviciuftp; Bifam toate(WRDRL) -> Add (Pentru fiecare ramura inafara de server)	  
+	  -> email (domain name: info.ro) set si adauga useri (PC-URI + LAPTOPURI CONECTATE LA WIFI + SERVER) (NU UITA DE SERVER!!), parola 123456
+
+
+DHCP in server(pentru toate ramurile inafara de server) -> 
+	.!!!TRECI SERVICIUL PE ON!!!
+	.poolname: (NUME)
+	.default gateway: primul din range de la (NUME)
+	.dns server: (IP SERVER)
+	.start ip address: N.A. + 10 (ca la pc)
+	.subnet mask: (MASK)
+	.nr of users: nr useri calculat din 2^puterea mai mare decat nr useri dat - 10 - 2
+	.add
+
+DHCP in Routere: 
+
+ip dhcp excluded-address (N.A.) (N.A. + 9)
+ip dhcp pool Pool(NUME)
+network (N.A.) (MASK)
+default-router (N.A. + 1 (ADRESA ROUTER) )
+dns-server (IP SERVER)
+exit
+interface giga 0/0
+ip helper-address (N.A RAMURA SERVER + 1 (ADRESA ROUTER SERVER) )
+
+Testare DHCP:
+-Luam un pc nou pe ramura configurata
+-Il conectam de la FastEthernet0 la FastEthernet24 la Switch
+-Conectam laptopul SERVICE la Switch si in terminal:
+
+ciscoconpa55
+enable
+ciscosecpa55
+configure terminal
+interface fa 0/24
+no shutdown
+exit
+
+-Intram in PC-ul de Test -> Desktop -> IP Configuration -> Trecem de pe static pe DHCP -> Trebuie sa scrie SUCCESSFUL
+
+-Testare FTP in Command Prompt intr-un LAPTOP CU WIFI / PC:
+
+ftp (IP SERVER)
+cisco
+cisco
+dir
+get asa842-k8.bin
+quit
+dir
+
+
+-SYSLOG (in toate routerele din laptop SERVICE in terminal):
+
+configure terminal
+logging (IP SERVER)
+
+do wr
+exit
+debug ip icmp
+
+
+*WI-FI (300N)
+-Schimbi numele in WIFI-(NUME)
+-Wifi -> GUI:
+  -Setup:
+	.Internet Connection type: Static IP
+	.ip address: (N.A. + 2 de la legatura)
+	.mask: 255.255.255.252
+	.default: (N.A. + 1 de la legatura)
+	.dns: (IP SERVER)
+	
+	.ip address: 192.168.242.100 (din buzunar) sau  192.168.242.129 sau 192.168.100.1 sau 40.100
+	.mask: 255.255.255.192
+	.start ip adress: .100
+	.nr users: cati se dau (sau 10 daca nu se dau) - 2
+	.save
+  -Wireless:
+    -Basic Wireless Settings:
+	.SSID : WIFI-(NUME)
+	.Standard channel: 6
+	.save
+    -Wireless security: 
+	.Security mode: WPA2 personal 
+	.pass: 123456789
+	.save
+
+-Adaugam Laptop pentru WIFI
+-Schimbam numele laptopului in L(NUME)
+-Schimbam placa de retea cu una WPC300N
+In laptop:
+-Desktop -> PC Wireless -> Profiles -> New -> WIFI-(NUME) -> Advanced setup -> Wireless Newtork Name: WIFI-(NUME) -> Next -> Next (DHCP ramane activ) -> Security: WPA2-Personal -> Next -> Pass: 123456789 -> Next -> Save -> Connect to Network
+-Desktop -> EMAIL:
+  .name: L(NUME) 
+  .email: L(NUME)@INFO.RO
+  .incoming server: ultimul ip din range pt ramura de server
+  .outgoing server: ultimul ip din range pt ramura de server
+  .username: L(NUME)
+  .password: 123456
+
+PENTRU RESET LAPTOP CU WIFI: in laptop pun email si la ip adress dai static si apoi dhcp
+
+
+(
+Daca se cere sa avem un laptop blocat/acceptat dupa MAC
+-Configuram ca mai sus un nou laptop conectat la wifi
+-Intram in Desktop -> Command Prompt:
+
+ipconfig /all
+
+-La Wireless0 Connection -> retinem Physical Address
+-Merg in WIFI-(NUME) -> Wireless -> Wireless MAC Filter -> Enabled -> PERMIT/PREVENT(in functie de cerinte; cel mai probabil Prevent) PCs -> MAC 01: Scriem Physical Address-ul
+
+)
+
+in Command prompt la laptop:
+
+ping (N.A. + 1 de la reteaua lui)
+
+
+
+
+
+
+

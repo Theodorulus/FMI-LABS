@@ -1,0 +1,38 @@
+Actions:
+
+-Extract statement
+-Add member to vault
+-Create Vault
+-Make vault deposit
+-Make transfer
+-Create client
+-View client
+-Freeze card
+-Unfreeze card
+-Create card
+-Create account
+-Close account
+
+TO DO->Make buying transaction
+
+Diagram draft:
+/*
+	Card(CardNumber, ExpirationDate, HolderName, CVV, Account) 
+		-> CreditCard()
+        	-> DebitCard()
+	Account(IBAN, Client, Currency, NumberOfUnits, Cards, Transactions)
+	Client(PhoneNumber, Email, Accounts, Vaults)
+		-> Individual(IdentityNumber, FirstName, LastName)
+		-> Company(FiscalCode, CompanyName)
+	Transaction(Value, Status, Time) 
+		-> BuyingTransaction(SenderCard, DestinationCompany)
+        	-> Transfer(SenderAccount, DestinationIndividual, message)
+		-> VaultDeposit(SenderAccount, DestinationVault)
+		TO DO-> VaultWithdrawal		
+		TO DO-> ATMDeposit
+		TO DO-> ATMWithdrawal
+	Statement(Account, Transactions)
+	Currency(Name, Value depending on the Dollar)
+	Vault(IdentificationNumber, Members, Currency, NumberOfUnits, Transactions)
+	ExpirationDate(Month, Year)
+*/
