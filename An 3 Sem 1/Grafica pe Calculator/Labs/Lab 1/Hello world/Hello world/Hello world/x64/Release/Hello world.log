@@ -1,0 +1,4 @@
+﻿  Hello world.cpp
+D:\Theo\Info\FMI-LABS\An 3, Sem 1\Grafica pe Calculator\Labs\Lab 1\Hello world\Hello world\Hello world\Hello world.cpp(7,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+Hello world.obj : error LNK2001: unresolved external symbol __imp_glewInit
+D:\Theo\Info\FMI-LABS\An 3, Sem 1\Grafica pe Calculator\Labs\Lab 1\Hello world\Hello world\x64\Release\Hello world.exe : fatal error LNK1120: 1 unresolved externals

@@ -1,0 +1,4 @@
+﻿  09_03_sfera_ex3.cpp
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Lab 9\Laborator 9\Laborator 9\09_03_sfera_ex3.cpp(207,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Lab 9\Laborator 9\Laborator 9\09_03_sfera_ex3.cpp(207,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Laborator 9.vcxproj -> D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Lab 9\Laborator 9\x64\Debug\Laborator 9.exe

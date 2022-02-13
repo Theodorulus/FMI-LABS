@@ -1,0 +1,9 @@
+﻿  09_01_cerc.cpp
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Lab 9\Laborator 9\Laborator 9\09_01_cerc.cpp(30,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Lab 9\Laborator 9\Laborator 9\09_01_cerc.cpp(30,37): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Lab 9\Laborator 9\Laborator 9\09_01_cerc.cpp(118,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Lab 9\Laborator 9\Laborator 9\09_01_cerc.cpp(118,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  loadShaders.cpp
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Lab 9\Laborator 9\Laborator 9\loadShaders.cpp(47,9): warning C4101: 'InfoLogLength': unreferenced local variable
+  Generating Code...
+LINK : fatal error LNK1104: cannot open file 'freeglut.lib'

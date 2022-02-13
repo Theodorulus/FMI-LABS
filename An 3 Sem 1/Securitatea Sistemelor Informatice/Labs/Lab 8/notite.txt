@@ -1,0 +1,39 @@
+1.
+a) daca deschidem in HxD observam:
+- comanda gcc
+- cale
+- exceptii
+- char-uri, int-uri
+-> nu ar trebui sa fie intr-un png!
+Deci, poza contine un executabil.
+Daca cautam "This program" cu ctrl + f in HxD pe malware.png, gasim de unde incepe executabilul (de la MZ)
+Facem fisier nou cu tot codul din executabil. (incepand de la MZ pana jos)
+Dupa run, primim eroare.
+Daca dau ctrl+f dupa .dll vom gasi anumite librarii. 
+Trebuie sa luam dll-urile si sa le punem in fisier cu executabilul. 
+Executabilul sterge fisierele pdf din folderul curent.
+
+De trimis:
+b)
+- ss cu chestii dubiaose
+c)
+- ss de la virtus total
+d)
+- ss din virus total
+e)
+- da, sunt de folos pentru ca fara ele nu ar rula programul.
+f)
+
+2.
+trebuie sa dam un ex de input care spune ca parola este corecta fara ca string-ul sa fie "fmiSSI" & de ce functioneaza?
+- functioneaza pentru ca suprascriem stiva
+
+3.
+- de folosit hashlib
+- de trimis script-ul
+
+4.
+de compilat programul de la 2
+de trimis:
+- printscreen cu data din pestudio
+- printscreen cu data din HxD

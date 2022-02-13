@@ -1,0 +1,15 @@
+1. resize + transaltie a.i. x = 0-800 si y = 0-600 -> "// Exercitiul 1" in cod
+avem w, h; apeland glm:resize(1/w, 1/h) transformam [-w, w] x [-h, h] in [-1, 1] x [-1, 1], care este apoi deselat (in 04_03: w=400, h=300)
+Cum procedam sa reprezentam dreptunghiul [0.800] x [0, 600]? Translatam pe axa Ox cu -400 si pe Oy cu -300
+[0, 800] x [0, 600] --(T -400, -300)--> [-400, 400]
+
+trebuie introdusa o matrice de translatie, matricea Resize se inmulteste la dreapta cu matricea de translatie (atentie la ordinea transformarilor!)
+
+2. Punem culori diferite pentru fiecare varf. Desenati la inceput un dreptunghi cu varfurile (0,0), (800,0), (800,600), (0,600), avand culori diferite - prima primitiva desenata!
+
+3. 04_04_transformari -> linia ~228
+Pentru 3 si 4 -> poza
+pentru cerintele (iii) si (iv), nu uitati ca rotatiile/scalarile au originea ca punct fix, deci trebuie efectuata in prealabil o translatie.
+4.
+
+5.

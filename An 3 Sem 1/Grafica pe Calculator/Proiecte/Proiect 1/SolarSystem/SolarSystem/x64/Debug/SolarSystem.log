@@ -1,0 +1,4 @@
+﻿  SolarSystem.cpp
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Proiect 1\SolarSystem\SolarSystem\SolarSystem.cpp(204,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Proiect 1\SolarSystem\SolarSystem\SolarSystem.cpp(205,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  SolarSystem.vcxproj -> D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Proiect 1\SolarSystem\x64\Debug\SolarSystem.exe

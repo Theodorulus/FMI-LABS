@@ -1,0 +1,8 @@
+﻿  tree1.cpp
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Proiect 2\Tree\Tree\tree1.cpp(35,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Proiect 2\Tree\Tree\tree1.cpp(35,68): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Proiect 2\Tree\Tree\tree1.cpp(35,86): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Proiect 2\Tree\Tree\tree1.cpp(388,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Proiect 2\Tree\Tree\tree1.cpp(388,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Proiect 2\Tree\Tree\tree1.cpp(462,72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Tree.vcxproj -> D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Proiect 2\Tree\x64\Debug\Tree.exe

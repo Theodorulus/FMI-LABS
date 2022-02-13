@@ -1,0 +1,50 @@
+https://ubuntu.com/wsl -> Pentru instalare ubuntu
+
+1.
+a) Adevarat
+b) Fals
+c) Adevarat
+d) De cautat pe net folosind o aplicatie
+e) Fals -> nu e reversibil
+f) Fals 
+g) Fals -> ar fi vulnerabil pentru un dictionary attack
+
+2.
+creare fisier diferite fata de cel primit.
+sa trimitem fisierul creat si fisierul de output scos
+
+apoi de modificat putin codul
+
+ultimul punct de pe pag 2:
+aveti sanse sa gasiti coliziune: Nu.
+
+3.
+ex. 1:
+Problema este ca secretKey-ul este scris explicita in cod. (hard-codata)
+Ar trebui folosita o functia hash pentru stocarea parolei.
+
+ex. 2:
+Numele user-ului este hash-uit, desi nu este necesar. Acest lucru este redundant.
+
+ex. 3:
+Hash-uirea este facuta fara salt. Ar trebui folosit un salt.
+Deoarece se face o singura iteratie de SHA, parola poate fi sparta cu usurinta. Ar trebui folosite mult mai multe iteratii de SHA.
+
+ex. 4:
+Salt-ul este hard-codat. Acesta ar trebui generat.
+
+ex. 5:
+Nu ar trebui folosita metoda md5 pentru hash-uirea parolei.
+Nu exista salt.
+
+
+
+Referinta pentru generatorul din intel:
+https://www.intel.com/content/www/us/en/developer/articles/guide/the-drng-library-and-manual.html
+
+de trimis:
+2.
+- fisier input si output
+- codul pentru 10 mil de valori de input (codul sursa)
+3.
+-la fiecare de ce nu sunt ok exemplele.

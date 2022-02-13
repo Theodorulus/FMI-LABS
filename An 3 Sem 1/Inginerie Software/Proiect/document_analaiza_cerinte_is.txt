@@ -1,0 +1,48 @@
+Scopul aplicatiei:
+	Scopul aplicatiei este imbunatatirea calitatii somnului, relaxarii si divertismentului.
+Obiectivele aplicatiei:
+	- Imbunatatirea calitatii somnului prin ajustari ale patului in functie de mediului inconjurator si nevoile utilizatorului		
+	- Reimprospatarea terapeutica a utilizatorului
+	- Realizarea mai multor functii multimedia. 
+Grupul tinta
+	- Toate persoanele care isi doresc un somn mai bun sau care sufera de insomnie
+	Ca IT-ist obosit doresc sa ma odihnesc maxim.
+	Ca cinefil doresc sa am o experienta premium cand ma uit la filme.
+ 	Ca persoana inalta/scunda doresc sa-mi ajustez patul in functie de inaltime.
+	Ca persoana care lucreaza noaptea doresc sa am un somn odihnitor pe timpul zilei.
+	Ca persoana interesata de modul in care dorm, doresc sa-mi fie monitorizat somnul si sa am statistici relevante.
+	Ca cititor inrait doresc sa am un mediu optim in care sa citesc.
+	Ca persoana care se trezeste greu doresc sa ma trezesc prompt si odihnit.
+	Ca entuziast al relaxarii doresc sa ma reimprospatez terapeutic.
+	Ca persoana foarte scunda doresc sa pot ajusta inaltimea patului.
+	Ca audiofil doresc sa am o experienta perfecta de ascultat muzica si din pat. 
+	Ca om ce nu doreste sa se incalzeasca pe timpul noptii, doresc sa am o temperatura constanta.
+Cerinte:
+															Dificultate/Prioritate
+	- setari de la user (settings) -> 8/5     o face Calin
+	1) Ajustarea temperaturii saltelei in functie de temperatura mediului si a utilizatorului. (feature) -> 5/8
+	- senzor temperatura saltea (processing) -> 2/8
+	- algoritm schimbare temperaturia a saltelei (development) -> 5/4
+	2) Ajustarea dimensiunii saltelei in functie de caracteristicile individului. (feature) -> 5/2
+	- senzori de detectie dimensiuni ale individului (processing) -> 2/2
+	- algoritm de schimbare a dimensiunii saltelei (development) -> 5/2
+	3) Ajustarea luminii ambietale in functie de dorintele utilizatorului. (feature) -> 10/7
+	- senzori de lumina (processing) -> 3/7
+	- algoritm reglare lumina ambientala in functie de modul setat de user -> 10/6
+	4) Ajustarea luminii si sunetelui perceput de utilizator in functie de preferinte si momentul zilei. (feature) -> 9/5
+	- senzori de sunet (processing) -> 3/7
+	- algoritm de schimbare a nivelului luminii  (development) -> 4/5
+	- algoritm pentru izolarea totala/partiala a sunetului din mediul inconjurator (development) -> 5/6
+	5) Monitorizarea somnului si ajustarea patului in timp real si memorarea unui istoric cu statistici relevante. (feature) -> 9/9
+	- senzori pentru parametri biologici (processing) -> 6/8
+	- stocarea istoricului cu statistici despre somn (data storage) -> 5/7
+	6) Posibilitate schimbarii modului intre regular/deep sleep/movie theater/library/sex. (feature) -> 3/7
+	- meniu de selectare a modului patului (settings) -> 3/7
+	7) Posibilitatea de a reda muzica din boxele patului. (feature) -> 9/3
+	8) Posibilitatea de a selecta mai multe moduri de reimprospatarea terapeutica. (feature) -> 4/3
+	- meniu de selectare a modului de reimprospatarea terapeutica (settings) -> 4/3
+	9) Posibilitatea de a programa o alarma si reactiona corespunzator. (feature) -> 7/7
+	10) Ajustarea inaltimii fata de sol in functie de dorintele utilizatorului sau mediu. (feature) -> 2/2
+	- algoritm de schimbare a inaltimii saltelei (development) -> 2/2
+	
+

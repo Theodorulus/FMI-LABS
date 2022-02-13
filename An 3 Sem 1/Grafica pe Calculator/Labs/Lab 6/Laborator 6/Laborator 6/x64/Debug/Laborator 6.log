@@ -1,0 +1,4 @@
+﻿  05_02_animatie (1).cpp
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Lab 6\Laborator 6\Laborator 6\05_02_animatie (1).cpp(41,24): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Lab 6\Laborator 6\Laborator 6\05_02_animatie (1).cpp(90,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Laborator 6.vcxproj -> D:\Theo\Info\FMI-LABS\An 3 Sem 1\Grafica pe Calculator\Labs\Lab 6\Laborator 6\x64\Debug\Laborator 6.exe

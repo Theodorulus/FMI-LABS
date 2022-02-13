@@ -1,0 +1,14 @@
+﻿loadShaders.obj : error LNK2001: unresolved external symbol __imp____glewAttachShader
+loadShaders.obj : error LNK2001: unresolved external symbol __imp____glewCompileShader
+loadShaders.obj : error LNK2001: unresolved external symbol __imp____glewCreateProgram
+loadShaders.obj : error LNK2001: unresolved external symbol __imp____glewCreateShader
+loadShaders.obj : error LNK2001: unresolved external symbol __imp____glewDeleteShader
+loadShaders.obj : error LNK2001: unresolved external symbol __imp____glewDetachShader
+loadShaders.obj : error LNK2001: unresolved external symbol __imp____glewLinkProgram
+loadShaders.obj : error LNK2001: unresolved external symbol __imp____glewShaderSource
+loadShaders.obj : error LNK2001: unresolved external symbol __imp____glewUseProgram
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol _main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\lib\x64\freeglut.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\lib\x64\glew32.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\lib\x64\glew32s.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+D:\Theo\Info\FMI-LABS\An 3, Sem 1\Grafica pe Calculator\Labs\Lab 2\Laborator 2\Laborator 2\Debug\Laborator 2.exe : fatal error LNK1120: 10 unresolved externals

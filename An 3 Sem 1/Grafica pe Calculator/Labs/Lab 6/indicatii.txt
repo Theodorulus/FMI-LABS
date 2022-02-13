@@ -1,0 +1,15 @@
+1. (in poza)
+- pornim de la 06_02
+- indexam ca in poza indexare.png
+- parcurgem: 6 -> 7 -> 1 -> 0 -> 6 -> 1
+	      sens trig      sens trig
+	     1 -> 7 -> 2 -> 
+- trebuie intervenit in 3 locuri:
+	- adaugam varfuri & culori
+	- adaugam indici la vf_indf[]
+	- sa desenam inainte de glFlush() (cu un singur apel)
+2. (de pe chat)
+In codul sursa 06_02 initial (doar cu un patrat) introduceti o scalare cu factori (2.0, 0.5) si o translatie de vector (30, 30). 
+Desenati:
+   - cu verde ce se obtine aplicand intai scalarea, apoi translatia
+   - texturat ce se obtine aplicand intai translatia, apoi scalarea

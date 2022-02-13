@@ -1,0 +1,27 @@
+1.
+a) https://www.mobilefish.com/services/one_time_pad/one_time_pad.php#one_time_pad_output
+b) https://eprint.iacr.org/2008/352.pdf
+PDF mare: pag 298/717
+Nu poate fi CPA-sigur, deci nici CCA-sigur
+c) https://doubleoctopus.com/security-wiki/threats-and-tools/man-in-the-middle-attack/
+d) PDF mare: pag 172/717
+Acesta este o functie determinista si bijectiva care pentru o
+cheie fixata produce la iesire o permutare a intrarii indistinctibila fata de o permutare aleatoare
+e) PDF mare: pag 569/717
+https://www.comparitech.com/blog/information-security/rsa-encryption/
+RSA nu e eficient pentru fisiere mari.
+It isn’t generally used to encrypt entire messages or files, because it is less efficient and more resource-heavy than symmetric-key encryption.
+f) Daca se modifica fisierul, atunci se va modifica si hash-ul acestuia, deci valoarea salvata anterior nu va mai corespunde si integritatea se pierde.
+g) https://xorbin.com/tools/sha256-hash-calculator
+h) PDF mare: pag 624/717
+i) PDF mare: pag 569/717
+https://www.comparitech.com/blog/information-security/rsa-encryption/
+https://www.quora.com/Why-is-e-65537-used-for-most-RSA-encryption
+j) 
+
+
+INTREBARI:
+1. f) Ce trebuia sa se mai intample pentru a se asigura integritatea?
+2. a) De ce am primit 2 puncte din 5? Ce nu a fost in regula?
+1. i) De ce e fals?
+1. j) De ce este fals?

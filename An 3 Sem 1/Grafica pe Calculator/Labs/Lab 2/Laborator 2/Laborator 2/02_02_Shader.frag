@@ -1,0 +1,25 @@
+
+// Shader-ul de fragment / Fragment shader  
+ 
+ #version 400
+
+in vec4 ex_Color;
+out vec4 out_Color;
+uniform int codCol;
+
+void main(void)
+  {
+    // Exercitiul 2
+    switch(codCol) {
+        case 0:
+            out_Color = ex_Color;
+            break;
+        case 1:
+            out_Color = vec4 (0.0, 1.0, 1.0, 0.0);
+            break;
+        default:
+            out_Color = vec4 (1.0, 0.0, 1.0, 0.0);
+            break;
+    }
+  }
+ 

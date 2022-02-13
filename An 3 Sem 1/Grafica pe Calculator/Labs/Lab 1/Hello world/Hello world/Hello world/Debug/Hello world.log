@@ -1,0 +1,10 @@
+﻿Hello world.obj : error LNK2019: unresolved external symbol __imp__glewInit@0 referenced in function _main
+Hello world.obj : error LNK2019: unresolved external symbol __imp__glutInitWindowPosition@8 referenced in function _main
+Hello world.obj : error LNK2019: unresolved external symbol __imp__glutInitWindowSize@8 referenced in function _main
+Hello world.obj : error LNK2019: unresolved external symbol __imp__glutInitDisplayMode@4 referenced in function _main
+Hello world.obj : error LNK2019: unresolved external symbol __imp__glutMainLoop@0 referenced in function _main
+Hello world.obj : error LNK2019: unresolved external symbol __imp____glutInitWithExit@12 referenced in function _glutInit_ATEXIT_HACK@8
+Hello world.obj : error LNK2019: unresolved external symbol __imp____glutCreateWindowWithExit@8 referenced in function _glutCreateWindow_ATEXIT_HACK@4
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\lib\x64\freeglut.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\lib\x64\glew32.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+D:\Theo\Info\FMI-LABS\An 3, Sem 1\Grafica pe Calculator\Labs\Lab 1\Hello world\Hello world\Debug\Hello world.exe : fatal error LNK1120: 7 unresolved externals

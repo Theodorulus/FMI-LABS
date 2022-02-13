@@ -1,0 +1,9 @@
+Github:
+https://github.com/Theodorulus/Must-Watch-Movies-React
+App:
+https://react-must-watch.web.app
+Demo:
+https://youtu.be/3b401qpOqYA
+
+Aplicatia consta intr-un watchlist de 100 de filme in care poti marca filmeze ca fiind vizionate sau nu.
+Pentru lista de 100 de filme am creat un list pe imdb pe care l-am importat folosind imdb-api. Scriptul pentru importarea filmelor a fost rulat o singura data si asa am populat baza de date cu 100 de filme.

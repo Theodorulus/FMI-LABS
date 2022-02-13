@@ -1,0 +1,12 @@
+S = 4, D = 5, Rate = 20, Ratep = 16, DigestSize = 80
+ssilab ::::: 05f0ec886f698eb5dd64
+ssilab0 ::::: f2ec2e2f6c74d1886889
+ssilab1 ::::: ff42edc12d231c33099a
+ssilab2 ::::: d13f9b69c1ccb585a217
+ssilab3 ::::: 7c5c3f202453b4fafa42
+ssilab4 ::::: 5d4abde0eb6c718508a2
+ssilab5 ::::: 4953a7a11e1eaeacc57a
+ssilab6 ::::: 28eac22812ad6172a141
+ssilab7 ::::: 73ef7c8c4e5df7577e3f
+ssilab8 ::::: cbb61080ad45952a5d6a
+ssilab9 ::::: 2969db199a0513648b41

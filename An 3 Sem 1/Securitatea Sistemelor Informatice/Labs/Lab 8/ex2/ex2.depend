@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1637596089 source:d:\theo\info\fmi-labs\an 3 sem 1\securitatea sistemelor informatice\labs\lab 8\ex2\main.cpp
+	<iostream>
+	<string.h>
+

@@ -1,0 +1,7 @@
+https://docs.google.com/document/d/1WQdbGiq0_CGM-MgKnnpG4Nb2qSe6ALiHpgcX8DpnLis/edit
+
+Problema 1.
+Complexitate timp:
+(x+1+y+2) + (x + y) + (min(x, y) * x) + max((min(x, y) + |x - y|^2), (max(x, y) + |x - y| * max(x, y)) + (x + y) = max (x, y) ^ 2 ; Deci complexitatea timp este O(max(x, y) ^ 2) (^ inseamna putere)
+
+Complexitate spatiu:

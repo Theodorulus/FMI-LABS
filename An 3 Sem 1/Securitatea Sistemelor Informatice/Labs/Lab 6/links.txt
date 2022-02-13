@@ -1,0 +1,2 @@
+https://docs.python.org/3/library/hashlib.html#module-hashlib -> ultimul subpunct de la 2
+https://www.ietf.org/rfc/rfc3986.txt -> caractere rezervate si nerezevate pentru URL-safe
