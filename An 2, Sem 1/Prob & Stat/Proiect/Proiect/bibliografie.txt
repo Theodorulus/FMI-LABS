@@ -1,9 +1,0 @@
-http://www.sthda.com/english/wiki/reading-data-from-excel-files-xls-xlsx-into-r
-https://www.tutorialspoint.com/r/r_csv_files.htm
-https://plotly.com/r/getting-started/
-https://plotly.com/r/range-slider/
-https://en.wikipedia.org/wiki/Benford%27s_law
-https://www.r-bloggers.com/2016/08/benfords-law-graphed-in-r/
-https://shiny.rstudio.com/tutorial/
-
-

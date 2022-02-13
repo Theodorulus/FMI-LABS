@@ -1,3 +1,0 @@
-https://docs.microsoft.com/en-us/aspnet/mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
-
-https://www.learnmvc.in/aspnet-mvc-identity-with-google-account.php?fbclid=IwAR3C8SFddL-Ce0tMJJKaVo5V4EqHWhYeNQFB0oTBOWrvm3lo3WWTVeLRi_U

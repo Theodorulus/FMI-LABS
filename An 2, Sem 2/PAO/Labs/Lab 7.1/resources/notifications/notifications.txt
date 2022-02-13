@@ -1,2 +1,0 @@
-Notification <Product bag / 1400.0 / 5 / supplier 1 / ro was added to the shop> successfully sent to john@gmail.com
-Notification <Product hat / 100.0 / 9 / supplier 2 / usa was added to the shop> successfully sent to john@gmail.com

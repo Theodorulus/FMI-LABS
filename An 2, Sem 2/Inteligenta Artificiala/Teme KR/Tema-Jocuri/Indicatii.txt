@@ -1,7 +1,0 @@
-estimare calc-estimare juc
-estimare vulpe:
-	-diferenta de nivel dintre cel mai de sus caine si vulpe
-	-suma dif de nivel a cainilor de deasupra ei
-estimare caini:
-	-suma distantelor dintre fiecare caine si vulpe
-	-suma distantelor dintre fiecare caine si vulpe - numarul de directii unde se poate duce vulpea

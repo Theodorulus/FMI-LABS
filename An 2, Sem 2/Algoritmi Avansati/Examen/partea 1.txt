@@ -1,6 +1,0 @@
-Notite:
-https://docs.google.com/document/d/1jw6s4KTsMh6sj-wanbodXskDo6JNavHoBwMRYGiXVKY/edit
-
--alg aproximativi + prog liniara
--alg genetici
--algoritmi aleatorii (monte-carlo + las vegas)
