@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body style="margin:0">
+    <svg width="1920" height="1080">
+        <!-- 
+            t = 1.5 => c(t) = (321, 51)
+            t = 2 => c(t) = (275, 236)
+            t = 2.7 => c(t) = (268, 639)
+            t = PI = 3.14 => c(t) = (328, 941)
+        -->
+
+        <!-- Polygon -->
+
+        <polygon points="321,51 275,236 268,639 328,941" style="fill:rgb(179, 179, 255);stroke:rgb(0, 0, 128);stroke-width:3" />
+
+        <!-- Line -->
+
+        <line x1="321" y1="51" x2="275" y2="236" style="stroke:red;stroke-width:4" />
+        <line x1="275" y1="236" x2="268" y2="639" style="stroke:red;stroke-width:4" />
+        <line x1="268" y1="639" x2="328" y2="941" style="stroke:red;stroke-width:4" />
+        <line x1="328" y1="941" x2="321" y2="51" style="stroke:red;stroke-width:4" />
+
+        <!-- Path -->
+
+        <path d="M 321 51 C 275 236, 268 639, 328 941" stroke="rgb(128, 26, 0)" fill="transparent" stroke-width="3"/>
+
+        <circle cx="321" cy="51" r="15" fill="black" />
+        <circle cx="275" cy="236" r="15" fill="black" />
+        <circle cx="268" cy="639" r="15" fill="black" />
+        <circle cx="328" cy="941" r="15" fill="black" />
+    </svg>
+</body>
+</html>

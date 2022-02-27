@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body style="margin:0">
+
+<svg width="1920" height="1080">
+    <!--
+        A = (100, 200)
+        B = (500, 100)
+        C = (300, 300)
+        D = (200, 700)
+    -->
+
+    <!-- Line -->
+
+    <line x1="100" y1="200" x2="500" y2="100" style="stroke:red;stroke-width:3" />
+    <line x1="500" y1="100" x2="300" y2="300" style="stroke:red;stroke-width:3" />
+    <line x1="300" y1="300" x2="200" y2="700" style="stroke:red;stroke-width:3" />
+    <line x1="200" y1="700" x2="100" y2="200" style="stroke:red;stroke-width:3" />
+    
+    <!-- Polyline -->
+
+    <polyline points="100,200 500,100 300,300 200,700" style="fill:red;stroke:black;stroke-width:3" />
+    
+    <!-- Polygon -->
+    
+    <polygon points="100,200 500,100 300,300 200,700" style="fill:rgb(179, 179, 255);stroke:rgb(0, 0, 128);stroke-width:3" />
+
+    <!-- Path -->
+
+    <!-- L + q -->
+
+    <path d="M100 200 L500 100 L300 300 L200 700 Z" stroke="rgb(0, 102, 34)" fill="rgb(0, 230, 77)" stroke-width="3"/>
+    <path d="M300 300 q -200 -100 200 -200" stroke="rgb(179, 36, 0)" fill="rgb(0, 102, 34)" stroke-width="3"/>
+    <path d="M100 200 q 200 100 100 500" stroke="rgb(179, 36, 0)" fill="rgb(0, 102, 34)" stroke-width="3"/> 
+
+    <!-- l + Q -->
+
+    <path d="M100 200 l400 -100 l-200 200 l-100 400 Z" stroke="rgb(0, 230, 77)" fill="rgb(0, 102, 34)" stroke-width="3"/>
+    <path d="M100 200 Q 500 100 300 300 Q 200 700 100 200" stroke="rgb(179, 36, 0)" fill="rgb(0, 230, 77)" stroke-width="3"/>
+
+    <!-- C + c -->
+
+    <path d="M 100 200 C 500 100, 300 300, 200 700" stroke="rgb(128, 128, 0)" stroke-width="3" fill="rgb(204, 204, 0)"/>
+    <path d="M 100 200 c 400 -100, 200 100, 100 500" stroke="rgb(204, 204, 0)" stroke-width="3" fill="rgb(128, 128, 0)"/>
+</svg>
+
+</body>
+</html>
