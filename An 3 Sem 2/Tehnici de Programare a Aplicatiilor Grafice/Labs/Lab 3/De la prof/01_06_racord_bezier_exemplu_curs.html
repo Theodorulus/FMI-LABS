@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Racordul a doua cubice Bezier. Ilustrare a exemplului de la curs</h3>
+
+<svg width="800" height="600" viewbox="0 -350 800 700">
+
+<path d="M 100 100 L 200 200  400 200 425 75" stroke="red" stroke-width="2" fill="none"/>
+<path d="M 100 100 C 200 200  400 200 425 75" stroke="blue" stroke-width="3" fill="none"/>
+
+ 
+ <path d="M 425 75 L 450 -50 300 -300 100 -300" stroke="red" stroke-width="2" fill="none"/>
+ <path d="M 425 75 C 450 -50 300 -300 100 -300" stroke="blue" stroke-width="3" fill="none"/>
+
+
+
+<circle cx="100" cy="100" r="5" stroke="black" stroke-width="3" fill="black" />
+<circle cx="200" cy="200" r="5" stroke="black" stroke-width="3" fill="black" />
+<circle cx="400" cy="200" r="5" stroke="black" stroke-width="1" fill="red" />
+<circle cx="425" cy="75" r="5" stroke="black" stroke-width="3" fill="red" />
+
+
+
+<circle cx="425" cy="75" r="5" stroke="black" stroke-width="3" fill="red" />
+<circle cx="450" cy="-50" r="5" stroke="black" stroke-width="1" fill="red" />
+<circle cx="300" cy="-300" r="5" stroke="black" stroke-width="1" fill="black" />
+<circle cx="100" cy="-300" r="5" stroke="black" stroke-width="1" fill="black" />
+<rect x="600" y="200" width="10" height="10" stroke="black" stroke-width="1" fill="black" />
+ 
+
+ <!-- Notatii -->
+  <g font-size="20" font-family="sans-serif" fill="black" stroke="none" text-anchor="middle">
+    <text x="100" y="100" dx="-30">b0</text>
+    <text x="200" y="200" dy="30">b1</text>
+    <text x="400" y="200" dy="30">b2</text>
+    <text x="425" y="75" dx="20">b3</text>
+    <text x="450" y="-50" dx="20">b4</text>
+    <text x="300" y="-300" dy="-15">b5</text>
+    <text x="100" y="-300" dy="-15">b6</text>
+    <text x="600" y="200" dx="5"dy="30">d</text>
+  </g>
+
+
+
+</svg>
+
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Motherboard</title>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+
+  <style>
+  </style>
+
+  <body>
+    <div class="container">
+      <svg width="1100" height="1200">
+        
+        <!-- Contur -->
+        <g>
+            <defs>
+                <radialGradient
+                    id="grad-background"
+                    cx="50%"
+                    cy="50%"
+                    r="90%"
+                    fx="50%"
+                    fy="50%"
+                    >
+                    <stop
+                        offset="0%"
+                        style="stop-color: #225730; stop-opacity: 1"
+                    />
+                    <stop
+                        offset="100%"
+                        style="stop-color: #3a9452; stop-opacity: 1"
+                    />
+                </radialGradient>
+            </defs>
+            
+            <rect 
+                x="10" 
+                y="20" 
+                rx="5"
+                width="800"
+                height="800" 
+                style="
+                    fill: url(#grad-background);
+                    stroke: #154521;
+                    stroke-width: 2;"
+            />
+        </g>
+
+        <!-- Baterie -->
+        <g>
+            <circle 
+                r="25"
+                cx="250"
+                cy="750"
+                stroke="black"
+                stroke-width="2"
+                fill="silver"/>
+            <text x="237" y="750" fill="black" style="font-size: 12px;">
+                BATT
+                <tspan x="245" y="760">+</tspan>
+            </text>
+        </g>
+        
+        <!-- RAM -->
+        <g>
+            <!-- Sageata RAM -->
+            <defs>
+                <marker
+                  id="arrowhead"
+                  markerWidth="10"
+                  markerHeight="7"
+                  refX="0"
+                  refY="3.5"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 10 3.5, 0 7" />
+                </marker>
+
+                <g id="arrow">
+                    <line
+                        x1="675"
+                        y1="600"
+                        x2="635"
+                        y2="500"
+                        stroke="#000"
+                        stroke-width="1"
+                        marker-end="url(#arrowhead)"
+                    />
+                    <text x="665" y="615" fill="black" style="font-size: 15px;">
+                        RAM
+                    </text>
+                </g>
+
+                <!-- CLIPS -->
+                <g id="clips"> 
+                    <path 
+                        stroke="black"
+                        fill="#363636"
+                        d="M 600 100 l-2 -15 l 24 0 l-2 15"
+                    />
+                    <path 
+                        stroke="black"
+                        fill="#363636"
+                        d="M 600 500 l-2 15 l 24 0 l-2 -15"
+                    />
+                </g>
+                <!-- BLUE RAM -->
+
+                <g id="blue_ram"> 
+                    <polyline
+                    points="600,100 600,500 620,500 620,100 600,100"
+                    style="fill: #4cadba; stroke: black; stroke-width: 1"
+                    />
+                    
+                    <line
+                        x1="610"
+                        y1="100"
+                        x2="610"
+                        y2="500"
+                        style="stroke: black; stroke-width: 7;"
+                    />
+
+                    <line
+                        x1="602"
+                        y1="350"
+                        x2="618"
+                        y2="350"
+                        style="stroke: #4cadba; stroke-width: 5;"
+                    />
+                    <use href="#clips"/>
+                    <use href="#arrow"/>
+                </g>
+
+                <!-- BLACK RAM -->
+
+                <g id="black_ram"> 
+                    <polyline
+                    points="600,100 600,500 620,500 620,100 600,100"
+                    style="fill: #343636; stroke: black; stroke-width: 1"
+                    />
+
+                    <line
+                        x1="610"
+                        y1="100"
+                        x2="610"
+                        y2="500"
+                        style="stroke: black; stroke-width: 7;"
+                    />
+                    
+                    <line
+                        x1="602"
+                        y1="350"
+                        x2="618"
+                        y2="350"
+                        style="stroke: #343636; stroke-width: 5;"
+                    />
+                    <use href="#clips"/>
+                    <use href="#arrow"/>
+                </g>
+            </defs>
+
+            <use href="#black_ram" transform="translate(-50,0)"/>
+            <use href="#blue_ram" />
+            <use href="#black_ram" transform="translate(50,0)"/>
+            <use href="#blue_ram" transform="translate(100,0)"/>
+        </g>
+
+        <!-- CPU -->
+        <g>
+            <polygon points="200 170, 400 170, 400 370 200 370" fill="#807017" stroke="black" stroke-width="1"/>
+            <line
+                x1="200"
+                y1="230"
+                x2="275"
+                y2="230"
+                style="stroke: #363636; stroke-width: 5;"
+            />
+
+            <line
+                x1="325"
+                y1="310"
+                x2="400"
+                y2="310"
+                style="stroke: #363636; stroke-width: 5;"
+            />
+            <polygon points="275 225, 325 225, 325 315 275 315" fill="#c9b128" stroke="#363636" stroke-width="3"/>
+            <text x="287" y="150" fill="black" style="font-size: 15px;">
+                CPU
+            </text>
+        </g>
+
+        <!-- PORTS -->
+        <g>
+            <defs>
+                <g id="port">
+                    <ellipse
+                    cx="20"
+                    cy="100"
+                    rx="15"
+                    ry="35"
+                    style="fill: #363636; stroke: black; stroke-width: 1"
+                  />
+                </g>
+
+                <radialGradient
+                    id="grad1"
+                    cx="50%"
+                    cy="50%"
+                    r="85%"
+                    fx="50%"
+                    fy="50%"
+                    >
+                    <stop
+                        offset="0%"
+                        style="stop-color: #595959; stop-opacity: 1"
+                    />
+                    <stop
+                        offset="100%"
+                        style="stop-color: black; stop-opacity: 1"
+                    />
+                </radialGradient>
+
+            </defs>
+            <use href="#port" />
+            <text x="40" y="105" fill="black">USB</text>
+
+            <use href="#port" transform="translate(0,100)"/>
+            <text x="40" y="205" fill="black">LAN</text>
+
+            <use href="#port" transform="translate(0,200)"/>
+            <text x="40" y="305" fill="black">JACK 3.5</text>
+
+            <ellipse
+                cx="20"
+                cy="650"
+                rx="15"
+                ry="35"
+                style="fill: url(#grad1); stroke: black; stroke-width: 1"
+            />
+            <text x="40" y="655" fill="black">HDMI</text>
+        </g>
+
+        <!-- GPU -->
+        <g>
+            <path 
+            stroke="black"
+            fill="#0c0c96"
+            d="M 115 635 l450 0 l0 25 l-450 0 l0 -25"/>
+            <line
+                x1="115"
+                y1="647"
+                x2="565"
+                y2="647"
+                style="stroke: black; stroke-width: 8;"
+            />
+            <line
+                x1="200"
+                y1="637"
+                x2="200"
+                y2="658"
+                style="stroke: #0c0c96; stroke-width: 8;"
+            />
+            <path 
+            stroke="black"
+            fill="#0c0c96"
+            d="M 565 635 l20 -15 l20 0 l-10 15 l0 25 l10 15 l-20 0 l-20 -15"/>
+            <line
+                x1="565"
+                y1="647"
+                x2="580"
+                y2="647"
+                style="stroke: black; stroke-width: 5;"
+            />
+            <text x="300" y="610" fill="black">PCI_EXPRESS</text>
+        </g>
+      </svg>
+    </div>
+  </body>
+</html>

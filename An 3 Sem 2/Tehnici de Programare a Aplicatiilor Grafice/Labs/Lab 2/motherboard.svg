@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="block-size:1200px;height:1200px;inline-size:1100px;perspective-origin:550px 600px;transform-origin:550px 600px;width:1100px;" viewBox="0 0 811 821">
+        
+        <!-- Contur -->
+        <g style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+            <defs style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+                <radialGradient id="grad-background" cx="50%" cy="50%" r="90%" fx="50%" fy="50%" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+                    <stop offset="0%" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:50% 50%;stop-color:rgb(34, 87, 48);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                    <stop offset="100%" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:50% 50%;stop-color:rgb(58, 148, 82);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                </radialGradient>
+            </defs>
+            
+            <rect x="10" y="20" rx="5" width="800" height="800" style="block-size:800px;fill:url(&quot;#grad-background&quot;);height:800px;inline-size:800px;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;rx:5px;stroke:rgb(21, 69, 33);stroke-width:2px;transform-origin:0px 0px;vertical-align:baseline;width:800px;x:10px;y:20px;"/>
+        </g>
+
+        <!-- Circuite -->
+        <g style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+            <defs style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+                <g id="circuit" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+                    <path stroke="black" fill="#0c0c96" d="M 20 20 l20 15 " style="block-size:auto;d:path(&quot;M 20 20 L 40 35&quot;);fill:rgb(12, 12, 150);height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(0, 0, 0);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                    <circle r="3" cx="50" cy="50" stroke="black" stroke-width="0.5" fill="transparent" style="block-size:auto;cx:50px;cy:50px;fill:rgba(0, 0, 0, 0);height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;r:3px;stroke:rgb(0, 0, 0);stroke-width:0.5px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                </g>
+                
+            </defs>
+        </g>
+
+
+        <!-- Baterie -->
+        <g style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+            <circle r="25" cx="250" cy="750" stroke="black" stroke-width="2" fill="silver" style="block-size:auto;cx:250px;cy:750px;fill:rgb(192, 192, 192);height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;r:25px;stroke:rgb(0, 0, 0);stroke-width:2px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <text x="237" y="750" fill="black" style="block-size:auto;display:block;font-size:12px;height:auto;inline-size:auto;line-height:18px;overflow-x:visible;overflow-y:visible;perspective-origin:555px 8.99148px;transform-origin:0px 0px;vertical-align:baseline;white-space:nowrap;width:auto;">
+                BATT
+                <tspan x="245" y="760" style="block-size:auto;font-size:12px;height:auto;inline-size:auto;line-height:18px;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;white-space:nowrap;width:auto;">+</tspan>
+            </text>
+        </g>
+        
+        <!-- RAM -->
+        <g style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+            <!-- Sageata RAM -->
+            <defs style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto" style="block-size:auto;height:auto;inline-size:auto;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+                  <polygon points="0 0, 10 3.5, 0 7" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                </marker>
+
+                <g id="arrow" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+                    <line x1="675" y1="600" x2="635" y2="500" stroke="#000" stroke-width="1" marker-end="url(#arrowhead)" style="block-size:auto;height:auto;inline-size:auto;marker-end:url(&quot;#arrowhead&quot;);overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(0, 0, 0);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                    <text x="665" y="615" fill="black" style="block-size:auto;display:block;font-size:15px;height:auto;inline-size:auto;line-height:22.5px;overflow-x:visible;overflow-y:visible;perspective-origin:555px 11.25px;transform-origin:0px 0px;vertical-align:baseline;white-space:nowrap;width:auto;">
+                        RAM
+                    </text>
+                </g>
+
+                <!-- CLIPS -->
+                <g id="clips" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"> 
+                    <path stroke="black" fill="#363636" d="M 600 100 l-2 -15 l 24 0 l-2 15" style="block-size:auto;d:path(&quot;M 600 100 L 598 85 L 622 85 L 620 100&quot;);fill:rgb(54, 54, 54);height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(0, 0, 0);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                    <path stroke="black" fill="#363636" d="M 600 500 l-2 15 l 24 0 l-2 -15" style="block-size:auto;d:path(&quot;M 600 500 L 598 515 L 622 515 L 620 500&quot;);fill:rgb(54, 54, 54);height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(0, 0, 0);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                </g>
+                <!-- BLUE RAM -->
+
+                <g id="blue_ram" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"> 
+                    <polyline points="600,100 600,500 620,500 620,100 600,100" style="block-size:auto;fill:rgb(76, 173, 186);height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(0, 0, 0);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                    
+                    <line x1="610" y1="100" x2="610" y2="500" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(0, 0, 0);stroke-width:7px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+
+                    <line x1="602" y1="350" x2="618" y2="350" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(76, 173, 186);stroke-width:5px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                    <use href="#clips" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                    <use href="#arrow" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                </g>
+
+                <!-- BLACK RAM -->
+
+                <g id="black_ram" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"> 
+                    <polyline points="600,100 600,500 620,500 620,100 600,100" style="block-size:auto;fill:rgb(52, 54, 54);height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(0, 0, 0);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+
+                    <line x1="610" y1="100" x2="610" y2="500" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(0, 0, 0);stroke-width:7px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                    
+                    <line x1="602" y1="350" x2="618" y2="350" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(52, 54, 54);stroke-width:5px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                    <use href="#clips" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                    <use href="#arrow" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                </g>
+            </defs>
+
+            <use href="#black_ram" transform="translate(-50,0)" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform:matrix(1, 0, 0, 1, -50, 0);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <use href="#blue_ram" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <use href="#black_ram" transform="translate(50,0)" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform:matrix(1, 0, 0, 1, 50, 0);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <use href="#blue_ram" transform="translate(100,0)" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform:matrix(1, 0, 0, 1, 100, 0);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+        </g>
+
+        <!-- CPU -->
+        <g style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+            <polygon points="200 170, 400 170, 400 370 200 370" fill="#807017" stroke="black" stroke-width="1" style="block-size:auto;fill:rgb(128, 112, 23);height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(0, 0, 0);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <line x1="200" y1="230" x2="275" y2="230" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(54, 54, 54);stroke-width:5px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+
+            <line x1="325" y1="310" x2="400" y2="310" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(54, 54, 54);stroke-width:5px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <polygon points="275 225, 325 225, 325 315 275 315" fill="#c9b128" stroke="#363636" stroke-width="3" style="block-size:auto;fill:rgb(201, 177, 40);height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(54, 54, 54);stroke-width:3px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <text x="287" y="150" fill="black" style="block-size:auto;display:block;font-size:15px;height:auto;inline-size:auto;line-height:22.5px;overflow-x:visible;overflow-y:visible;perspective-origin:555px 11.25px;transform-origin:0px 0px;vertical-align:baseline;white-space:nowrap;width:auto;">
+                CPU
+            </text>
+        </g>
+
+        <!-- PORTS -->
+        <g style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+            <defs style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+                <g id="port" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+                    <ellipse cx="20" cy="100" rx="15" ry="35" style="block-size:auto;cx:20px;cy:100px;fill:rgb(54, 54, 54);height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;rx:15px;ry:35px;stroke:rgb(0, 0, 0);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                </g>
+
+                <radialGradient id="grad1" cx="50%" cy="50%" r="85%" fx="50%" fy="50%" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+                    <stop offset="0%" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:50% 50%;stop-color:rgb(89, 89, 89);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                    <stop offset="100%" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:50% 50%;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+                </radialGradient>
+
+            </defs>
+            <use href="#port" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <text x="40" y="105" fill="black" style="block-size:auto;display:block;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:555px 11.9886px;transform-origin:0px 0px;vertical-align:baseline;white-space:nowrap;width:auto;">USB</text>
+
+            <use href="#port" transform="translate(0,100)" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform:matrix(1, 0, 0, 1, 0, 100);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <text x="40" y="205" fill="black" style="block-size:auto;display:block;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:555px 11.9886px;transform-origin:0px 0px;vertical-align:baseline;white-space:nowrap;width:auto;">LAN</text>
+
+            <use href="#port" transform="translate(0,200)" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform:matrix(1, 0, 0, 1, 0, 200);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <text x="40" y="305" fill="black" style="block-size:auto;display:block;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:555px 11.9886px;transform-origin:0px 0px;vertical-align:baseline;white-space:nowrap;width:auto;">JACK 3.5</text>
+
+            <ellipse cx="20" cy="650" rx="15" ry="35" style="block-size:auto;cx:20px;cy:650px;fill:url(&quot;#grad1&quot;);height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;rx:15px;ry:35px;stroke:rgb(0, 0, 0);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <text x="40" y="655" fill="black" style="block-size:auto;display:block;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:555px 11.9886px;transform-origin:0px 0px;vertical-align:baseline;white-space:nowrap;width:auto;">HDMI</text>
+        </g>
+
+        <!-- GPU -->
+        <g style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;transform-origin:0px 0px;vertical-align:baseline;width:auto;">
+            <path stroke="black" fill="#0c0c96" d="M 115 635 l450 0 l0 25 l-450 0 l0 -25" style="block-size:auto;d:path(&quot;M 115 635 L 565 635 L 565 660 L 115 660 L 115 635&quot;);fill:rgb(12, 12, 150);height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(0, 0, 0);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <line x1="115" y1="647" x2="565" y2="647" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(0, 0, 0);stroke-width:8px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <line x1="200" y1="637" x2="200" y2="658" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(12, 12, 150);stroke-width:8px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <path stroke="black" fill="#0c0c96" d="M 565 635 l20 -15 l20 0 l-10 15 l0 25 l10 15 l-20 0 l-20 -15" style="block-size:auto;d:path(&quot;M 565 635 L 585 620 L 605 620 L 595 635 L 595 660 L 605 675 L 585 675 L 565 660&quot;);fill:rgb(12, 12, 150);height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(0, 0, 0);transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <line x1="565" y1="647" x2="580" y2="647" style="block-size:auto;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:0px 0px;stroke:rgb(0, 0, 0);stroke-width:5px;transform-origin:0px 0px;vertical-align:baseline;width:auto;"/>
+            <text x="300" y="610" fill="black" style="block-size:auto;display:block;height:auto;inline-size:auto;overflow-x:visible;overflow-y:visible;perspective-origin:555px 11.9886px;transform-origin:0px 0px;vertical-align:baseline;white-space:nowrap;width:auto;">PCI_EXPRESS</text>
+        </g>
+
+
+      </svg>

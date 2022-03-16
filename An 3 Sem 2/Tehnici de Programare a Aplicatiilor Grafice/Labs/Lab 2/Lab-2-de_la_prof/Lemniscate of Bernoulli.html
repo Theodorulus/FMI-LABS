@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+
+  <style>
+    svg {
+      border: 2px solid red;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <svg width="500" height="500" viewBox="-400 -400 800 800">
+        <path id="spiral" d="" fill="none" stroke="black" stroke-width="3" />
+      </svg>
+    </div>
+  </body>
+</html>
+
+<script>
+  function pStr(point) {
+    return `${point.x},${point.y} `;
+  }
+
+  let startPoint = {
+    x: 200,
+    y: 0,
+  };
+  let path = "M " + pStr(startPoint);
+
+  let a = 200 * Math.sqrt(2);
+
+  for (t = 0; t <= 1000; t++) {
+    x = (a * Math.cos(t)) / (1 + Math.sin(t) ** 2);
+    y = (a * Math.sin(t) * Math.cos(t)) / (1 + Math.sin(t) ** 2);
+
+    let newPoint = {
+      x: x,
+      y: y,
+    };
+
+    path += "L" + pStr(newPoint);
+  }
+
+  //   console.log(path);
+  const spiral = document.querySelector("#spiral");
+  spiral.setAttribute("d", path);
+</script>

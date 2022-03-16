@@ -1,0 +1,22 @@
+Batman Bale:
+- Colors -> Hue-Saturation -> Hue -12 Saturation -30 
+- Colors -> Exposure -> Exposure -1
+- Colors -> Color Temperature -> Original temp -> 9000
+
+Batman Affleck:
+- Colors -> Brightness & Contrast -> Brightness -35, Constrast +1
+- Colors -> Hue-Saturation -> Saturation -23.8
+- Colors -> Exposure -> Exposure -1
+
+Batman Pattinson:
+- Colors -> Hue-Saturation -> Saturation -30.5
+- Colors -> Brightness & Contrast -> Brightness +10, Constrast +3
+
+Background NYC:
+- Colors -> Exposure -> Exposure -1.000
+- Duplicate layer -> Colors -> Desaturate -> opacity 70%
+- Duplicate layer -> Blending mode -> Linear burn -> opacity 63%
+- Merge layers pentru a putea aplica filtrul de blur apoi
+- Duplicate layer -> Filters -> Blur -> Lens blur 12 -> Am sters cu Eraser tool partea de jos(cu apa) a layer-ului pentru a crea un efect de camera blur.
+
+

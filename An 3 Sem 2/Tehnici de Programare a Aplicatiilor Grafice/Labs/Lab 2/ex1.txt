@@ -1,0 +1,11 @@
+1. Polyline -> RAM
+2. Circle -> Battery
+3. Path -> GPU
+4. Rect -> Contur
+5. Polygon -> CPU
+6. Ellipse -> PORT
+7. Text -> Battery
+8. Line -> RAM
+9. Marker -> RAM
+10. (TSpan) -> Battery
+11. (RadialGradient) -> HDMI PORT
