@@ -1,0 +1,10 @@
+ex. 1.
+- informatii in curs 
+- convolution matrix
+
+
+
+ex. 2.
+- // smudge tool (cu o culoare potrivita, la fel ca restul imaginii) pentru a murdari zonele mai neomogene din imagine
+- convolution matrix
+- textura -> efect de panza
