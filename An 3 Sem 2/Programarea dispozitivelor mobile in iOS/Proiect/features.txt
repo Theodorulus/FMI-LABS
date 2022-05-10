@@ -1,0 +1,36 @@
+Movie App:
+- login
+- search movies using imdb api
+- click on result and open imdb page of that movie
+- add movies to watchlist from search result
+- add your own movie to watchlist
+- import poster from media library
+- notification every 24h saying "Would you like to watch a movie? Here's your watchlist"
+
+BAREM:
+(1p)
+- oficiu
+(2.5p)
+- O operatie de adaugare in baza de date -> add movie to watchlist
+- O operatie de stergere -> remove movie from watchlist
+- O operatie de editare -> edit movie
+- Doua operatii de citire -> read movie
+			  -> read player profile (nume & number of movies in watchlist)
+
+(2p)
+- Cel putin 2 requesturi -> imdb api using Alamofire
+(0.5p)
+- Implementat Codable -> api
+(0.75p)
+- Importat content media -> poster
+(0.75p)
+- Local Notifications -> "Would you like to watch a movie? Here's your watchlist"
+(0.75p)
+- Integrat SFSafariViewController -> on click on movie search result -> open imdb page of movie
+(0.75p)
+- Social Login
+
+- Implementat un UICollectionView
+- Implementat un UITableView
+- Utilizat o metoda de navigatie: UINavigationController || UITabBarController
+- Implementat o metoda de Share (UIActivityViewController)

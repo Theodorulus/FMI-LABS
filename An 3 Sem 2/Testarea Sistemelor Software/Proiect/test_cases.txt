@@ -1,0 +1,227 @@
+2.
+e)
+- k < 0
+	-> A: (-1, 0, 0, -1)
+	-> F: (1, 0, 0, -1)
+- s < 0
+	-> A: (1, 0, 0, -1)
+	-> F: (1, -1, 0, 1)
+- a < 0 || b < 0
+	-> A || A: (1, -1, -1, 1)
+ 	-> A || F: (1, -1, 0, 1)
+	-> F || A: (1, 0, -1, 1)
+	-> F || F: (1, 1, 0, 1)
+- a > b
+	-> A: (1, 1, 0, 1)
+	-> F: (1, 0, 0, 1)
+- primes.size() < k && number <= b
+	-> A && A: (1, 1, 2, 2) -> la primul pas
+ 	-> A && F: (1, 1, 2, 1) -> la pasul 2
+	-> F && A: (0, 1, 1, 1) -> la primul pas
+	-> F && F: (1, 1, 2, 2) -> la pasul 3
+- number == 0 || number == 1:
+	-> A || F: (1, 0, 2, 1) -> la primul pas din for
+	-> F || A: (1, 1, 2, 1) -> la primul pas din for
+	-> F || F: (1, 2, 2, 2) -> la primul pas din for
+- !found && divisor <= sqrt(number)
+	-> A && A: (1, 4, 4, 4) -> la primul pas din primul for, primul pas din al doilea for
+ 	-> A && F: (1, 2, 2, 2) -> la primul pas din primul for, primul pas din al doilea for
+	-> F && A: (1, 12, 12, 3) -> la primul pas din primul for, al doilea pas din al doilea for (found = true, divisor = 3)
+	-> F && F: (1, 9, 9, 9) -> la primul pas din primul for, al treilea pas din al doilea for (found = true, divisor = 4)
+- number % divisor == 0
+	-> A: (1, 4, 4, 4) -> la primul pas din primul for, primul pas din al doilea for ( number % 2 == 0 -> True)
+	-> F: (1, 9, 9, 9) -> la primul pas din primul for, primul pas din al doilea for ( number % 2 == 0 -> False)
+- !found
+	-> A: (1, 3, 3, 3) -> la primul pas din primul for, nu a intrat in al doilea for, deci found a ramas False
+	-> F: (1, 4, 4, 4) -> la primul pas din primul for, dupa primul pas din al doilea for found va fi True, deci !found va fi False
+- copy != 0
+	-> A: (1, 3, 3, 3) -> la primul pas din while, copy = 3, deci != 0
+	-> F: (1, 5, 5, 5) -> la al doilea pas din while, copy = 0, deci == 0
+- sum == s
+	-> A: (1, 7, 7, 7)
+	-> F: (1, 7, 7, 9)
+
+
+f)
+- a < 0 || b < 0
+ 	-> A || F: (1, -1, 0, 1)
+	-> F || A: (1, 0, -1, 1)
+	-> F || F: (1, 1, 0, 1)
+- primes.size() < k && number <= b
+	-> A && A: (1, 1, 2, 2) -> la primul pas
+ 	-> A && F: (1, 1, 2, 1) -> la pasul 2
+	-> F && A: (0, 1, 1, 1) -> la primul pas
+- number == 0 || number == 1:
+	-> A || F: (1, 0, 2, 1) -> la primul pas din for
+	-> F || A: (1, 1, 2, 1) -> la primul pas din for
+	-> F || F: (1, 2, 2, 2) -> la primul pas din for
+- !found && divisor <= sqrt(number)
+	-> A && A: (1, 4, 4, 4) -> la primul pas din primul for, primul pas din al doilea for
+ 	-> A && F: (1, 2, 2, 2) -> la primul pas din primul for, primul pas din al doilea for
+	-> F && A: (1, 12, 12, 3) -> la primul pas din primul for, al doilea pas din al doilea for (found = true, divisor = 3)
+
+1.
+c) Category-partitioniong
+Pasi:
+1. Descompune specificatia în unități: avem o singură unitate.
+2. Identifică parametri: k, a, b, s, numerele din [a, b]
+3. Găsește categorii:
+k: Daca este mai mare decat 0
+a: Daca este mai mare decat 0 si <= decat b
+b: Daca este mai mare decat 0 si >= decat a
+Relatia dintre a si b
+Intre a si b exista cel putin un numar prim/niciunul.
+s: Daca este mai mare decat 0
+Intre a si b exista cel putin un numar cu suma cifrelor s/niciunul.
+4. Partiționeaza fiecare categorie în alternative:
+k: k < 0; k == 0; k > 0
+a: a < 0; a = 0; a = 1; a > 1; a prim
+b: b < 0; b = 0; b = 1; b > 1; b prim
+a & b: a < b; a == b; a > b
+[a, b]: Niciun numar prim in interval; Cel putin un numar prim in interval
+s: s < 0; s == 0; s > 0; 
+a, b & s: Niciun numar cu suma cifrelor s in interval; Cel putin un numar cu suma cifrelor s in interval
+5.
+k ->
+	1) {k | k < 0}
+	2) k = 0
+	3) {k | k > 0}
+a ->
+	1) {a | a < 0}
+	2) a = 0
+	3) a = 1
+	4) {a | a > 1, a nu e prim}
+	5) {a | a > 1, a e prim}
+b ->
+	1) {b | b < 0}
+	2) b = 0
+	3) b = 1
+	4) {b | b > 1 && b < a}
+	5) {b | b > 1 && b = a, b nu e prim}
+	6) {b | b > 1 && b > a, b nu e prim}
+	7) {b | b > 1 && b = a, b e prim}
+	8) {b | b > 1 && b > a, b e prim}
+s->
+	1) {s | s < 0}
+	2) s = 0
+	3) {s | s > 0}
+n din [a, b] ->
+	1) |{n | a <= n <= b, n nu e prim}| = b - a + 1
+	2) |{n | a <= n <= b, n e prim}| >= 1
+n in functie de s ->
+	1) |{n | a <= n <= b, suma cifrelor lui n nu este s}| >= 1
+	2) |{n | a <= n <= b, suma cifrelor lui n este s}| = b - a + 1 
+6 -> 7.
+k1 -> (-1, 0, 0, 0) => K is negative
+k2 -> (0, 0, 0, 0) => []
+k3a1 -> (1, -1, 0, 0) => Range is negative
+k3a2b1 -> (1, 0, -1, 0) => Range is negative
+k3a2b2 -> (1, 0, 0, 0) => []
+k3a2b3 -> (1, 0, 1, 0) => []
+Skip b4, b5 si b7 pentru ca b > 1 si b trebuie sa fie sub a sau = a, ceea ce e imposibil.
+k3a2b6s1 -> (1, 0, 4, -1) => S is negative
+k3a2b6s2 -> (1, 0, 4, 0) => []
+
+Skip nab1 si pentru ca b > 1 si neprim, deci cel putin 4, iar 2 si 3 sunt numere prime.
+k3a2b6s3nab2ns1 -> (1, 0, 9, 17) => []
+k3a2b6s3nab2ns2 -> (1, 0, 14, 2) => [2]
+
+k3a2b8s1 -> (1, 0, 3, -1) => S is negative
+k3a2b8s2 -> (1, 0, 3, 0) => []
+Skip nab1 si pentru ca b > 1 si prim, deci cel putin 2, iar 2 este numar prim.
+k3a2b8s3nab2ns1 -> (1, 0, 7, 17) => []
+k3a2b8s3nab2ns2 -> (1, 0, 7, 7) => [7]
+
+k3a3b1 -> (1, 1, -1, 0) => Range is negative
+k3a3b2 -> (1, 1, 0, 0) => Range is reversed
+k3a3b3 -> (1, 1, 1, 1) => []
+
+
+
+
+Skip b4, b5 si b7 pentru ca b > 1 si b trebuie sa fie sub a sau = a, ceea ce e imposibil.
+k3a3b6s1 -> (1, 1, 2, -1) => S is negative
+k3a3b6s2 -> (1, 1, 2, 0) => []
+Skip nab1 si pentru ca b > 1 si neprim, deci cel putin 4, iar 2 si 3 sunt numere prime.
+k3a3b6s3nab2ns1 -> (1, 1, 9, 17) => []
+k3a3b6s3nab2ns2 -> (2, 1, 14, 2) => [2, 11]
+
+k3a3b8s1 -> (3, 1, 3, -1) => S is negative
+k3a3b8s2 -> (5, 1, 3, 0) => []
+Skip nab1 si pentru ca b > 1 si prim, deci cel putin 2, iar 2 este numar prim.
+k3a3b8s3nab2ns1 -> (2, 1, 7, 17) => []
+k3a3b8s3nab2ns2 -> (1, 1, 7, 7) => [7]
+
+k3a4b1 -> (3, 4, -1, 0) => Range is negative
+k3a4b2 -> (4, 4, 0, 0) => Range is reversed
+k3a4b3 -> (2, 4, 1, 0) => Range is reversed
+k3a4b4 -> (8, 4, 2, 0) => Range is reversed
+k3a4b5s1 -> (1, 4, 4, -1) => S is negative
+k3a4b5s2 -> (9, 4, 4, 0) => []
+
+k3a4b5s3nab1ns1 -> (3, 4, 4, 5) => []
+k3a4b5s3nab1ns2 -> (5, 4, 4, 4) => []
+Skip b5nab2 pentru ca a=b si ambele neprime, deci nu exista numere prime in intervalul [a, b].
+k3a4b6s1 -> (6, 24, 28, -1) => S is negative
+k3a4b6s2 -> (2, 24, 28, 0) => []
+k3a4b6s3nab1ns1 -> (1, 24, 28, 19) => []
+k3a4b6s3nab1ns2 -> (4, 24, 28, 9) => []        (27 are suma cifrelor 9)
+k3a4b6s3nab2ns1 -> (8, 27, 30, 19) => []       (29 e prim)
+k3a4b6s3nab2ns2 -> (11, 27, 30, 11) => [29]     (29 are suma cifrelor 11)
+Skip b7 pentru ca a este neprim, iar b ar trebui sa fie egal cu a si prim, ceea ce e imposibil.
+k3a4b8s1 -> (3, 4, 5, -1) => S is negative
+k3a4b8s2 -> (3, 4, 5, 0) => []
+Skip b8nab1 pentru ca b e prim, deci exista minim un numar prim in intervalul [a, b].
+k3a4b8s3nab2ns1 -> (10, 24, 29, 100) => []
+k3a4b8s3nab2ns2 -> (8, 24, 29, 11) => [29]     (29 are suma cifrelor 11)
+
+
+
+k3a5b1 -> (8, 3, -1, 0) => Range is negative
+k3a5b2 -> (7, 3, 0, 0) => Range is reversed
+k3a5b3 -> (6, 3, 1, 0) => Range is reversed
+k3a5b4 -> (4, 3, 2, 0) => Range is reversed
+Skip b5 pentru ca a este prim, iar b ar trebui sa fie egal cu a si neprim, ceea ce e imposibil.
+k3a5b6s1 -> (5, 23, 28, -1) => S is negative
+k3a5b6s2 -> (2, 23, 28, 0) => []
+Skip b6s3nab1 pentru ca a este prim, deci exista minim un numar prim in intervalul [a, b].
+k3a5b6s3nab2ns1 -> (10, 23, 27, 19) => []
+k3a5b6s3nab2ns2 -> (16, 23, 27, 5) => [23]     (23 are suma cifrelor 5)
+
+k3a5b7s1 -> (9, 23, 23, -1) => S is negative
+k3a5b7s2 -> (3, 23, 23, 0) => []
+Skip b7s3nab1 pentru ca a=b este prim, deci exista minim un numar prim in intervalul [a, b].
+k3a5b7s3nab2ns1 -> (1, 23, 23, 19) => []
+k3a5b7s3nab2ns2 -> (4, 23, 23, 5) => [23]     (23 are suma cifrelor 5)
+
+
+k3a5b8s1 -> (2, 3, 5, -1) => S is negative
+k3a5b8s2 -> (6, 3, 5, 0) => []
+Skip b8s3nab1 pentru ca a si b sunt prime, deci exista minim doua numere prim in intervalul [a, b].
+k3a5b8s3nab2ns1 -> (5, 23, 29, 100) => []
+k3a5b8s3nab2ns2 -> (8, 23, 29, 11) => [29]     (29 are suma cifrelor 11)
+
+
+Total: 59 de teste
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

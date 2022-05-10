@@ -1,0 +1,20 @@
+import bpy
+
+bpy.ops.mesh.primitive_uv_sphere_add(radius=1.2, enter_editmode=False, align='WORLD', location=(0, 3, 0.2), scale=(1, 1, 1))
+bpy.ops.object.shade_smooth()
+
+
+material = bpy.data.materials.new(name='colored')
+ball = bpy.data.objects['Sphere.002']
+
+ball.active_material = material
+
+colors = [(0.7, .2, 0.9, 1),
+         (.1, 1, .1, 1),
+         (0.9, 0.1, 0.1, 1)]
+
+frames = [1, 30, 60]
+
+for frame, color in zip(frames, colors):
+    material.diffuse_color = color
+    material.keyframe_insert(data_path='diffuse_color', frame=frame, index=-1)

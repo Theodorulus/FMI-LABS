@@ -1,0 +1,2 @@
+- pentru mutantii ramasi in viata trebuie sa-i distingem de program prin noi teste
+- 2 mutanti sa-i analizam si sa facem ^
